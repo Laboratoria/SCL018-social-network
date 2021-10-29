@@ -7,10 +7,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable prefer-const */
 // Este es el punto de entrada de tu aplicacion
-
-// import { myFunction } from './lib/index.js';
-
-// myFunction();
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-app.js";
 import { getAuth } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-auth.js";
 // import { myFunction } from './lib/index.js';
@@ -53,3 +49,4 @@ signUpForm.addEventListener("submit", (e) => {
 //     // ..
 //   });
 });
+
