@@ -51,5 +51,5 @@ document.getElementById("create-account").addEventListener("click", () => {
             console.log(errorCode + errorMessage);
         });
 
-})
+});
 
