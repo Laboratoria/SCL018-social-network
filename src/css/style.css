@@ -1,3 +1,140 @@
+@font-face {
+    font-family: Tomorrow-medium;
+    src: url("/resources/fonts/Tomorrow/Tomorrow-Medium.ttf");
+}
+
+@font-face {
+    font-family: Tomorrow-light;
+    src: url("/resources/fonts/Tomorrow/Tomorrow-light.ttf");
+}
+
 body {
+    margin: 0;
+    padding: 0;
+    display: grid;
+    height: 100vh;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    grid-template-rows: 20% 20% 20% 20% 20%;
     background-image: url("/resources/images/background.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+
+.landing-logo {
+    height: 137px;
+    width: 167px;
+    filter: drop-shadow(5px 5px 4px rgba(243, 27, 248, 0.57));
+}
+
+.landing-title {
+    margin: 0%;
+    width: 313px;
+    height: 87px;
+    font-family: Tomorrow-medium;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 48px;
+    line-height: 58px;
+    color: #090808;
+    text-shadow: 3px 3px 2px #B737C0;
+}
+
+.landing-subtitle {
+    margin: 0%;
+    width: 325px;
+    height: 79px;
+    font-family: Tomorrow-medium;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 30px;
+    line-height: 36px;
+    color: #030303;
+    text-shadow: 2px 2px 1px #B737C0;
+}
+
+
+.login-container {
+    grid-column: 4/6;
+    grid-row: 1/6;
+    display:grid;
+    grid-template-columns:20% 20% 20% 20% 20%;
+    grid-template-rows: 20% 20% 20% 20% 20%;
+    background: rgba(0, 0, 0, 0.8);
+    /* height: 90vh; */
+}
+
+.login-inputs{
+    grid-column: 1/6;
+    grid-row: 1/4;
+}
+
+.login-title {
+    width: 245px;
+    height: 44px;
+    grid-column: 2/5;
+    justify-self: center;
+    font-family: Tomorrow-light;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 36px;
+    line-height: 43px;
+    color: #FFFFFF;
+}
+
+.user-input, .user-password {
+    font-family: Tomorrow-light;
+    width: 200px;
+    height: 33.8px;
+    outline: none;
+    border: none;
+    background: #F8F0FC;
+    margin:5%;
+}
+
+.login-btn, .register-btn {
+    width: 172px;
+    height: 40px;
+    background: #D92DDD;
+    color: #FFFFFF;
+}
+
+.hr-login-left, .hr-login-right {
+    border: 1px solid #D92DDD;
+    width: 50%;
+}
+
+.hr-login-center {
+    border: 1px solid #D92DDD;
+    width: 100%;
+}
+
+.hr-or {
+    font-family: Tomorrow-light;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 43px;
+    color: #FFFFFF;
+}
+
+.hr-container {
+    display: grid;
+}
+
+.google-logo {
+    width: 30px;
+    height: 29px;
+}
+
+.google-title, .register-title {
+    width: 223px;
+    height: 22px;
+    font-family: Tomorrow-light;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+    color: #FFFFFF;
 }
