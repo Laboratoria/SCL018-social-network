@@ -1,6 +1,14 @@
-// aqui exportaras las funciones que necesites
+import { login } from "./login.js";
+import { createUser } from "./createUser.js";
 
-export const myFunction = () => {
-  // aqui tu codigo
-  console.log('Hola mundo!');
-};
+export const routes = (hash) => {
+    const mainContent = document.getElementById("root");
+    mainContent.innerHTML = '';
+    if (hash === '#/' || hash === '/' || hash === '#' || hash === '') {
+        mainContent.appendChild(login());
+    } else if (hash === '#/login') {
+        mainContent.appendChild(login());
+    } else if (hash === '#/createUser') {
+        mainContent.appendChild(createUser());
+    }
+}
