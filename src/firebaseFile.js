@@ -6,12 +6,16 @@
 /* eslint-disable no-multiple-empty-lines */
 /* eslint-disable indent */
 /* eslint-disable import/no-unresolved */
-// Este es el punto de entrada de tu aplicacion
-// import { myFunction } from './lib/index.js';
-// myFunction();
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, signInWithRedirect, getRedirectResult } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-auth.js";
+import {
+    getAuth,
+    createUserWithEmailAndPassword,
+    signInWithEmailAndPassword,
+    GoogleAuthProvider,
+    signInWithRedirect,
+    getRedirectResult
+} from "https://www.gstatic.com/firebasejs/9.2.0/firebase-auth.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyAzfGqeX103yaOJ2nZuZuIu33UPNPPvwrA",
@@ -30,7 +34,6 @@ console.log(app);
 const provider = new GoogleAuthProvider(app);
 
 export const signUp = () => {
-
     const signUpEmail = document.getElementById("signup-email").value;
     const signUpPassword = document.getElementById("signup-password").value;
 
@@ -67,7 +70,6 @@ export const loginWithEmail = () => {
         });
 }
 
-    
 export const loginWithGoogle = () => {
     signInWithRedirect(auth, provider);
     getRedirectResult(auth)
@@ -91,5 +93,3 @@ export const loginWithGoogle = () => {
             console.log(errorMessage);
         });
 }
-    
-
