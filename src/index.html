@@ -8,12 +8,20 @@
     <title>GG gamer girl</title>
   </head>
 
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Gamer Girl</title>
+  </head>
+
   <body>
     <header>
       <div class="logo-container">
         <img
           class="landing-logo"
-          src="resources/images/logo-GG.png"
+          src="resources/images/logo-GG-white.png"
           alt="landing-logo"
         />
       </div>
@@ -24,52 +32,46 @@
     </header>
 
     <form class="login-container">
-      <!-- <div class=""> -->
       <div class="login-inputs">
-        <h3 class="login-title">Iniciar sesión</h3>
+        <h3 class="login-title">Únete a la legión</h3>
         <input
           class="user-input"
-          id="userInput"
-          type="text"
+          id="email"
+          type="email"
           placeholder="Ingresa tu usuario"
           maxlength="30"
         />
         <input
           class="user-password"
-          id="userPassword"
-          type="text"
+          id="pass"
+          type="password"
           placeholder="Ingresa tu contraseña"
           maxlength="30"
         />
-        <button class="login-btn" type="button">Iniciar sesión</button>
-        <hr class="hr-login-left" />
-        <p class="hr-or">O</p>
-        <hr class="hr-login-right" />
-        <img
-          class="google-logo"
-          src="resources/images/logo-google.png"
-          alt="google-logo"
-        />
-        <h3 class="google-title">Inicia sesión con Google</h3>
+        <button class="login-btn" id="signup" type="button">
+          Iniciar sesión
+        </button>
+        <div class="hr-container">
+          <hr class="hr-login-left" />
+          <p class="hr-or">O</p>
+          <hr class="hr-login-right" />
+        </div>
+        <div class="logo-google-container">
+          <img
+            class="google-logo"
+            src="resources/images/logo-google.png"
+            alt="google-logo"
+          />
+          <h3 class="google-title">Inicia sesión con Google</h3>
+        </div>
         <hr class="hr-login-center" />
-        <h3 class="register-title">¿No tienes una cuenta?</h3>
-        <button class="register-btn" type="button">Regístrate</button>
+        <div class="signup-container">
+          <h3 class="register-title">¿No tienes una cuenta?</h3>
+          <button class="register-btn" type="button">Regístrate</button>
+        </div>
       </div>
-
-      <!-- <div class="hr-container">
-
-    </div>
-    <!-- </div> -->
-      <!-- <div class="logo-google-container"> -->
-      <!-- 
-    </div> -->
-
-      <!-- <div class="register-container"> -->
-
-      <!-- </div> -->
-      -->
     </form>
-
+    <script type="module" src="firebase.js"></script>
     <script type="module" src="main.js"></script>
   </body>
 </html>
