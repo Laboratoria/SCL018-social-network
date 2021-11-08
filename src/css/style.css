@@ -31,7 +31,7 @@ header{
     margin: 5% 0% 0% 5%;
     height: 137px;
     width: 167px;
-    filter: drop-shadow(5px 5px 4px rgb(211,99,242));
+    filter: drop-shadow(5px 5px 4px rgb(171, 27, 211));
 }
 
 .landing-title {
@@ -40,10 +40,10 @@ header{
     font-family: Tomorrow-medium;
     /* font-style: normal; */
     /* font-weight: normal; */
-    font-size: 48px;
+    font-size: 40px;
     line-height: 58px;
     color: white;
-    text-shadow: 3px 3px 2px rgb(211,99,242);
+    text-shadow: 3px 3px 2px rgb(171, 27, 211);
     margin: 7% 0% 0% 5%;
 }
 
@@ -53,10 +53,10 @@ header{
     font-family: Tomorrow-medium;
     /* font-style: normal;*/
     font-weight: normal; 
-    font-size: 30px;
+    font-size: 20px;
     line-height: 36px;
-    color: white;
-    text-shadow: 2px 2px 1px rgb(211,99,242);
+    color: #FFFFFF;
+    text-shadow: 2px 2px 1px rgb(171, 27, 211);
     margin: 0% 0% 0% 5%;
 }
 
