@@ -1,3 +1,6 @@
+/* eslint-disable no-multiple-empty-lines */
+/* eslint-disable indent */
+/* eslint-disable padded-blocks */
 import { loginWithEmail, loginWithGoogle } from "../firebaseFile.js";
 
 export const login = () => {

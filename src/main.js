@@ -1,4 +1,4 @@
-// import { routes } from "./lib/index.js";
+import { routes } from "./lib/index.js";
 
 // window.addEventListener('load', () => {
 //   routes(window.location.hash);
