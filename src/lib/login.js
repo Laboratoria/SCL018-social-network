@@ -1,7 +1,11 @@
+/* eslint-disable no-multiple-empty-lines */
+/* eslint-disable indent */
+/* eslint-disable padded-blocks */
 import { loginWithEmail, loginWithGoogle } from "../firebaseFile.js";
 
 export const login = () => {
 
+    // eslint-disable-next-line indent
     const mainContent = document.getElementById("root");
     const containerLoginUser = document.createElement("section");
     containerLoginUser.className = "view-container";

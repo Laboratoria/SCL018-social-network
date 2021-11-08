@@ -1,3 +1,5 @@
+/* eslint-disable indent */
+/* eslint-disable object-curly-spacing */
 import {routes} from "./lib/index.js";
 
 window.addEventListener('load', () => {
@@ -6,4 +8,4 @@ window.addEventListener('load', () => {
 
 window.addEventListener('hashchange', () => {
     routes(window.location.hash);
-})
+});
