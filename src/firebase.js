@@ -4,14 +4,10 @@ import {
   createUserWithEmailAndPassword,
   GoogleAuthProvider,
   signInWithRedirect,
+  getRedirectResult,
 } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-auth.js";
 
-// import { GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-auth.js";
-import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-analytics.js";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+// import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-analytics.js";
 const firebaseConfig = {
   apiKey: "AIzaSyAUzfV8SD5NXc-_42hUIkpmmrO-NugQnLs",
   authDomain: "gamer-girl-scl018.firebaseapp.com",
@@ -21,6 +17,7 @@ const firebaseConfig = {
   appId: "1:59327930943:web:7ddf2c82611ea43950ce8a",
   measurementId: "G-MC38L54242",
 };
+
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
@@ -41,4 +38,27 @@ document.getElementById("signup").addEventListener("click", function () {
     });
 });
 
-const analytics = getAnalytics(app);
+document.getElementById("googleLogin").addEventListener("click", function () {
+  signInWithRedirect(auth, provider);
+  getRedirectResult(auth)
+    .then((result) => {
+      // This gives you a Google Access Token. You can use it to access Google APIs.
+      const credential = GoogleAuthProvider.credentialFromResult(result);
+      const token = credential.accessToken;
+      // The signed-in user info.
+      const user = result.user;
+      console.log("logged in with Google");
+    })
+    .catch((error) => {
+      // Handle Errors here.
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      // The email of the user's account used.
+      const email = error.email;
+      // The AuthCredential type that was used.
+      const credential = GoogleAuthProvider.credentialFromError(error);
+      console.log(errorMessage);
+    });
+});
+
+// const analytics = getAnalytics(app);
