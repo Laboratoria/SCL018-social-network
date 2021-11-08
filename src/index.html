@@ -1,18 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="style.css" />
-    <title>Coders</title>
-  </head>
 
-  <body>
-    <main id="root"></main>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Coders</title>
+</head>
 
-    <script type="module" src="firebaseFile.js"></script>
-    <script type="module" src="main.js"></script>
-    
-  </body>
+<body>
+  <!-- <main id="root"></main> -->
+
+  <section class="timeline">
+    <header class="header-timeline">
+      <h1>CODERS</h1>
+    </header>
+    <section class="create-post">
+      <textarea id="textarea-title" placeholder="Título:"></textarea>
+      <textarea id="textarea-description" placeholder="Descripción:"></textarea>
+      <textarea id="textarea-links" placeholder="Link(s) referencia:"></textarea>
+    </section>
+  </section>
+
+
+  <script type="module" src="firebaseFile.js"></script>
+  <script type="module" src="main.js"></script>
+
+</body>
+
 </html>
