@@ -76,3 +76,31 @@ input, button {
     align-self: center;
     margin-right: 7%;
 }
+
+.timeline {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* grid-template-rows: repeat( ,1fr) */
+}
+.header-timeline {
+    width: 100%;
+    height: 2rem;
+    position: fixed;
+    text-align: center;
+}
+.header-timeline h1{
+    color: #FAC710;
+    font-family: titan one;
+}
+.create-post{
+    border-radius: 5px;
+    line-height: 0;
+    
+}
+
+.create-post textarea{
+    border-radius: 0px;
+    resize: none;
+    
+    
+}
