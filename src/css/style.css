@@ -11,17 +11,16 @@
 body {
   margin: 0;
   padding: 0;
-  height: 100vh;
-  background-image: url("/resources/images/background2.jpg");
-  background-size: 100% 100%;
-  /* width: 100%; */
-  background-repeat: no-repeat;
-  background-attachment: fixed;
 }
+
 .view-container {
   margin: 0;
   padding: 0;
   height: 100vh;
+  background-image: url("/resources/images/background2.jpg");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   display: grid;
   grid-template-columns: 20% 20% 20% 20% 20%;
   grid-template-rows: 20% 20% 20% 20% 20%;
@@ -128,7 +127,7 @@ header {
 .login-btn:hover,
 .register-btn:hover,
 .register-btn-inner:hover,
-.login:hover {
+.login:hover, .post-btn:hover {
   background-color: rgb(211, 99, 242);
   box-shadow: 0 0 10px rgb(211, 99, 242);
 }
@@ -226,6 +225,107 @@ header {
   cursor: pointer;
 }
 
-@media(max){
+
+/*----------------MURO------------------*/
+
+.wall-container {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 10% 20% 20% 20% 20% 10%;
+  grid-template-rows: 10% 20% 20% 20% 20% 10%;
+  background-image: url("/resources/images/background4.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.wall-header{
+  grid-column: 2/6;
+  grid-row: 1/1;
+  height: 100%;
+  width:100%;
+  margin-bottom: 5%;
+}
+
+.landing-wall-logo{
+  width: 50px;
+}
+
+.textarea-container {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.post{
+  display: flex;
+  flex-direction: column;
+}
+
+.post-btn{
+  width: 90%;
+  height: 40px;
+  border: none;
+  cursor: pointer;
+  background-color: rgb(167, 50, 217);
+  color: #ffffff;
+  font-family: Tomorrow-medium;
   
 }
+.post-container {
+  grid-column: 2/6;
+  grid-row: 2/7;
+  height: 100vh;
+  background-color:  rgba(251, 251, 251, 0.8);
+  box-shadow: 0 0 10px rgb(200, 0, 255);
+}
+
+.post {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.landing-wall-logo {
+  margin: 5% 0% 0% 5%;
+  height: 77px;
+  width: 107px;
+  filter: drop-shadow(5px 5px 4px rgb(171, 27, 211));
+}
+
+.landing-wall-title {
+  width: 213px;
+  /* height: 87px; */
+  font-family: Tomorrow-medium;
+  font-size: 30px;
+  line-height: 58px;
+  color: white;
+  text-shadow: 3px 3px 2px rgb(171, 27, 211);
+  margin: 7% 0% 0% 5%;
+}
+
+.post-theme, .post-message{
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 0 10px rgb(239, 213, 246);
+  border: none;
+  resize: none;
+  width: 100%;
+  margin: 4%;
+}
+/* 
+Título "Comparte" */
+/* .post-title {
+  width: 325px;
+  font-family: Tomorrow-medium;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 36px;
+  color: #ffffff;
+  text-shadow: 2px 2px 1px rgb(171, 27, 211);
+  margin: 0% 0% 0% 5%;
+} */

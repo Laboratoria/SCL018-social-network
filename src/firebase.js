@@ -5,8 +5,8 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   GoogleAuthProvider,
-  signInWithRedirect,
   getRedirectResult,
+  signInWithPopup,
 } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-auth.js";
 
 const firebaseConfig = {
@@ -28,7 +28,6 @@ const provider = new GoogleAuthProvider(app);
 export const signUp = () => {
   const signUpEmail = document.getElementById("emailSignUp").value;
   const signUpPassword = document.getElementById("passwordSignUp").value;
-
   createUserWithEmailAndPassword(auth, signUpEmail, signUpPassword)
     .then((userCredential) => {
       // Signed in
@@ -63,7 +62,7 @@ export const userLogin = () => {
 };
 
 export const loginWithGoogle = () => {
-  signInWithRedirect(auth, provider);
+  signInWithPopup(auth, provider);
   getRedirectResult(auth)
     .then((result) => {
       // This gives you a Google Access Token. You can use it to access Google APIs.
