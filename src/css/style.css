@@ -111,7 +111,7 @@ header {
 }
 
 .login-btn,
-.register-btn {
+.register-btn, .register-btn-inner {
   width: 172px;
   height: 40px;
   border: none;
@@ -122,7 +122,7 @@ header {
 }
 
 .login-btn:hover,
-.register-btn:hover {
+.register-btn:hover, .register-btn-inner:hover {
   background-color: rgb(211, 99, 242);
   box-shadow: 0 0 10px rgb(211, 99, 242);
 }
