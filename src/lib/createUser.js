@@ -2,9 +2,10 @@ import { signUp } from "../firebaseFile.js";
 
 export const createUser = () => {
   const mainContent = document.getElementById("root");
-  const containerCreateUser = document.createElement("section");
-  containerCreateUser.className = "view-container";
+  // const containerCreateUser = document.createElement("section");
+  // containerCreateUser.className = "view-container";
   const signUpHTML = `
+  <section class="view-container">
     <h1 class="coders-title">CODERS</h1>
         <section class="logo-container">
           <img
@@ -27,13 +28,12 @@ export const createUser = () => {
           class="input-box"
           placeholder="Ingrese una contraseña"
         />
-        <button id="create-account" class="view-button">Crear cuenta</button>`;
-  containerCreateUser.innerHTML = signUpHTML;
-  mainContent.appendChild(containerCreateUser);
-
+        <button id="create-account" class="view-button">Crear cuenta</button>
+        </section>`;
+  mainContent.innerHTML = signUpHTML;
   document.querySelector("#create-account").addEventListener("click", () => {
     signUp();
   });
 
-  return containerCreateUser;
+  return mainContent;
 };
