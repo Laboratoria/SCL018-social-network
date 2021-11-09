@@ -2,6 +2,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.2.0/firebase
 import {
   getAuth,
   createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
   GoogleAuthProvider,
   signInWithRedirect,
   getRedirectResult,
@@ -21,47 +22,67 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
+console.log(app);
 const provider = new GoogleAuthProvider(app);
 
+export const signUp = () => {
+  const signUpEmail = document.getElementById("emailSignUp").value;
+  const signUpPassword = document.getElementById("passwordSignUp").value;
+
+  createUserWithEmailAndPassword(auth, signUpEmail, signUpPassword)
+    .then((userCredential) => {
+      // Signed in
+      const user = userCredential.user;
+      // ...
+      return user + "created";
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      // ..
+      return errorCode + errorMessage;
+    });
+};
+
 export const userLogin = () => {
-  document.getElementById("signup").addEventListener("click", function () {
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("pass").value;
-    createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        const user = userCredential.user;
-        console.log("created");
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorCode + errorMessage);
-      });
-  });
+  const loginEmail = document.getElementById("emailLogin").value;
+  const loginPassword = document.getElementById("passLogin").value;
+
+  signInWithEmailAndPassword(auth, loginEmail, loginPassword)
+    .then((userCredential) => {
+      // Signed in
+      const user = userCredential.user;
+      // ...
+      return user + "created";
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      return errorCode + errorMessage;
+    });
 };
 
 export const loginWithGoogle = () => {
-  document.getElementById("googleLogin").addEventListener("click", function () {
-    signInWithRedirect(auth, provider);
-    getRedirectResult(auth)
-      .then((result) => {
-        // This gives you a Google Access Token. You can use it to access Google APIs.
-        const credential = GoogleAuthProvider.credentialFromResult(result);
-        const token = credential.accessToken;
-        // The signed-in user info.
-        const user = result.user;
-        console.log("logged in with Google");
-      })
-      .catch((error) => {
-        // Handle Errors here.
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        // The email of the user's account used.
-        const email = error.email;
-        // The AuthCredential type that was used.
-        const credential = GoogleAuthProvider.credentialFromError(error);
-        console.log(errorMessage);
-      });
-  });
+  signInWithRedirect(auth, provider);
+  getRedirectResult(auth)
+    .then((result) => {
+      // This gives you a Google Access Token. You can use it to access Google APIs.
+      const credential = GoogleAuthProvider.credentialFromResult(result);
+      const token = credential.accessToken;
+
+      // The signed-in user info.
+      const user = result.user;
+      return user + "logged in with google" + token;
+    })
+    .catch((error) => {
+      // Handle Errors here.
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      // The email of the user's account used.
+      const email = error.email;
+      // The AuthCredential type that was used.
+      const credential = GoogleAuthProvider.credentialFromError(error);
+      // ...
+      return errorMessage + email + credential;
+    });
 };
-// const analytics = getAnalytics(app);
