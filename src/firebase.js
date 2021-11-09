@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-app.js";
 import {
   getAuth,
@@ -8,7 +9,6 @@ import {
   getRedirectResult,
 } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-auth.js";
 
-// import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-analytics.js";
 const firebaseConfig = {
   apiKey: "AIzaSyAUzfV8SD5NXc-_42hUIkpmmrO-NugQnLs",
   authDomain: "gamer-girl-scl018.firebaseapp.com",
@@ -34,7 +34,7 @@ export const signUp = () => {
       // Signed in
       const user = userCredential.user;
       // ...
-      return user + "created";
+      return user;
     })
     .catch((error) => {
       const errorCode = error.code;
@@ -53,7 +53,7 @@ export const userLogin = () => {
       // Signed in
       const user = userCredential.user;
       // ...
-      return user + "created";
+      return user;
     })
     .catch((error) => {
       const errorCode = error.code;
@@ -69,7 +69,6 @@ export const loginWithGoogle = () => {
       // This gives you a Google Access Token. You can use it to access Google APIs.
       const credential = GoogleAuthProvider.credentialFromResult(result);
       const token = credential.accessToken;
-
       // The signed-in user info.
       const user = result.user;
       return user + "logged in with google" + token;
@@ -82,7 +81,6 @@ export const loginWithGoogle = () => {
       const email = error.email;
       // The AuthCredential type that was used.
       const credential = GoogleAuthProvider.credentialFromError(error);
-      // ...
       return errorMessage + email + credential;
     });
 };

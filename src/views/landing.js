@@ -1,7 +1,6 @@
 import { userLogin, loginWithGoogle } from "../firebase.js";
 
 export const landingPage = () => {
-  const menuRegister = document.getElementById("root");
   const containerLanding = document.createElement("section");
   containerLanding.className = "view-container";
   const viewLanding = `
@@ -18,7 +17,7 @@ export const landingPage = () => {
         <h2 class="landing-subtitle">Tu espacio seguro</h2>
     </div>
   </header>
-  <form class="login-container">
+  <div class="login-container">
       <div class="login-inputs">
         <h3 class="login-title">Iniciar Sesión</h3>
         <input
@@ -35,7 +34,7 @@ export const landingPage = () => {
           placeholder="Ingresa tu contraseña"
           maxlength="30"
         />
-        <button class="login-btn" id="signup" type="button">
+        <button class="login-btn" id="signup" type="submit">
           Iniciar Sesión
         </button>
         <div class="hr-container">
@@ -59,18 +58,19 @@ export const landingPage = () => {
           <button class="register-btn" type="button">Regístrate</button>
         </div>
       </div>
-  </form> `;
+  </div> `;
 
   containerLanding.innerHTML = viewLanding;
-  menuRegister.appendChild(containerLanding);
+  // este appendchild no debe estar aca. unicamente en routes
+  // document.body.appendChild(containerLanding);
 
-  document.querySelector(".login-btn").addEventListener("click", () => {
+  containerLanding.querySelector(".login-btn").addEventListener("click", () => {
     userLogin();
   });
-  document.querySelector(".register-btn").addEventListener("click", () => {
+  containerLanding.querySelector(".register-btn").addEventListener("click", () => {
     window.location.hash = "#/register";
   });
-  document.querySelector("#googleLogin").addEventListener("click", () => {
+  containerLanding.querySelector("#googleLogin").addEventListener("click", () => {
     loginWithGoogle();
   });
 
