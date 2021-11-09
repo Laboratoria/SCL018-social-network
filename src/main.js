@@ -1,9 +1,9 @@
-import { routes } from './views/routes.js';
+import { routes } from "./views/routes.js";
 
-window.addEventListener('load', () => {
+window.addEventListener("load", () => {
   routes(window.location.hash);
 });
 
-window.addEventListener('hashchange', () => {
+window.addEventListener("hashchange", () => {
   routes(window.location.hash);
 });

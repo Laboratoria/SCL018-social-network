@@ -1,9 +1,9 @@
-import { userLogin, loginWithGoogle } from '../firebase.js';
+import { userLogin, loginWithGoogle } from "../firebase.js";
 
 export const landingPage = () => {
-  const menuRegister = document.getElementById('root');
-  const containerLanding = document.createElement('section');
-  containerLanding.className = 'view-container';
+  const menuRegister = document.getElementById("root");
+  const containerLanding = document.createElement("section");
+  containerLanding.className = "view-container";
   const viewLanding = `
   <header>
     <div class="logo-container">
@@ -64,13 +64,13 @@ export const landingPage = () => {
   containerLanding.innerHTML = viewLanding;
   menuRegister.appendChild(containerLanding);
 
-  document.querySelector('.login-btn').addEventListener('click', () => {
+  document.querySelector(".login-btn").addEventListener("click", () => {
     userLogin();
   });
-  document.querySelector('.register-btn').addEventListener('click', () => {
-    window.location.hash = '#/register';
+  document.querySelector(".register-btn").addEventListener("click", () => {
+    window.location.hash = "#/register";
   });
-  document.querySelector('#googleLogin').addEventListener('click', () => {
+  document.querySelector("#googleLogin").addEventListener("click", () => {
     loginWithGoogle();
   });
 

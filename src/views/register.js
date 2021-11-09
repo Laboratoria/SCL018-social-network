@@ -1,9 +1,9 @@
-import { signUp } from '../firebase.js';
+import { signUp } from "../firebase.js";
 
 export const register = () => {
-  const menuRegister = document.getElementById('root');
-  const containerCreateUser = document.createElement('section');
-  containerCreateUser.className = 'view-container';
+  const menuRegister = document.getElementById("root");
+  const containerCreateUser = document.createElement("section");
+  containerCreateUser.className = "view-container";
   const registerpage = `
 <header>
   <div class="logo-container">
@@ -46,12 +46,21 @@ export const register = () => {
     />
     <button class="register-btn-inner" id="signup" type="button">Regístrate</button>
   </div>
+    <hr class="hr-login-center" />
+    <div class="signup-container">
+      <h3 class="tittle-login">¿Ya tienes una cuenta?</h3>
+      <button class="login" type="button">Inicia Sesión</button>
+    </div>
 </form>`;
 
   containerCreateUser.innerHTML = registerpage;
   menuRegister.appendChild(containerCreateUser);
-  document.querySelector('#signup').addEventListener('click', () => {
+  document.querySelector("#signup").addEventListener("click", () => {
     signUp();
+  });
+
+  document.querySelector(".login").addEventListener("click", () => {
+    window.location.hash = "#/landing";
   });
   return containerCreateUser;
 };
