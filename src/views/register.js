@@ -1,5 +1,9 @@
+import { signUp } from "../firebase.js";
+
 export const register = () => {
   const menuRegister = document.getElementById("root");
+  const containerCreateUser = document.createElement("section");
+  containerCreateUser.className = "view-container";
   const registerpage = `
 <header>
   <div class="logo-container">
@@ -26,7 +30,7 @@ export const register = () => {
     </input>
     <input
       class="user-input"
-      id="email"
+      id="emailSignUp"
       type="email"
       placeholder="Ingresa tu correo"
       maxlength="30"
@@ -34,35 +38,29 @@ export const register = () => {
     />
     <input
       class="user-password"
-      id="pass"
+      id="passwordSignUp"
       type="password"
       placeholder="Ingresa tu contraseña"
       maxlength="30"
       autocomplete="current-password"
     />
-    <button class="login-btn" id="signup" type="button">Regístrate</button>
-    <div class="hr-container">
-      <hr class="hr-login-left" />
-      <p class="hr-or">O</p>
-      <hr class="hr-login-right" />
-    </div>
-    <div class="logo-google-container">
-      <img
-        class="google-logo"
-        src="resources/images/logo-google.png"
-        alt="google-logo"
-      />
-      <button class="google-title" id="googleLogin">
-        Regístrate con Google
-      </button>
-    </div>
+    <button class="register-btn-inner" id="signup" type="button">Regístrate</button>
+  </div>
     <hr class="hr-login-center" />
     <div class="signup-container">
-      <h3 class="register-title">¿Ya tienes una cuenta?</h3>
-      <button class="register-btn" type="button">Inicia Sesión</button>
+      <h3 class="tittle-login">¿Ya tienes una cuenta?</h3>
+      <button class="login" type="button">Inicia Sesión</button>
     </div>
-  </div>
 </form>`;
-  menuRegister.innerHTML = registerpage;
-  return menuRegister;
+
+  containerCreateUser.innerHTML = registerpage;
+  menuRegister.appendChild(containerCreateUser);
+  document.querySelector("#signup").addEventListener("click", () => {
+    signUp();
+  });
+
+  document.querySelector(".login").addEventListener("click", () => {
+    window.location.hash = "#/landing";
+  });
+  return containerCreateUser;
 };

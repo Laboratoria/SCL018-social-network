@@ -1,7 +1,9 @@
 import { userLogin, loginWithGoogle } from "../firebase.js";
 
 export const landingPage = () => {
-  const landing = document.getElementById("root");
+  const menuRegister = document.getElementById("root");
+  const containerLanding = document.createElement("section");
+  containerLanding.className = "view-container";
   const viewLanding = `
   <header>
     <div class="logo-container">
@@ -21,14 +23,14 @@ export const landingPage = () => {
         <h3 class="login-title">Iniciar Sesión</h3>
         <input
           class="user-input"
-          id="email"
+          id="emailLogin"
           type="email"
           placeholder="Ingresa tu correo"
           maxlength="30"
         />
         <input
           class="user-password"
-          id="pass"
+          id="passLogin"
           type="password"
           placeholder="Ingresa tu contraseña"
           maxlength="30"
@@ -57,7 +59,20 @@ export const landingPage = () => {
           <button class="register-btn" type="button">Regístrate</button>
         </div>
       </div>
-   </form> `;
-  landing.innerHTML = viewLanding;
-  return landing;
+  </form> `;
+
+  containerLanding.innerHTML = viewLanding;
+  menuRegister.appendChild(containerLanding);
+
+  document.querySelector(".login-btn").addEventListener("click", () => {
+    userLogin();
+  });
+  document.querySelector(".register-btn").addEventListener("click", () => {
+    window.location.hash = "#/register";
+  });
+  document.querySelector("#googleLogin").addEventListener("click", () => {
+    loginWithGoogle();
+  });
+
+  return containerLanding;
 };
