@@ -1,4 +1,4 @@
-import { routes } from "./views/routes";
+import { routes } from "../views/routes";
 
 window.addEventListener("load", () => {
   routes(window.location.hash);
