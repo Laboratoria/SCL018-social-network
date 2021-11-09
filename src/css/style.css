@@ -42,8 +42,6 @@ header {
   width: 313px;
   /* height: 87px; */
   font-family: Tomorrow-medium;
-  /* font-style: normal; */
-  /* font-weight: normal; */
   font-size: 40px;
   line-height: 58px;
   color: white;
@@ -134,12 +132,18 @@ header {
   background-color: rgb(211, 99, 242);
   box-shadow: 0 0 10px rgb(211, 99, 242);
 }
+.login-container-register {
+  margin-top: -5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 .signup-container {
   margin-top: -5%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
 }
 
 .register-btn {
@@ -168,7 +172,7 @@ header {
   box-shadow: 0 0 7px rgb(211, 99, 242);
   border: none;
   width: 80%;
-  height: 1.5px;
+  height: 1.7px;
   margin: 4%;
 }
 
