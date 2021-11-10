@@ -4,11 +4,9 @@
 import { loginWithEmail, loginWithGoogle } from "../firebaseFile.js";
 
 export const login = () => {
-  const mainContent = document.getElementById("root");
-  // const containerLoginUser = document.createElement("section");
-  // containerLoginUser.className = "view-container";
+  const containerLoginUser = document.createElement("section");
+  containerLoginUser.className = "view-container";
   const loginHTML = `
-  <section class="view-container">
     <h1 class="coders-title">CODERS</h1>
     <section class="logo-container">
       <img
@@ -33,9 +31,8 @@ export const login = () => {
     />
     <button class="view-button login-btn">Iniciar sesión</button>
     <button class="view-button create-account-link">Crear cuenta</button>
-    <button class="view-button login-google"><img class="google-logo" src="./images/google-logo.png"></img>Ingresar con Google</button>
-    </section>`;
-  mainContent.innerHTML = loginHTML;
+    <button class="view-button login-google"><img class="google-logo" src="./images/google-logo.png"></img>Ingresar con Google</button>`;
+  containerLoginUser.innerHTML = loginHTML;
   document.querySelector(".login-btn").addEventListener("click", () => {
     loginWithEmail();
   });
@@ -46,5 +43,5 @@ export const login = () => {
     loginWithGoogle();
   });
 
-  return mainContent;
+  return containerLoginUser;
 };

@@ -1,25 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Titan+One&display=swap');
 
 *{
-    padding: 0;
-    margin: 0;
+    /* border-radius: 5px; */
+    box-sizing: border-box;
+    color: #292B36;
+    font-family: Arial, Helvetica, sans-serif; 
     /* font-family: monospace; */
     font-size: 16px;
-    box-sizing: border-box;
-    /* border-radius: 5px; */
-    font-family: Arial, Helvetica, sans-serif;
-    color: #292B36;
+    margin: 0;
+    padding: 0;
 }
 
 body {
     background-color: #292B36;
+    height: 100vh;
 }
 
 .logo-container{
-    width: 100%;
     display: flex;
     justify-content: center;
     margin: 2% 0% 5% 0%;
+    width: 100%;
 }
 
 .logo-coders{
@@ -29,24 +30,22 @@ body {
 
 input, button {
     border: none;
-    text-align: center;
     margin: 2%;
-    
+    text-align: center;
 }
 
 .input-box{
-    width: 15em;
     padding: 2%;
-    
+    width: 15em;
 }
 
 .view-button{
-    width: 15em;
-    font-weight: bold;
-    padding: 2%;
     display: flex;
     align-items: center;
+    font-weight: bold;
     justify-content: center;
+    padding: 2%;
+    width: 15em;
 }
 
 .login-btn, .view-button{
@@ -56,23 +55,23 @@ input, button {
 .create-account-link{
     margin-top: 7%;
 }
-.view-container{
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
 
+.view-container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    width: 100%;
 }
 
 .coders-title{
+    color: #FAC710; 
     font-family: titan one;
-    color: #FAC710;
-    letter-spacing: 1.5px;
     font-size: 3rem;
-    
+    letter-spacing: 1.5px;
 }
+
 .google-logo{
     align-self: center;
     margin-right: 7%;
@@ -80,69 +79,83 @@ input, button {
 
 .timeline {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    background-color: white;
+    background-color: rgb(62, 45, 218);
+    flex-direction: column;
     height: 100vh;
 }
+
 .header-timeline {
-    width: 100%;
-    height: 15%;
-    background-color: #292B36;
-    /* position: fixed; */
     display: flex;
     align-items: center;
+    background-color: #292B36;
+    height: 15%;
     justify-content: center;
+    width: 100%;
 }
+
 .header-timeline h1{
     color: #FAC710;
     font-family: titan one;
     font-size: 20px;
 }
+
 .create-post{
+    display: none;
+    background: lightyellow;
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    height: 100vh;
     line-height: 0;
+    position: relative;
+    top: -50px;
+    transition: clip-path .3s ease-out;
+    width: 100%;
+    z-index: 2;
+}
+
+.create-post.active {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    width: 90%;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    flex-direction: column;
     justify-content: center;
-    height: 90%;
-    
+    height: 100vh;
 }
 
 .post-button{
+    align-self: flex-end;
     background-color: #292B36;
-    color: #FAC710;
-    width: 30%;
-    padding: 2% 0% 2% 0%; 
-    outline: none;
     border-radius: 5px;
+    color: #FAC710;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 14px;
-    align-self: flex-end;
-    
+    outline: none;
+    padding: 2% 0% 2% 0%; 
+    width: 30%;
 }
 
 .create-post textarea{
     border: none;
+    font-family: Arial, Helvetica, sans-serif; 
+    font-size: 14px;
     outline: none;
     resize: none;
     width: 100%;
-    font-size: 14px;
-    font-family: Arial, Helvetica, sans-serif;
 }
+
 #textarea-description, #textarea-title, #textarea-links{
-    width:100%;
     border: 2px solid #292B36;
     border-radius: 5px;
     box-shadow:2px 2px #c0bdbd;
     font-size: 14px;
     text-align: left;
-    
+    width:90%;
 }
+
 #textarea-title, #textarea-links {
     padding: 1%;
 }
+
 #textarea-description {
     height: 40%;
     padding: 4%;
@@ -150,63 +163,65 @@ input, button {
 }
 
 .post-wall{
-    height: 66%;
-    width: 100%;
     display: flex;
-    flex-direction: column;
-    /* justify-content: center; */
     align-items: center;
+    flex-direction: column;
+    /* height: auto; */
+    /* justify-content: center; */
+    width: 100%;
 }
+.post-wall.active{
+    display: none;
+}
+
 .container-post{
+    display: flex;
+    align-items: center; 
+    flex-direction: column;
     height: auto;
     margin-top: 7%;
     width: 90%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
+
 .header-post{
+    background-color: #292B36;
+    border-radius: 5px 5px 0px 0px;
+    color:#FAC710;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 14px;
-    background-color: #292B36;
-    color:#FAC710;
+    font-weight: bold;
     height: 1,75em;
     padding: 2%;
-    font-weight: bold;
     width: 100%;
-    border-radius: 5px 5px 0px 0px;
 }
 
 .post-content{
     color: #292B36;
-    min-height: 5em;
-    width: 100%;
     border: 1px solid #292B36;
+    /* min-height: 5em; */
     padding: 4%;
-}
-.like-bar{
-    height: 2em;
     width: 100%;
-    border: 1px solid #292B36;
-    border-radius: 0px 0px 5px 5px;
 }
 
-hr{
-    margin-top: 5%;
-    width: 85%;
-}
-.post-button-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    height: 20%;
+.like-bar{
+    border: 1px solid #292B36;
+    border-radius: 0px 0px 5px 5px;
+    height: 2em;
     width: 100%;
 }
-.toggle-button img{
-    width: 40%;
-    
+
+.post-button-container {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
 }
+
+.toggle-button img{
+    width: 40%; 
+}
+
 .toggle-button {
     background: none;
     height: 20%;
@@ -214,37 +229,41 @@ hr{
 
 .post-here {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    margin-top: 3%;
-    height: 15%;
+    flex-direction: column;
+    height: 10%;
     width: 100%;
+    z-index: 3;
 }
+
 .post-here-button {
-    background-color: white;
-    height: 100%;
-    width:60%;
-    border: 2px solid #292B36;
-    border-radius: 5px;
-    box-shadow:2px 2px #c0bdbd;
+    background-color: lightyellow;
     font-size: 14px;
-    text-align: center;
     font-weight: bold;
+    height: 100%;
+    margin: 0%;
+    text-align: center; 
+    width:100%;
 }
+
 .toggle-container .toggle-button{
     display: flex;
-    flex-direction: row;
-    justify-content: center;
     align-items: center;
     background: #FAC710;
     border-radius: 100%;
-    height: 25px;
-    width: 25px;
-    position: relative;
-    top: -15px;
-    z-index: 3;
-    transition: all .2s ease;
     cursor: pointer;
+    flex-direction: row;
+    height: 25px;
+    justify-content: center;
+    position: relative;
+    top: -10px;
+    transition: all .2s ease;
+    width: 25px;
+    z-index: 4;  
+}
+
+.toggle-container .toggle-button:hover {
+    background:#dfb20e;
 }
 .toggle-container .toggle-button.active{
     transform: rotate(180deg);
