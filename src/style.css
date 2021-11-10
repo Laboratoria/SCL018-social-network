@@ -80,16 +80,16 @@ input, button {
 .timeline {
     display: flex;
     align-items: center;
-    background-color: rgb(62, 45, 218);
+    background-color: white;
     flex-direction: column;
-    height: 100vh;
+    height: 85vh;
 }
 
 .header-timeline {
     display: flex;
     align-items: center;
     background-color: #292B36;
-    height: 15%;
+    height: 15vh;
     justify-content: center;
     width: 100%;
 }
@@ -99,12 +99,18 @@ input, button {
     font-family: titan one;
     font-size: 20px;
 }
-
+.create-post-container{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 .create-post{
     display: none;
     background: lightyellow;
     clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
-    height: 100vh;
+    height: 80%;
     line-height: 0;
     position: relative;
     top: -50px;
@@ -119,7 +125,7 @@ input, button {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
     flex-direction: column;
     justify-content: center;
-    height: 100vh;
+    height: 80%;
 }
 
 .post-button{
@@ -218,14 +224,6 @@ input, button {
     width: 100%;
 }
 
-.toggle-button img{
-    width: 40%; 
-}
-
-.toggle-button {
-    background: none;
-    height: 20%;
-}
 
 .post-here {
     display: flex;
@@ -249,22 +247,33 @@ input, button {
 .toggle-container .toggle-button{
     display: flex;
     align-items: center;
-    background: #FAC710;
     border-radius: 100%;
     cursor: pointer;
     flex-direction: row;
-    height: 25px;
     justify-content: center;
-    position: relative;
-    top: -10px;
     transition: all .2s ease;
     width: 25px;
     z-index: 4;  
 }
-
+.toggle-container {
+    height: 8%;
+    position: relative;
+}
 .toggle-container .toggle-button:hover {
     background:#dfb20e;
 }
 .toggle-container .toggle-button.active{
     transform: rotate(180deg);
+    width: 25px;
+}
+
+.toggle-button img{
+    width: 40%; 
+}
+
+.toggle-button {
+    background: #FAC710;
+    height: 50%;
+    position: absolute;
+    top: -20%;
 }
