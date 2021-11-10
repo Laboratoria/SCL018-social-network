@@ -1,4 +1,4 @@
-import { signUp } from './firebase/firebase.js';
+import { createUser } from '../firebase/firebase.js';
 // aqui exportaras las funciones que necesites
 
 // const printLogin = document.getElementById('root');
@@ -18,5 +18,12 @@ export const templateRegister = () => {
     </button>
     </main>
     `;
+
   return login;
 };
+
+document.querySelectorAll('#register').addEventListener('click', () => {
+  const emailSignup = document.getElementById('emailUp').value;
+  const passwordSignup = document.getElementById('passwordUp').value;
+  createUser(emailSignup, passwordSignup);
+});

@@ -23,10 +23,11 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 console.log(app);
 
-export const signUp = document.getElementById('register').addEventListener('click', () => {
-  const emailSignup = document.getElementById('emailUp').value;
-  const passwordSignup = document.getElementById('passwordUp').value;
-  createUserWithEmailAndPassword(auth, emailSignup, passwordSignup)
+console.log(document.getElementById("register"));
+
+
+  export const createUser = (emailSignup, passwordSignup) => {
+    createUserWithEmailAndPassword(auth, emailSignup, passwordSignup)
     .then((userCredential) => {
     // Signed in
       const user = userCredential.user;
@@ -38,8 +39,5 @@ export const signUp = document.getElementById('register').addEventListener('clic
       const errorMessage = error.message;
       // ..
       console.log(errorCode + errorMessage);
-    });
-});
+    });}
 // [END auth_signup_password_modular]
-
-//export signup
