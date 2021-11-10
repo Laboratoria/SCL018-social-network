@@ -49,9 +49,7 @@ export const userLogin = () => {
 
   signInWithEmailAndPassword(auth, loginEmail, loginPassword)
     .then((userCredential) => {
-      // Signed in
       const user = userCredential.user;
-      // ...
       return user;
     })
     .catch((error) => {

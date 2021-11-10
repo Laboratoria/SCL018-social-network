@@ -61,18 +61,19 @@ export const landingPage = () => {
   </div> `;
 
   containerLanding.innerHTML = viewLanding;
-  // este appendchild no debe estar aca. unicamente en routes
-  // document.body.appendChild(containerLanding);
-
   containerLanding.querySelector(".login-btn").addEventListener("click", () => {
     userLogin();
   });
-  containerLanding.querySelector(".register-btn").addEventListener("click", () => {
-    window.location.hash = "#/register";
-  });
-  containerLanding.querySelector("#googleLogin").addEventListener("click", () => {
-    loginWithGoogle();
-  });
+  containerLanding
+    .querySelector(".register-btn")
+    .addEventListener("click", () => {
+      window.location.hash = "#/register";
+    });
+  containerLanding
+    .querySelector("#googleLogin")
+    .addEventListener("click", () => {
+      loginWithGoogle();
+    });
 
   return containerLanding;
 };

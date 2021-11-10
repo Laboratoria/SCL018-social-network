@@ -127,7 +127,8 @@ header {
 .login-btn:hover,
 .register-btn:hover,
 .register-btn-inner:hover,
-.login:hover, .post-btn:hover {
+.login:hover,
+.post-btn:hover {
   background-color: rgb(211, 99, 242);
   box-shadow: 0 0 10px rgb(211, 99, 242);
 }
@@ -225,7 +226,6 @@ header {
   cursor: pointer;
 }
 
-
 /*----------------MURO------------------*/
 
 .wall-container {
@@ -243,16 +243,14 @@ header {
   background-size: cover;
 }
 
-.wall-header{
+.wall-header {
   grid-column: 2/6;
   grid-row: 1/1;
   height: 100%;
-  width:100%;
-  margin-bottom: 5%;
-}
-
-.landing-wall-logo{
-  width: 50px;
+  width: 100%;
+  margin-bottom: 10%;
+  display: flex;
+  justify-content: center;
 }
 
 .textarea-container {
@@ -262,12 +260,12 @@ header {
   align-items: center;
 }
 
-.post{
+.post {
   display: flex;
   flex-direction: column;
 }
 
-.post-btn{
+.post-btn {
   width: 90%;
   height: 40px;
   border: none;
@@ -275,13 +273,12 @@ header {
   background-color: rgb(167, 50, 217);
   color: #ffffff;
   font-family: Tomorrow-medium;
-  
 }
 .post-container {
   grid-column: 2/6;
   grid-row: 2/7;
   height: 100vh;
-  background-color:  rgba(251, 251, 251, 0.8);
+  background-color: rgba(251, 251, 251, 0.8);
   box-shadow: 0 0 10px rgb(200, 0, 255);
 }
 
@@ -293,8 +290,7 @@ header {
 
 .landing-wall-logo {
   margin: 5% 0% 0% 5%;
-  height: 77px;
-  width: 107px;
+  width: 65px;
   filter: drop-shadow(5px 5px 4px rgb(171, 27, 211));
 }
 
@@ -309,7 +305,8 @@ header {
   margin: 7% 0% 0% 5%;
 }
 
-.post-theme, .post-message{
+.post-theme,
+.post-message {
   background-color: rgb(255, 255, 255);
   box-shadow: 0 0 10px rgb(239, 213, 246);
   border: none;
@@ -317,15 +314,3 @@ header {
   width: 100%;
   margin: 4%;
 }
-/* 
-Título "Comparte" */
-/* .post-title {
-  width: 325px;
-  font-family: Tomorrow-medium;
-  font-weight: normal;
-  font-size: 20px;
-  line-height: 36px;
-  color: #ffffff;
-  text-shadow: 2px 2px 1px rgb(171, 27, 211);
-  margin: 0% 0% 0% 5%;
-} */
