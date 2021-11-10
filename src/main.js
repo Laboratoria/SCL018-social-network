@@ -12,8 +12,10 @@
 const postHere = document.querySelector("#toggle-button");
 const createPost = document.querySelector("#create-post");
 const postWall = document.querySelector(".post-wall");
+const createPostContainer = document.querySelector(".create-post-container");
 postHere.addEventListener("click", () => {
   postHere.classList.toggle("active");
   createPost.classList.toggle("active");
   postWall.classList.toggle("active");
+  createPostContainer.classList.toggle("active");
 });
