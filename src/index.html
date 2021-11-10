@@ -9,7 +9,58 @@
   </head>
 
   <body>
-    <div id="root"></div>
+    <!-- <div id="root"></div> -->
+    <div class="wall-container">
+      <header class="wall-header">
+        <div class="logo-container">
+          <img
+            class="landing-wall-logo"
+            src="resources/images/logo-GG-white.png"
+            alt="landing-wall-logo"
+          />
+        </div>
+        <div class="title-wall-container">
+          <h1 class="landing-wall-title">Gamer Girl</h1>
+        </div>
+      </header>
+
+      <section class="post-container">
+        <div class="post">
+          <!-- <h3 class="post-title">Comparte</h3> -->
+          <div class="textarea-container">
+            <textarea
+              class="post-theme"
+              id="postTheme"
+              cols="10"
+              rows="1"
+              placeholder="Ingresa el juego o plataforma"
+            ></textarea>
+            <textarea
+              class="post-message"
+              id="postMessage"
+              cols="15"
+              rows="5"
+              placeholder="¿Qué quieres compartir?"
+            ></textarea>
+          </div>
+          <button class="post-btn" id="postBtn">Publicar</button>
+        </div>
+
+        <!-- acá irían los mensajes, ¡si tuviéramos unos! -->
+        <!-- <section class="post-feed">
+      <div class="user-post">
+        <div class="user-img">
+          <p class="user-name"></p>
+        </div>
+        <div class="user-message">
+        </div>
+        <div class="like-container">
+        </div>
+      </div>
+      </section> -->
+      </section>
+    </div>
+
     <script type="module" src="main.js"></script>
   </body>
 </html>
