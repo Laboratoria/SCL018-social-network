@@ -1,0 +1,13 @@
+@media (max-width: 600px) {
+    main {
+        background-color: rgb(170, 170, 170);
+        display: grid;
+        grid-template-rows: 5fr 5fr 60px auto;
+    }
+    /* .register {
+        grid-column: 50px;
+    } */
+    
+
+
+}
