@@ -1,13 +1,44 @@
-@media (max-width: 600px) {
-    main {
-        background-color: rgb(170, 170, 170);
-        display: grid;
-        grid-template-rows: 5fr 5fr 60px auto;
-    }
-    /* .register {
-        grid-column: 50px;
-    } */
-    
+html{
+    height:100%;
+}
 
+.grid-template {
+    display:grid;
+    gap: 3em;
+    justify-items: center;
+    grid-template:
+    "email email email" 1 fr
+    "password password password" 1 fr
+    "click click click" 1 fr;
+    margin-top: 200px;
+}
+
+button {
+    background-color: burlywood;  
+  border-radius: 21px;
+    filter: drop-shadow(8px 8px 8px black);
+}
+
+
+button:hover {
+    background-color: rgb(119, 98, 72);
+    color: white;
+}
+
+
+@media (max-width: 900px) {
+    .grid-template{
+        display:grid;
+        grid-template-columns: repeat(8, 1fr);
+    }
+  
+}
+
+@media (max-width: 480px) {
+    .grid-template {
+        display:grid;
+        grid-template-columns: repeat(4, 1fr);
+    }
 
 }
+

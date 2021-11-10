@@ -1,22 +1,19 @@
+import { signUp } from './firebase/firebase.js';
 // aqui exportaras las funciones que necesites
 
-//const printLogin = document.getElementById('root');
+// const printLogin = document.getElementById('root');
 
 export const templateRegister = () => {
 // aqui tu codigo
-  console.log('aqui va el inicio de sesion');
   const login = `
-    <main>
-    <input 
-    type="mail" 
+    <main class= "grid-template" >
+    <input type="mail" 
     placeholder="Ingresa tu Correo" 
-    class="register"/>
-    <input 
-    type="password"
+    id="emailUp" />
+    <input type="password"
     placeholder="Ingresa tu contraseña"
-    class="register"/>
-    <button
-    class="click">
+    id="passwordUp"/>
+    <button id="register">
     Crear Cuenta
     </button>
     </main>
