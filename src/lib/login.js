@@ -33,13 +33,15 @@ export const login = () => {
     <button class="view-button create-account-link">Crear cuenta</button>
     <button class="view-button login-google"><img class="google-logo" src="./images/google-logo.png"></img>Ingresar con Google</button>`;
   containerLoginUser.innerHTML = loginHTML;
-  document.querySelector(".login-btn").addEventListener("click", () => {
-    loginWithEmail();
+  containerLoginUser.querySelector(".login-btn").addEventListener("click", () => {
+    const loginEmail = document.getElementById("login-email").value;
+    const loginPassword = document.getElementById("login-password").value;
+    loginWithEmail(loginEmail, loginPassword);
   });
-  document.querySelector(".create-account-link").addEventListener("click", () => {
+  containerLoginUser.querySelector(".create-account-link").addEventListener("click", () => {
     window.location.hash = "#/createUser";
   });
-  document.querySelector(".login-google").addEventListener("click", () => {
+  containerLoginUser.querySelector(".login-google").addEventListener("click", () => {
     loginWithGoogle();
   });
 

@@ -30,8 +30,10 @@ export const createUser = () => {
         <button id="create-account" class="view-button">Crear cuenta</button>
         </section>`;
   containerCreateUser.innerHTML = signUpHTML;
-  document.querySelector("#create-account").addEventListener("click", () => {
-    signUp();
+  containerCreateUser.querySelector("#create-account").addEventListener("click", () => {
+    const signUpEmail = document.getElementById("signup-email").value;
+    const signUpPassword = document.getElementById("signup-password").value;
+    signUp(signUpEmail, signUpPassword);
   });
 
   return containerCreateUser;
