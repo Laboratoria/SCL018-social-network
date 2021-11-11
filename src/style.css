@@ -244,7 +244,7 @@ input, button {
     width:100%;
 }
 
-.toggle-container .toggle-button{
+.toggle-button{
     display: flex;
     align-items: center;
     border-radius: 100%;
@@ -264,7 +264,6 @@ input, button {
 }
 .toggle-container .toggle-button.active{
     transform: rotate(180deg);
-    width: 25px;
 }
 
 .toggle-button img{
@@ -275,5 +274,6 @@ input, button {
     background: #FAC710;
     height: 50%;
     position: absolute;
-    top: -20%;
+    top: -40%;
+    left: -79%;
 }
