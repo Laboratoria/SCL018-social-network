@@ -1,5 +1,6 @@
 import { postear, leerData } from "../firebaseFile.js";
 
+
 export const timeline = () => {
   const containerTimeline = document.createElement("section");
   containerTimeline.className = "timeline-container";
@@ -21,7 +22,7 @@ export const timeline = () => {
         </div>
       </section>
     </section>
-    <section class="post-wall">
+    <section class="post-wall" id="post">
       <div class="container-post">
         <div class="header-post"></div>
         <div class="post-content"></div>
@@ -32,10 +33,16 @@ export const timeline = () => {
   containerTimeline.innerHTML = timelineHTML;
   const postButton = containerTimeline.querySelector(".post-button");
   postButton.addEventListener("click", () => {
-    const title = containerTimeline.getElementById("textarea-title").value;
-    console.log(title);
-    postear(title);
-  });
+    const title = containerTimeline.querySelector("#textarea-title").value;
+    
+  
+     postear(title);
+     leerData();
+  //   const headerPost = containerTimeline.querySelector(".header-post");
+  //   headerPost.textContent = posts;
+
+   });
+
   const postHere = containerTimeline.querySelector(".post-here-container");
   const postHereButton = containerTimeline.querySelector(".post-here-button");
   const createPost = containerTimeline.querySelector(".create-post");
@@ -55,3 +62,4 @@ export const timeline = () => {
 
   return containerTimeline;
 };
+

@@ -92,18 +92,26 @@ export const loginWithGoogle = () => {
 }
 
 
-export const postear = async (input) => {
+export const postear = async (title) => {
     const docRef = await addDoc(collection(db, "publicaciones"), {
-        titulo: input
+        titulo: title, 
     });
-    console.log("Document written with ID: ", docRef.id);
+    //console.log("Document written with ID: ", docRef.id);
     return docRef;
 }
+
 export const leerData = async () => {
     const querySnapshot = await getDocs(collection(db, "publicaciones"));
     querySnapshot.forEach((doc) => {
         // doc.data() is never undefined for query doc snapshots
-        console.log(doc.id, " => ", doc.data());
+        console.log (doc.id, " => ", doc.data());
+        
+        // let posts = (doc.id, " => ", doc.data().title)
+        // console.log(posts);
+        // return posts;
     });
+    // let lastPost = querySnapshot[querySnapshot.lenght -1];
+    // console.log(lastPost);
+    // return lastPost;
+    
 }
-
