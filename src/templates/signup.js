@@ -18,12 +18,13 @@ export const templateRegister = () => {
     </button>
     </main>
     `;
+/* document.querySelectorAll('#register').addEventListener('click', () => {
+  const emailSignup = document.getElementById('emailUp').value;
+  const passwordSignup = document.getElementById('passwordUp').value;
+  createUser(emailSignup, passwordSignup);
+}); */
 
   return login;
 };
 
-document.querySelectorAll('#register').addEventListener('click', () => {
-  const emailSignup = document.getElementById('emailUp').value;
-  const passwordSignup = document.getElementById('passwordUp').value;
-  createUser(emailSignup, passwordSignup);
-});
+

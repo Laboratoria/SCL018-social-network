@@ -26,7 +26,7 @@ console.log(app);
 console.log(document.getElementById("register"));
 
 
-  export const createUser = (emailSignup, passwordSignup) => {
+export const createUser = (emailSignup, passwordSignup) => {
     createUserWithEmailAndPassword(auth, emailSignup, passwordSignup)
     .then((userCredential) => {
     // Signed in
