@@ -1,4 +1,66 @@
-# Creando una Red Social
+# Red Social Kambalache
+
+
+1. INTRODUCCIÓN 
+
+El mundo actual plantea grandes desafíos relacionados con la sostenibilidad y la necesidad de hacer frente a las consecuencias de la sobreproducción de bienes generados por el ser humano. Una de las formas en que podemos contribuir a paliar esta problemática es replanteando nuestros patrones de consumo. Una de las metas señaladas dentro de los Objetivos de desarrollo sostenible establecidos por todos los Estados miembros de la ONU en 2015, es "de aquí a 2030, reducir considerablemente la generación de desechos mediante actividades de prevención, reducción, reciclado y reutilización" (ODS N° 12.5).
+Este es el contexto que ha motivado el desarrollo de nuestro proyecto, el cual consiste en la creación de una Red Social destinada a facilitar el intercambio de bienes y servicios por parte de las personas usuarias, en la modalidad de trueque. De esta forma buscamos incentivar la extensión de la vida útil de los elementos físicos así como la oferta de prestaciones inmateriales como una forma de abrir nuevos espacios de intercambio comercial para individuos que desean prescindir del dinero en sus transacciones. 
+El nombre Kambalache proviene de un antiguo término popular chileno para referirse al trueque y fue elegido por su sonoridad lúdica e informal, aspectos que deseamos plasmar en nuestro proyecto. 
+
+2. INVESTIGACIÓN UX
+
+Para indagar sobre las personas usuarias de nuestro producto, utilizamos dos instancias. La primera fue de índole más general y se trató de una encuesta. La segunda estaba destinada a precisar información obtenida en la primera instancia, y se trató de entrevistas a miembros potenciales de nuestra red social
+
+2.1. ENCUESTA:
+
+Este instrumento se elaboró utilizando la herramienta Google Forms, y fue enviada a un espectro diverso de individuos, tanto en edad como en género. Gracias a ella pudimos determinar que:
+a) La mayoría de nuestro público potencial tiene entre 20 y 30 años (40%), siendo la segunda mayoría personas entre 30 y 40 años (30%).
+b) El 53.3% de las personas encuestadas declara que el principal atributo de su red social favorita es el hecho de que les permite leer contenido interesante. Otro sector, que abarca un 20%, indica que su principal característica es la facilidad en el uso. 
+c) Las principales razones por las cuales las personas encuestadas usan redes sociales son la entretención o distracción, la necesidad de informarse sobre la contingencia y el aprendizaje de cosas nuevas. 
+d) El 100% del universo encuestado conoce lo que es el trueque y de ellos, más de la mitad lo ha practicado al menos un par de veces en su vida (56.7%).
+e) Las principales razones para trocar de los sujetos encuestados son darle una segunda oportunidad a cosas en desuso y también adquirir cosas que desean o necesitan pero que no pueden comprar por el momento. 
+f) El 100% de las personas encuestadas declara que utilizaría una app que le permitiera concretar trueques.
+
+2.2. ENTREVISTAS:
+
+Se eligió a 3 personas para aplicarles una batería de preguntas. Se procuró elegir individios de diferente sexo y edades. Se les preguntó lo siguiente:
+a) Si dispusieras de una red social que te permitiera contactar con otras personas con intenciones de trocar bienes o servicios, ¿te inscribirías?
+b) Si en dicha red social encontraras cosas o servicios de tu interés, ¿con cuánta frecuencia te gustaría concretar trueques: 1 vez por trimestre/1 vez por mes/1 vez a la semana?
+c) ¿Qué cualidades principales debería tener esa red social, a tu juicio? (nombra 3)
+d) ¿Qué funcionalidades principales debería tener esa red social, a tu juicio? (nombra 3)
+e) ¿Hasta qué punto son importantes para ti los acuerdos de convivencia establecidos en dicha red social?
+f) ¿Sería requisito indispensable para ti que esa red verificara la identidad de sus usuarios? ¿Cómo imaginas que debería ser ese proceso?
+g) ¿Qué colores asocias a dicha red social? (Pasteles, cálidos, fríos)
+
+3. HISTORIAS DE USUARIO
+
+En consideración a los requerimientos oficiales del proyecto, más la investigación UX realizada,  se han definido las siguientes historias de usuario:
+
+1° Como usuario de la Red Social Kambalache quiero poder CREAR una cuenta en dicha red, para poder ser parte de ella. 
+Criterios de Aceptación:
+2° Como usuario de la Red Social Kambalache quiero poder LOGUEARME en la cuenta creada, para poder ingresar y revisar el contenido. 
+Criterios de Aceptación:
+3° Como usuario de la Red Social Kambalache quiero poder PUBLICAR un post, para dar a conocer lo que deseo trocar.
+Criterios de Aceptación:
+4° Como usuario de la Red Social Kambalache quiero poder EDITAR una publicación, para poder corregir errores o modificar la información indicada en ella.
+Criterios de Aceptación:
+5° Como usuario de la Red Social Kambalache quiero poder BORRAR una publicación, para poder eliminar el contenido que no deseo que se vea.
+Criterios de Aceptación:
+6° Como usuario de la Red Social Kambalache quiero poder LIKEAR una publicación, para indicar mi preferencia por el contenido de un tercero. 
+Criterios de Aceptación:
+
+La Definición de Terminado de todas las historias sigue una estructura común, que es la siguiente:
+- Es una SPA.
+- Es responsive.
+- Ha recibido code review de al menos una compañera de otro equipo.
+- Ha aprobado los test unitarios con al menos un porcentaje de ___
+- Se ha testeado manualmente buscando errores e imperfecciones simples.
+- Se ha realizado a su respecto pruebas de usabilidad y se ha incorporado el feedback de los usuarios como mejoras.
+- Se ha desplegado la aplicación y se ha etiquetado la versión (git tag).
+
+
+
+#Creando una Red Social
 
 ## Índice
 
