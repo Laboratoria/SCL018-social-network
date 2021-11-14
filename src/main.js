@@ -6,4 +6,3 @@ window.addEventListener('load', () => {
 window.addEventListener('hashchange', () => {
   routes(window.location.hash);
 });
-

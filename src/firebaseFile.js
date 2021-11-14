@@ -15,7 +15,7 @@ import {
     signInWithRedirect,
     getRedirectResult
 } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-auth.js";
-import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-firestore.js";
+import { getFirestore, collection, addDoc, getDocs, query, orderBy } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-firestore.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyAzfGqeX103yaOJ2nZuZuIu33UPNPPvwrA",
@@ -90,28 +90,21 @@ export const loginWithGoogle = () => {
             console.log(errorMessage);
         });
 }
-
-
 export const postear = async (title) => {
     const docRef = await addDoc(collection(db, "publicaciones"), {
-        titulo: title, 
+        titulo: title,
+        datePost: Date(Date.now()),
     });
-    //console.log("Document written with ID: ", docRef.id);
+    console.log("Document written with ID: ", docRef.id);
     return docRef;
 }
-
 export const leerData = async () => {
-    const querySnapshot = await getDocs(collection(db, "publicaciones"));
+    const q = query(collection(db, "publicaciones"), orderBy("datePost", "desc"));
+    const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
+
         // doc.data() is never undefined for query doc snapshots
-        console.log (doc.id, " => ", doc.data());
-        
-        // let posts = (doc.id, " => ", doc.data().title)
-        // console.log(posts);
-        // return posts;
+        console.log(doc.id, " => ", doc.data());
     });
-    // let lastPost = querySnapshot[querySnapshot.lenght -1];
-    // console.log(lastPost);
-    // return lastPost;
-    
 }
+
