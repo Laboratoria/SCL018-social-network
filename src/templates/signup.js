@@ -4,7 +4,9 @@ import { createUser } from '../firebase/firebase.js';
 // const printLogin = document.getElementById('root');
 
 export const templateRegister = () => {
-// aqui tu codigo
+  const containerTemplateSignUp = document.createElement("section");
+  containerTemplateSignUp.className = "signUp-container";
+  // aqui tu codigo
   const login = `
     <main class= "grid-template" >
     <input type="mail" 
@@ -18,13 +20,11 @@ export const templateRegister = () => {
     </button>
     </main>
     `;
-/* document.querySelectorAll('#register').addEventListener('click', () => {
-  const emailSignup = document.getElementById('emailUp').value;
-  const passwordSignup = document.getElementById('passwordUp').value;
-  createUser(emailSignup, passwordSignup);
-}); */
+  containerTemplateSignUp.innerHTML = containerTemplateSignUp;
+  containerTemplateSignUp.querySelector('#register').addEventListener('click', () => {
+    createUser();
+    // console.log(containerTemplateSignUp);
+  });
 
   return login;
 };
-
-

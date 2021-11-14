@@ -23,21 +23,23 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 console.log(app);
 
-console.log(document.getElementById("register"));
-
-
-export const createUser = (emailSignup, passwordSignup) => {
-    createUserWithEmailAndPassword(auth, emailSignup, passwordSignup)
+export const createUser = () => {
+  const emailSignup = document.getElementById('emailUp').value;
+  const passwordSignup = document.getElementById('passwordUp').value;
+  createUserWithEmailAndPassword(auth, emailSignup, passwordSignup)
     .then((userCredential) => {
-    // Signed in
+      // Signed in
       const user = userCredential.user;
       // ...
       console.log('creado');
+      return user;
     })
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
       // ..
       console.log(errorCode + errorMessage);
-    });}
+      return errorCode + errorMessage;
+    });
+};
 // [END auth_signup_password_modular]

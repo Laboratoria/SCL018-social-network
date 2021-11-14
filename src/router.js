@@ -2,16 +2,6 @@
 import { login } from './templates/signin.js';
 import { templateRegister } from './templates/signup.js';
 
-// generar if para cada HASH
-export const cambios = (hash) => {
-  if (hash === '#/login') {
-    return mostrarHash(hash);
-  } if (hash === '#/templateRegister') {
-    return mostrarHash(hash);
-  }
-  return mostrarHash(hash);
-};
-
 // Efectivamente mostrar los hash
 const mostrarHash = (hash) => {
   const containerRoot = document.getElementById('root');
@@ -30,4 +20,14 @@ const mostrarHash = (hash) => {
     default:
       containerRoot.innerHTML = '<h1>tamalo</h1>';
   }
+};
+
+// generar if para cada HASH
+export const cambios = (hash) => {
+  if (hash === '#/login') {
+    return mostrarHash(hash);
+  } if (hash === '#/templateRegister') {
+    return mostrarHash(hash);
+  }
+  return mostrarHash(hash);
 };
