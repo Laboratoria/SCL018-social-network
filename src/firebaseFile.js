@@ -39,6 +39,7 @@ export const signUp = (signUpEmail, signUpPassword) => {
     createUserWithEmailAndPassword(auth, signUpEmail, signUpPassword)
         .then((userCredential) => {
             // Signed in
+            window.location.hash = "#/timeline";
             const user = userCredential.user;
             // ...
             console.log("created");
@@ -55,8 +56,9 @@ export const loginWithEmail = (loginEmail, loginPassword) => {
     signInWithEmailAndPassword(auth, loginEmail, loginPassword)
         .then((userCredential) => {
             // Signed in
-            const user = userCredential.user;
             window.location.hash = "#/timeline";
+            const user = userCredential.user;
+            
             console.log("logged in");
         })
         .catch((error) => {
