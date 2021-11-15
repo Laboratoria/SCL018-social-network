@@ -1,9 +1,12 @@
-// import { routes } from "./views/routes.js";
+import { routes } from "./views/routes.js";
 
-// window.addEventListener("load", () => {
-//   routes(window.location.hash);
-// });
+import { readData } from "./firebase.js";
 
-// window.addEventListener("hashchange", () => {
-//   routes(window.location.hash);
-// });
+window.addEventListener("load", () => {
+  routes(window.location.hash);
+  readData();
+});
+
+window.addEventListener("hashchange", () => {
+  routes(window.location.hash);
+});
