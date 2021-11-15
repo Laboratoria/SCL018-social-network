@@ -1,6 +1,6 @@
 import { landingPage } from "./landing.js";
 import { register } from "./register.js";
-// import { wall } from "./wall.js";
+import { wall } from "./wall.js";
 
 export const routes = (hash) => {
   const menuRegister = document.getElementById("root");
@@ -11,7 +11,7 @@ export const routes = (hash) => {
     menuRegister.appendChild(landingPage());
   } else if (hash === "#/register") {
     menuRegister.appendChild(register());
-  } // else if (hash === "#/wall") {
-  //   menuRegister.appendChild(wall());
-  // }
+  } else if (hash === "#/wall") {
+    menuRegister.appendChild(wall());
+  }
 };
