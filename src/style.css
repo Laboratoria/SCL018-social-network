@@ -13,16 +13,31 @@ html{
     margin-top: 200px;
 }
 
+input{
+    min-width: 180px;
+    min-height: 44px;
+    border-top:hidden;
+    border-left: hidden;
+    border-right: hidden;
+    border-bottom: solid gray 3px;
+    /*border: hidden hidden solid gray 3px hidden;*/
+}
+
 button {
-    background-color: burlywood;  
-    border-radius: 21px;
+    background-color: #45d89d;
+    border-radius: 8px;
     grid-template: 2/4;
-    filter: drop-shadow(3px 3px 3px black);
+    color: white;
+    filter: drop-shadow(3px 3px 3px rgb(96, 96, 96));
+    min-width: 180px;
+    min-height: 44px;
+    border:none;
+    
 }
 
 
 button:hover {
-    background-color: rgb(119, 98, 72);
+    background-color: #58ab2c;
     color: white;
 }
 
@@ -39,17 +54,26 @@ button:hover {
     .grid-template {
         display:grid;
         grid-template-columns: repeat(4, 1fr);
+        /* grid-template-rows: repeat(6, 1fr); */
+        grid-auto-rows: 52px;
+
         
     }
 
-    .button {
-        grid-template: 2 fr;
-        
+    button {
+        background-color: #2cab78;
+        border-radius: 8px;
+        grid-template: 2/4fr;
+        align-content: center;
+        filter: drop-shadow(3px 3px 3px rgb(56, 56, 56));
+        min-width: 180px;
+        border:none;
         
     }
+    
 
     button:hover {
-        background-color: rgb(119, 98, 72);
+        background-color: #58ab2c;
         color: white;
     }
 
