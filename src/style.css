@@ -15,8 +15,9 @@ html{
 
 button {
     background-color: burlywood;  
-  border-radius: 21px;
-    filter: drop-shadow(8px 8px 8px black);
+    border-radius: 21px;
+    grid-template: 2/4;
+    filter: drop-shadow(3px 3px 3px black);
 }
 
 
@@ -38,6 +39,18 @@ button:hover {
     .grid-template {
         display:grid;
         grid-template-columns: repeat(4, 1fr);
+        
+    }
+
+    .button {
+        grid-template: 2 fr;
+        
+        
+    }
+
+    button:hover {
+        background-color: rgb(119, 98, 72);
+        color: white;
     }
 
 }
