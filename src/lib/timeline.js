@@ -20,21 +20,16 @@ export const timeline = () => {
           <button class="post-button">Publicar</button>
         </div>
       </section>
-    </section>
-    <section class="post-wall" id="post">
-      <div class="container-post">
-        <div class="header-post"></div>
-        <div class="post-content"></div>
-        <div class="reference-link"></div>
-      </div>
+      
     </section>
   </section>`;
+
   containerTimeline.innerHTML = timelineHTML;
   const postButton = containerTimeline.querySelector(".post-button");
   postButton.addEventListener("click", () => {
     const title = containerTimeline.querySelector("#textarea-title").value;
     postear(title);
-    leerData();
+    console.log(leerData());
   });
 
   const postHere = containerTimeline.querySelector(".post-here-container");
@@ -46,7 +41,7 @@ export const timeline = () => {
   postHere.addEventListener("click", () => {
     postHere.classList.toggle("active");
     createPost.classList.toggle("active");
-    postWall.classList.toggle("active");
+    // postWall.classList.toggle("active");
     createPostContainer.classList.toggle("active");
     postHereButton.classList.toggle("active");
     if (postHereButton.classList.contains("active")) {

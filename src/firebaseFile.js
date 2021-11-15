@@ -16,6 +16,7 @@ import {
     getRedirectResult
 } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-auth.js";
 import { getFirestore, collection, addDoc, onSnapshot, query, orderBy } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-firestore.js";
+import { showPost } from "./lib/showPost.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyAzfGqeX103yaOJ2nZuZuIu33UPNPPvwrA",
@@ -100,22 +101,15 @@ export const postear = async (title) => {
     console.log("Document written with ID: ", docRef.id);
     return docRef;
 }
-export const leerData = async () => {
+export const leerData = () => {
+    const posts = [];
     const q = query(collection(db, "publicaciones"), orderBy("datePost", "desc"));
-    // const querySnapshot = await getDocs(q);
-    const wtf = onSnapshot(q, (querySnapshot) => {
-        const posts = [];
+    const realTimePost = onSnapshot(q, (querySnapshot) => {
+        // const posts = [];
         querySnapshot.forEach((doc) => {
-            posts.push(doc.data().titulo);
-            posts.push(doc.data().datePost);
-
-            
+            posts.push(doc.data());
         });
-        console.log(posts[0]);
-    // querySnapshot.forEach((doc) => {
-
-    //     // doc.data() is never undefined for query doc snapshots
-    //     console.log(doc.id, " => ", doc.data());
     });
+    return posts;
 }
 
