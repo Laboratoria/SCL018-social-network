@@ -106,12 +106,9 @@ export const leerData = async () => {
     const wtf = onSnapshot(q, (querySnapshot) => {
         const posts = [];
         querySnapshot.forEach((doc) => {
-            posts.push(doc.data().titulo);
-            posts.push(doc.data().datePost);
-
-            
+            posts.push(doc.data());   
         });
-        console.log(posts[0]);
+        console.log(posts[0].titulo);
     // querySnapshot.forEach((doc) => {
 
     //     // doc.data() is never undefined for query doc snapshots
