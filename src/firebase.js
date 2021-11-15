@@ -8,6 +8,7 @@ import {
   getRedirectResult,
   signInWithPopup,
 } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-auth.js";
+import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-firestore.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAUzfV8SD5NXc-_42hUIkpmmrO-NugQnLs",
@@ -24,6 +25,7 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 console.log(app);
 const provider = new GoogleAuthProvider(app);
+const db = getFirestore(app);
 
 export const signUp = () => {
   const signUpEmail = document.getElementById("emailSignUp").value;
@@ -80,4 +82,13 @@ export const loginWithGoogle = () => {
       const credential = GoogleAuthProvider.credentialFromError(error);
       return errorMessage + email + credential;
     });
+};
+
+export const postData = async (postTheme, postMessage) => {
+  const docRef = await addDoc(collection(db, "publicaciones"), {
+    theme: postTheme,
+    message: postMessage,
+  });
+  console.log("Document written with ID: ", docRef.id);
+  return docRef;
 };
