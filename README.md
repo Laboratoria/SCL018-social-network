@@ -7,6 +7,8 @@ El mundo actual plantea grandes desafíos relacionados con la sostenibilidad y l
 Este es el contexto que ha motivado el desarrollo de nuestro proyecto, el cual consiste en la creación de una Red Social destinada a facilitar el intercambio de bienes y servicios por parte de las personas usuarias, en la modalidad de trueque. De esta forma buscamos incentivar la extensión de la vida útil de los elementos físicos así como la oferta de prestaciones inmateriales como una forma de abrir nuevos espacios de intercambio comercial para individuos que desean prescindir del dinero en sus transacciones. 
 El nombre Kambalache proviene de un antiguo término popular chileno para referirse al trueque y fue elegido por su sonoridad lúdica e informal, aspectos que deseamos plasmar en nuestro proyecto. 
 
+pd: añadir cómo imaginamos que esto funcionaría en el futuro
+
 2. INVESTIGACIÓN UX
 
 Para indagar sobre las personas usuarias de nuestro producto, utilizamos dos instancias. La primera fue de índole más general y se trató de una encuesta. La segunda estaba destinada a precisar información obtenida en la primera instancia, y se trató de entrevistas a miembros potenciales de nuestra red social
@@ -24,13 +26,15 @@ f) El 100% de las personas encuestadas declara que utilizaría una app que le pe
 2.2. ENTREVISTAS:
 
 Se eligió a 3 personas para aplicarles una batería de preguntas. Se procuró elegir individios de diferente sexo y edades. Se les preguntó lo siguiente:
-a) Si dispusieras de una red social que te permitiera contactar con otras personas con intenciones de trocar bienes o servicios, ¿te inscribirías?
-b) Si en dicha red social encontraras cosas o servicios de tu interés, ¿con cuánta frecuencia te gustaría concretar trueques: 1 vez por trimestre/1 vez por mes/1 vez a la semana?
-c) ¿Qué cualidades principales debería tener esa red social, a tu juicio? (nombra 3)
-d) ¿Qué funcionalidades principales debería tener esa red social, a tu juicio? (nombra 3)
-e) ¿Hasta qué punto son importantes para ti los acuerdos de convivencia establecidos en dicha red social?
+
+a) Si en una  red social de trueque encontraras cosas o servicios de tu interés, ¿con cuánta frecuencia te gustaría concretar trueques: 1 vez por trimestre/1 vez por mes/1 vez a la semana?
+b) ¿Qué cualidades principales debería tener esa red social, a tu juicio? (nombra 3)
+c) ¿Qué acciones te gustaría poder realizar en dicha red social? (nombra 3)
+d) ¿Hasta qué punto son importantes para ti los acuerdos de convivencia establecidos en dicha red social?
+e) ¿Qué aspectos te gustaría que abordaran dichos acuerdos de convivencia?
 f) ¿Sería requisito indispensable para ti que esa red verificara la identidad de sus usuarios? ¿Cómo imaginas que debería ser ese proceso?
-g) ¿Qué colores asocias a dicha red social? (Pasteles, cálidos, fríos)
+g) Al momento de concretar un trueque, ¿por qué medio te gustaría coordinar el encuentro? (Mensaje interno, whatsapp, correo electrónico, llamada telefónica)
+h) ¿Qué colores asocias a dicha red social? (Pasteles, cálidos, fríos)
 
 3. HISTORIAS DE USUARIO
 
@@ -38,11 +42,12 @@ En consideración a los requerimientos oficiales del proyecto, más la investiga
 
 1° Como usuario de la Red Social Kambalache quiero poder CREAR una cuenta en dicha red, para poder ser parte de ella. 
 Criterios de Aceptación:
+
 2° Como usuario de la Red Social Kambalache quiero poder LOGUEARME en la cuenta creada, para poder ingresar y revisar el contenido. 
 Criterios de Aceptación:
 3° Como usuario de la Red Social Kambalache quiero poder PUBLICAR un post, para dar a conocer lo que deseo trocar.
 Criterios de Aceptación:
-4° Como usuario de la Red Social Kambalache quiero poder EDITAR una publicación, para poder corregir errores o modificar la información indicada en ella.
+4° Como usuario de la Red Social Kambalache quiero poder EDITAR una publicación propia, para poder corregir errores o modificar la información indicada en ella.
 Criterios de Aceptación:
 5° Como usuario de la Red Social Kambalache quiero poder BORRAR una publicación, para poder eliminar el contenido que no deseo que se vea.
 Criterios de Aceptación:
@@ -53,7 +58,9 @@ La Definición de Terminado de todas las historias sigue una estructura común, 
 - Es una SPA.
 - Es responsive.
 - Ha recibido code review de al menos una compañera de otro equipo.
-- Ha aprobado los test unitarios con al menos un porcentaje de ___
+- Ha aprobado los test unitarios con al menos un porcentaje mínimo del 70% de statements, functions, lines, y branches.
+
+
 - Se ha testeado manualmente buscando errores e imperfecciones simples.
 - Se ha realizado a su respecto pruebas de usabilidad y se ha incorporado el feedback de los usuarios como mejoras.
 - Se ha desplegado la aplicación y se ha etiquetado la versión (git tag).
