@@ -43,6 +43,7 @@ export const login = () => {
   });
   containerLoginUser.querySelector(".login-google").addEventListener("click", () => {
     loginWithGoogle();
+    window.location.hash = "#/timeline";
   });
 
   return containerLoginUser;
