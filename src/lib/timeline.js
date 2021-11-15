@@ -1,9 +1,21 @@
 import { postear, leerData } from "../firebaseFile.js";
 
+
+
+export const showPost = (docData) => {
+  return `<section class="post-wall" id="post">
+  <div class="container-post">
+    <div class="header-post">${docData[0]}</div>
+    <div class="post-content"></div>
+    <div class="reference-link"></div>
+  </div>
+  </section>`;
+};
+
 export const timeline = () => {
   const containerTimeline = document.createElement("section");
   containerTimeline.className = "timeline-container";
-  const timelineHTML = `
+  let timelineHTML = `
     <header class="header-timeline">
     <h1>CODERS</h1>
   </header>
@@ -20,21 +32,21 @@ export const timeline = () => {
           <button class="post-button">Publicar</button>
         </div>
       </section>
-    </section>
-    <section class="post-wall" id="post">
-      <div class="container-post">
-        <div class="header-post"></div>
-        <div class="post-content"></div>
-        <div class="reference-link"></div>
-      </div>
-    </section>
-  </section>`;
+      </section>
+    </section>`
+
   containerTimeline.innerHTML = timelineHTML;
   const postButton = containerTimeline.querySelector(".post-button");
   postButton.addEventListener("click", () => {
     const title = containerTimeline.querySelector("#textarea-title").value;
     postear(title);
-    leerData();
+    const docData = leerData();
+    docData.forEach(post => {
+      console.log(post);
+    });
+    
+    console.log(timelineHTML += showPost(docData));
+
   });
 
   const postHere = containerTimeline.querySelector(".post-here-container");
@@ -46,7 +58,7 @@ export const timeline = () => {
   postHere.addEventListener("click", () => {
     postHere.classList.toggle("active");
     createPost.classList.toggle("active");
-    postWall.classList.toggle("active");
+    // postWall.classList.toggle("active");
     createPostContainer.classList.toggle("active");
     postHereButton.classList.toggle("active");
     if (postHereButton.classList.contains("active")) {

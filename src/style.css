@@ -108,7 +108,7 @@ input, button {
     background-image: url("/images/post-background.png");
 }
 .create-post{
-    display: none;
+    /* display: none; */
     clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
     height: 80%;
     line-height: 0;
