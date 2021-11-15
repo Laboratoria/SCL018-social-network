@@ -26,11 +26,12 @@ export const templateRegister = () => {
     </button>
     </main>
     `;
-  containerTemplateSignUp.innerHTML = login;
-  containerTemplateSignUp.querySelector('#register').addEventListener('click', () => {
+  return login;
+};
+
+export const clickRegister = () => {
+  document.querySelector('#register').addEventListener('click', () => {
     createUser();
     // console.log(containerTemplateSignUp);
   });
-//Al poner containerTemplateSignUp retorna solo código, pero con login retorna templey, pero no funcionar firebase.
-  return login;
 };
