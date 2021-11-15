@@ -34,7 +34,7 @@ export const landingPage = () => {
           placeholder="Ingresa tu contraseña"
           maxlength="30"
         />
-        <button class="login-btn" id="signup" type="submit">
+        <button class="login-btn" id="signUp" type="submit">
           Iniciar Sesión
         </button>
         <div class="hr-container">
@@ -61,9 +61,6 @@ export const landingPage = () => {
   </div> `;
 
   containerLanding.innerHTML = viewLanding;
-  // este appendchild no debe estar aca. unicamente en routes
-  // document.body.appendChild(containerLanding);
-
   containerLanding.querySelector(".login-btn").addEventListener("click", () => {
     userLogin();
   });
@@ -73,6 +70,8 @@ export const landingPage = () => {
   containerLanding.querySelector("#googleLogin").addEventListener("click", () => {
     loginWithGoogle();
   });
-
+  containerLanding.querySelector("#signUp").addEventListener("click", () => {
+    window.location.hash = "#/wall";
+  });
   return containerLanding;
 };
