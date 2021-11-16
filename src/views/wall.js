@@ -1,4 +1,5 @@
 import { postData } from "../firebase.js";
+import { displayFeed } from "./post-display.js";
 
 export const wall = () => {
   const feedContainer = document.createElement("section");
@@ -40,79 +41,8 @@ export const wall = () => {
         <button class="post-btn" id="postBtn" type="submit">Publicar</button>
       </div>
     </section>
-      <section class="post-container-user">
-        <div class="post-user">
-          <div class="profile-container">
-            <div class="pic-container">
-              <img class="pic-profile" src="resources/images/Vector-user.svg" alt="user" />
-            </div>
-            <h3 class="title-profile">Lady Gaga</h3>
-          </div>
-          <div class="textarea-container">
-            <textarea class="post-theme" id="postTheme" cols="10" rows="1">#lol #steam</textarea>
-            <textarea class="post-message" id="postMessage" cols="15" rows="5">¡Hola! Les comparto mi usuario en steam para que juguemos unas partidas de Lol. Mi usuario es: MotherMonster
-            </textarea>
-          </div>
-          <div class="icons-container">
-            <div class="like-container">
-              <img src="./resources/images/corazon.png" alt="like">
-            </div>
-            <div class="trash-container"> 
-              <img src="./resources/images/trash.png" alt="trash">
-            </div>
-            <div class="edit-container">
-              <img src="./resources/images/edit.png" alt="edit">
-            </div>
-        </div>
-        </div>
-        <div class="post-user">
-          <div class="profile-container">
-            <div class="pic-container">
-              <img class="pic-profile" src="resources/images/Vector-user.svg" alt="user" />
-            </div>
-            <h3 class="title-profile">Lady Gaga</h3>
-          </div>
-          <div class="textarea-container">
-            <textarea class="post-theme" id="postTheme" cols="10" rows="1">#lol #steam</textarea>
-            <textarea class="post-message" id="postMessage" cols="15" rows="5">¡Hola! Les comparto mi usuario en steam para que juguemos unas partidas de Lol. Mi usuario es: MotherMonster
-            </textarea>
-          </div>
-          <div class="icons-container">
-            <div class="like-container">
-              <img src="./resources/images/corazon.png" alt="like">
-            </div>
-            <div class="trash-container"> 
-              <img src="./resources/images/trash.png" alt="trash">
-            </div>
-            <div class="edit-container">
-              <img src="./resources/images/edit.png" alt="edit">
-            </div>
-        </div>
-        </div>
-        <div class="post-user">
-          <div class="profile-container">
-            <div class="pic-container">
-              <img class="pic-profile" src="resources/images/Vector-user.svg" alt="user" />
-            </div>
-            <h3 class="title-profile">Lady Gaga</h3>
-          </div>
-          <div class="textarea-container">
-            <textarea class="post-theme" id="postTheme" cols="10" rows="1">#lol #steam</textarea>
-            <textarea class="post-message" id="postMessage" cols="15" rows="5">¡Hola! Les comparto mi usuario en steam para que juguemos unas partidas de Lol. Mi usuario es: MotherMonster
-            </textarea>
-          </div>
-          <div class="icons-container">
-            <div class="like-container">
-              <img src="./resources/images/corazon.png" alt="like">
-            </div>
-            <div class="trash-container"> 
-              <img src="./resources/images/trash.png" alt="trash">
-            </div>
-            <div class="edit-container">
-              <img src="./resources/images/edit.png" alt="edit">
-            </div>
-        </div>
-        </div>
+      <section class="post-container-user" id="postSection">
+        
       </section>
       <footer class="footer-desktop">
         <p>©Copyright  Claudia Gómez - Susan Ortiz - Yésika Rodríguez</p>
@@ -132,7 +62,9 @@ export const wall = () => {
         target="_blank"><img src="resources/images/nintendo.png" alt="nintendo page" /></a>
     </div>
   </footer>`;
+
   feedContainer.innerHTML = feedView;
+  displayFeed();
 
   const post = feedContainer.querySelector("#postBtn");
   post.addEventListener("click", () => {
