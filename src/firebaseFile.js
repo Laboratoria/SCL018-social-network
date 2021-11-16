@@ -36,6 +36,8 @@ const db = getFirestore(app);
 console.log(app);
 const provider = new GoogleAuthProvider(app);
 
+
+
 export const signUp = (signUpEmail, signUpPassword) => {
     createUserWithEmailAndPassword(auth, signUpEmail, signUpPassword)
         .then((userCredential) => {
@@ -101,15 +103,17 @@ export const postear = async (title) => {
     console.log("Document written with ID: ", docRef.id);
     return docRef;
 }
-export const leerData = () => {
-    const posts = [];
+export function leerData(){
+    let posts = [];
     const q = query(collection(db, "publicaciones"), orderBy("datePost", "desc"));
     const realTimePost = onSnapshot(q, (querySnapshot) => {
-        // const posts = [];
+        posts = [];
         querySnapshot.forEach((doc) => {
-            posts.push(doc.data());
+            posts.push(doc.data().titulo);
         });
+        console.log(posts[0])
     });
-    return posts;
+    
+    return posts[0];
 }
 
