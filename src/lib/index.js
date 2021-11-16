@@ -1,10 +1,10 @@
 /* eslint-disable indent */
-import { login } from "./login.js";
-import { createUser } from "./createUser.js";
-import { timeline } from "./timeline.js";
+import { login } from './login.js';
+import { createUser } from './createUser.js';
+import { timeline } from './timeline.js';
 
 export const routes = (hash) => {
-  const mainContent = document.getElementById("root");
+  const mainContent = document.getElementById('root');
   mainContent.innerHTML = '';
   if (hash === '#/' || hash === '/' || hash === '#' || hash === '') {
     mainContent.appendChild(login());
