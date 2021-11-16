@@ -1,11 +1,11 @@
 /* eslint-disable no-multiple-empty-lines */
 /* eslint-disable indent */
 /* eslint-disable padded-blocks */
-import { loginWithEmail, loginWithGoogle } from "../firebaseFile.js";
+import { loginWithEmail, loginWithGoogle } from '../firebaseFile.js';
 
 export const login = () => {
-  const containerLoginUser = document.createElement("section");
-  containerLoginUser.className = "view-container";
+  const containerLoginUser = document.createElement('section');
+  containerLoginUser.className = 'view-container';
   const loginHTML = `
     <h1 class="coders-title">CODERS</h1>
     <section class="logo-container">
@@ -33,17 +33,17 @@ export const login = () => {
     <button class="view-button create-account-link">Crear cuenta</button>
     <button class="view-button login-google"><img class="google-logo" src="./images/google-logo.png"></img>Ingresar con Google</button>`;
   containerLoginUser.innerHTML = loginHTML;
-  containerLoginUser.querySelector(".login-btn").addEventListener("click", () => {
-    const loginEmail = document.getElementById("login-email").value;
-    const loginPassword = document.getElementById("login-password").value;
+  containerLoginUser.querySelector('.login-btn').addEventListener('click', () => {
+    const loginEmail = document.getElementById('login-email').value;
+    const loginPassword = document.getElementById('login-password').value;
     loginWithEmail(loginEmail, loginPassword);
   });
-  containerLoginUser.querySelector(".create-account-link").addEventListener("click", () => {
-    window.location.hash = "#/createUser";
+  containerLoginUser.querySelector('.create-account-link').addEventListener('click', () => {
+    window.location.hash = '#/createUser';
   });
-  containerLoginUser.querySelector(".login-google").addEventListener("click", () => {
+  containerLoginUser.querySelector('.login-google').addEventListener('click', () => {
     loginWithGoogle();
-    window.location.hash = "#/timeline";
+    window.location.hash = '#/timeline';
   });
 
   return containerLoginUser;

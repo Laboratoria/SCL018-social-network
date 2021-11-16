@@ -1,5 +1,4 @@
 import { addData } from '../firebaseFile.js';
-import { showPost } from './showPost.js';
 
 export const timeline = () => {
   const containerTimeline = document.createElement('section');
@@ -9,9 +8,6 @@ export const timeline = () => {
     <h1>CODERS</h1>
   </header>
   <section class="timeline">
-    <section class="post-here-container">
-      <button class="post-here-button">Publica aquí</button>
-    </section>
     <section class="create-post-container">
       <section class="create-post">
         <input type="text" id="textarea-title" placeholder="Título">
@@ -21,18 +17,18 @@ export const timeline = () => {
           <button class="post-button">Publicar</button>
         </div>
       </section>
-      <section class="post-wall" id="post">
-      </section>
     </section>
   </section>`;
 
   containerTimeline.innerHTML = timelineHTML;
-  showPost();
 
   const postButton = containerTimeline.querySelector('.post-button');
   postButton.addEventListener('click', () => {
     const title = containerTimeline.querySelector('#textarea-title').value;
-    addData(title);
+    const content = containerTimeline.querySelector('#textarea-description').value;
+    const link = containerTimeline.querySelector('#textarea-links').value;
+    addData(title, content, link);
+    window.location.hash = '#/postWall';
   });
 
   const postHere = containerTimeline.querySelector('.post-here-container');
@@ -41,16 +37,6 @@ export const timeline = () => {
   // const postWall = document.querySelector(".post-wall");
   const createPostContainer = containerTimeline.querySelector('.create-post-container');
 
-  postHere.addEventListener('click', () => {
-    postHere.classList.toggle('active');
-    createPost.classList.toggle('active');
-    // postWall.classList.toggle("active");
-    createPostContainer.classList.toggle('active');
-    postHereButton.classList.toggle('active');
-    if (postHereButton.classList.contains('active')) {
-      postHereButton.textContent = 'Cerrar';
-    } else { postHereButton.textContent = 'Publica aquí'; }
-  });
 
   return containerTimeline;
 };
