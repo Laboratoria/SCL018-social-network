@@ -8,9 +8,9 @@ export const createPost = (posts) => {
 
   const postContent = (element) => {
     const templatePost = `
-      <div class="header-post">${element}</div>
-      <div class="post-content"></div>
-      <div class="reference-link"></div>`;
+      <div class="header-post">${element.headerPost}</div>
+      <div class="post-content">${element.content}</div>
+      <div class="reference-link">${element.referenceLink}</div>`;
     containerPost.innerHTML += templatePost;
   };
   posts.forEach(postContent);

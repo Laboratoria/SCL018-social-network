@@ -15,7 +15,9 @@ import {
     signInWithRedirect,
     getRedirectResult
 } from 'https://www.gstatic.com/firebasejs/9.2.0/firebase-auth.js';
-import { getFirestore, collection, addDoc, onSnapshot, query, orderBy } from 'https://www.gstatic.com/firebasejs/9.2.0/firebase-firestore.js';
+import {
+ getFirestore, collection, addDoc, onSnapshot, query, orderBy
+} from 'https://www.gstatic.com/firebasejs/9.2.0/firebase-firestore.js';
 
 const firebaseConfig = {
     apiKey: 'AIzaSyAzfGqeX103yaOJ2nZuZuIu33UPNPPvwrA',
@@ -95,7 +97,7 @@ export const loginWithGoogle = () => {
 export const addData = async (title, description, link) => {
     const docRef = await addDoc(collection(db, 'publicaciones'), {
         headerPost: title,
-        postContent: description,
+        content: description,
         referenceLink: link,
         datePost: Date(Date.now()),
     });
@@ -107,10 +109,9 @@ export const readData = (callback, publicaciones) => {
     onSnapshot(q, (querySnapshot) => {
         const posts = [];
         querySnapshot.forEach((doc) => {
-            posts.push(doc.data().titulo);
+            posts.push(doc.data());
         });
         callback(posts);
-        console.log('titulo', posts.join(', '));
     });
 }
 

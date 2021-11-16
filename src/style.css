@@ -96,29 +96,31 @@ input, button {
     font-size: 25px;
 }
 .create-post-container{
-    display: none;
-    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     height: 100%;
     width: 100%;
 }
-.create-post-container.active {
+/* .create-post-container.active {
     display: flex;
     flex-direction: column;
     align-items: center;
     background-image: url("/images/post-background.png");
-}
+} */
 .create-post{
-    display: none;
-    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     height: 80%;
     line-height: 0;
-    position: relative;
-    top: -50px;
-    transition: clip-path .3s ease-out;
+    /* position: relative;
+    top: -50px; */
     width: 100%;
     z-index: 2;
 }
-.create-post.active {
+/* .create-post.active {
     display: flex;
     align-items: center;
     background-image: url("/images/post-background.png");
@@ -126,7 +128,7 @@ input, button {
     flex-direction: column;
     justify-content: center;
     height: 80%;
-}
+} */
 .post-button{
     align-self: flex-end;
     background-color: #292B36;
