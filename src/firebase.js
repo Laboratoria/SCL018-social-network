@@ -9,7 +9,7 @@ import {
   signInWithPopup,
 } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-auth.js";
 import {
-  getFirestore, collection, addDoc, getDocs,
+  getFirestore, collection, addDoc, query, onSnapshot, orderBy,
 } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-firestore.js";
 
 const firebaseConfig = {
@@ -24,7 +24,7 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
-console.log(app);
+// console.log(app);
 const provider = new GoogleAuthProvider(app);
 const db = getFirestore(app);
 
@@ -86,15 +86,28 @@ export const postData = async (postTheme, postMessage) => {
   const docRef = await addDoc(collection(db, "publicaciones"), {
     theme: postTheme,
     message: postMessage,
+    datePost: Date(Date.now()),
   });
   console.log("Document written with ID: ", docRef.id);
   return docRef;
 };
 
-export const readData = async () => {
-  const querySnapshot = await getDocs(collection(db, "publicaciones"));
-  querySnapshot.forEach((doc) => {
-    // doc.data() is never undefined for query doc snapshots
-    console.log(doc.id, " => ", doc.data());
+export const readData = (callback, publicaciones) => {
+  const q = query(collection(db, publicaciones), orderBy('datePost', 'desc'));
+  onSnapshot(q, (querySnapshot) => {
+    const posts = [];
+    querySnapshot.forEach((doc) => {
+      posts.push(doc.data());
+    });
+    callback(posts);
+    console.log('theme', 'message', posts.join(', '));
   });
 };
+
+// export const readData = async () => {
+//   const querySnapshot = await getDocs(collection(db, "publicaciones"));
+//   querySnapshot.forEach((doc) => {
+//     // doc.data() is never undefined for query doc snapshots
+//     console.log(doc.id, " => ", doc.data());
+//   });
+// };
