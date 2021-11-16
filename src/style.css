@@ -4,13 +4,28 @@ html{
 
 .grid-template {
     display:grid;
-    gap: 3em;
+    gap: 2em;
     justify-items: center;
     grid-template:
-    "email email email" 1 fr
-    "password password password" 1 fr
-    "click click click" 1 fr;
-    margin-top: 200px;
+    "email email email email" 1 fr
+    "password password password password" 1 fr
+    "click click click click" 1 fr;
+    margin-top: 130px;
+}
+
+#letter{
+    display: flex;
+    justify-content: center;
+}
+
+#unlock{
+    display: flex;
+    justify-content: center;
+}
+
+.icon{
+    height: 30px;
+    width: 30px;
 }
 
 input{
@@ -23,6 +38,11 @@ input{
     /*border: hidden hidden solid gray 3px hidden;*/
 }
 
+#google{
+    display: flex;
+    align-items: center;
+}
+
 button {
     background-color: #45d89d;
     border-radius: 8px;
@@ -31,8 +51,7 @@ button {
     filter: drop-shadow(3px 3px 3px rgb(96, 96, 96));
     min-width: 180px;
     min-height: 44px;
-    border:none;
-    
+    border:none;  
 }
 
 

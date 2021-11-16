@@ -7,8 +7,10 @@ import {
   signInWithPopup,
   signInWithEmailAndPassword,
 } from 'https://www.gstatic.com/firebasejs/9.3.0/firebase-auth.js';
+import { feedSpace } from '../templates/nav.js';
 // import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-analytics.js";
 // En este enlace hay más SDK: https://firebase.google.com/docs/web/setup#available-libraries
+// const container = document.getElementById('root');
 
 // Configuración firebase v7.20.0
 const firebaseConfig = {
@@ -39,18 +41,16 @@ export const createUser = () => {
       // Signed in
       const user = userCredential.user;
       // ...
-      return user;
     })
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
       // ..
       console.log('ya tenías tu cuenta registrada 😸');
-      return errorCode + errorMessage;
     });
 };
 // [END auth_signup_password_modular]
-
+const container = document.getElementById('root');
 // Ingreso autenticación google
 export const authGoogle = () => {
   signInWithPopup(auth, provider)
@@ -61,8 +61,8 @@ export const authGoogle = () => {
       // The signed-in user info.
       const user = result.user;
       // funcion a muro (then)
-
       // ...
+      container.innerHTML = feedSpace();
     }).catch((error) => {
       // Handle Errors here.
       const errorCode = error.code;
@@ -84,6 +84,8 @@ export const signed = () => {
       const user = userCredential.user;
       // ...
       // redireccionar al muro
+      // container.innerHTML = ' ';
+      // container.innerHTML = feedSpace();
     })
     .catch((error) => {
       const errorCode = error.code;

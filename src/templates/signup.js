@@ -1,8 +1,6 @@
 import { authGoogle, createUser, signed } from '../firebase/firebase.js';
-import { feedSpace } from './nav.js';
 // aqui exportaras las funciones que necesites
 
-// const printLogin = document.getElementById('root');
 
 export const templateRegister = () => {
   const containerTemplateSignUp = document.createElement('section');
@@ -10,18 +8,23 @@ export const templateRegister = () => {
   // aqui tu codigo
   const login = `
     <main class= "grid-template" >
+    <div id="letter">
     <input type="mail" 
     placeholder="Ingresa tu Correo"
     id="emailUp" />
-    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6zm-2 0l-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z"/></svg>
+    <img src="https://img.icons8.com/ios/50/000000/love-letter.png" class="icon"/>
+    </div>
+    <div id="unlock">
     <input type="password"
     placeholder="Ingresa tu contraseña " 
     id="passwordUp"/>
+    <img src="https://img.icons8.com/ios-filled/50/000000/unlock--v2.png"/ class="icon">
+    </div>
     <button id="enter">
     INGRESAR
     </button>
     <button id= "google">
-    Continuar con google
+    <img src="https://img.icons8.com/color/48/000000/chrome--v3.png" class="icon"/> Continuar con google
     </button>
     <button id="register">
     Crear Cuenta
@@ -47,10 +50,14 @@ export const clickGoogle = () => {
   });
 };
 
+//if para condicional
+
 export const clickSignin = () => {
   document.querySelector('#enter').addEventListener('click', () => {
     console.log('ingresaste a tú cuenta creada');
+    // if para condicional de ingreso, para llamar signed cuando este lleno y cuando no se quede.
     signed();
+    // container.innerHTML = feedSpace();
     // console.log(containerTemplateSignUp);
   });
 };
