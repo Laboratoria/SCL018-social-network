@@ -6,7 +6,7 @@
 /* eslint-disable no-multiple-empty-lines */
 /* eslint-disable indent */
 /* eslint-disable import/no-unresolved */
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-app.js";
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.2.0/firebase-app.js';
 import {
     getAuth,
     createUserWithEmailAndPassword,
@@ -14,18 +14,17 @@ import {
     GoogleAuthProvider,
     signInWithRedirect,
     getRedirectResult
-} from "https://www.gstatic.com/firebasejs/9.2.0/firebase-auth.js";
-import { getFirestore, collection, addDoc, onSnapshot, query, orderBy } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-firestore.js";
-import { showPost } from "./lib/showPost.js";
+} from 'https://www.gstatic.com/firebasejs/9.2.0/firebase-auth.js';
+import { getFirestore, collection, addDoc, onSnapshot, query, orderBy } from 'https://www.gstatic.com/firebasejs/9.2.0/firebase-firestore.js';
 
 const firebaseConfig = {
-    apiKey: "AIzaSyAzfGqeX103yaOJ2nZuZuIu33UPNPPvwrA",
-    authDomain: "red-social-coders-scl018.firebaseapp.com",
-    projectId: "red-social-coders-scl018",
-    storageBucket: "red-social-coders-scl018.appspot.com",
-    messagingSenderId: "520088243760",
-    appId: "1:520088243760:web:5ac140eb0cdbe2b21e67f5",
-    measurementId: "G-9WBF6DXL6X",
+    apiKey: 'AIzaSyAzfGqeX103yaOJ2nZuZuIu33UPNPPvwrA',
+    authDomain: 'red-social-coders-scl018.firebaseapp.com',
+    projectId: 'red-social-coders-scl018',
+    storageBucket: 'red-social-coders-scl018.appspot.com',
+    messagingSenderId: '520088243760',
+    appId: '1:520088243760:web:5ac140eb0cdbe2b21e67f5',
+    measurementId: 'G-9WBF6DXL6X',
 };
 
 // Initialize Firebase
@@ -36,16 +35,14 @@ const db = getFirestore(app);
 console.log(app);
 const provider = new GoogleAuthProvider(app);
 
-
-
 export const signUp = (signUpEmail, signUpPassword) => {
     createUserWithEmailAndPassword(auth, signUpEmail, signUpPassword)
         .then((userCredential) => {
             // Signed in
-            window.location.hash = "#/timeline";
+            window.location.hash = '#/timeline';
             const user = userCredential.user;
             // ...
-            console.log("created");
+            console.log('created');
         })
         .catch((error) => {
             const errorCode = error.code;
@@ -59,10 +56,10 @@ export const loginWithEmail = (loginEmail, loginPassword) => {
     signInWithEmailAndPassword(auth, loginEmail, loginPassword)
         .then((userCredential) => {
             // Signed in
-            window.location.hash = "#/timeline";
+            window.location.hash = '#/timeline';
             const user = userCredential.user;
-            
-            console.log("logged in");
+
+            console.log('logged in');
         })
         .catch((error) => {
             const errorCode = error.code;
@@ -81,8 +78,8 @@ export const loginWithGoogle = () => {
 
             // The signed-in user info.
             const user = result.user;
-            window.location.hash = "#/timeline";
-            console.log("logged in with google");
+            window.location.hash = '#/timeline';
+            console.log('logged in with google');
         }).catch((error) => {
             // Handle Errors here.
             const errorCode = error.code;
@@ -95,25 +92,25 @@ export const loginWithGoogle = () => {
             console.log(errorMessage);
         });
 }
-export const postear = async (title) => {
-    const docRef = await addDoc(collection(db, "publicaciones"), {
-        titulo: title,
+export const addData = async (title, description, link) => {
+    const docRef = await addDoc(collection(db, 'publicaciones'), {
+        headerPost: title,
+        postContent: description,
+        referenceLink: link,
         datePost: Date(Date.now()),
     });
-    console.log("Document written with ID: ", docRef.id);
+    console.log('Document written with ID: ', docRef.id);
     return docRef;
 }
-export function leerData(){
-    let posts = [];
-    const q = query(collection(db, "publicaciones"), orderBy("datePost", "desc"));
-    const realTimePost = onSnapshot(q, (querySnapshot) => {
-        posts = [];
+export const readData = (callback, publicaciones) => {
+    const q = query(collection(db, publicaciones), orderBy('datePost', 'desc'));
+    onSnapshot(q, (querySnapshot) => {
+        const posts = [];
         querySnapshot.forEach((doc) => {
             posts.push(doc.data().titulo);
         });
-        console.log(posts[0])
+        callback(posts);
+        console.log('titulo', posts.join(', '));
     });
-    
-    return posts[0];
 }
 
