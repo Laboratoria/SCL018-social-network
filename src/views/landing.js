@@ -34,7 +34,7 @@ export const landingPage = () => {
           placeholder="Ingresa tu contraseña"
           maxlength="30"
         />
-        <button class="login-btn" id="signup" type="submit">
+        <button class="login-btn" id="signUp" type="submit">
           Iniciar Sesión
         </button>
         <div class="hr-container">
@@ -64,16 +64,14 @@ export const landingPage = () => {
   containerLanding.querySelector(".login-btn").addEventListener("click", () => {
     userLogin();
   });
-  containerLanding
-    .querySelector(".register-btn")
-    .addEventListener("click", () => {
-      window.location.hash = "#/register";
-    });
-  containerLanding
-    .querySelector("#googleLogin")
-    .addEventListener("click", () => {
-      loginWithGoogle();
-    });
-
+  containerLanding.querySelector(".register-btn").addEventListener("click", () => {
+    window.location.hash = "#/register";
+  });
+  containerLanding.querySelector("#googleLogin").addEventListener("click", () => {
+    loginWithGoogle();
+  });
+  containerLanding.querySelector("#signUp").addEventListener("click", () => {
+    window.location.hash = "#/wall";
+  });
   return containerLanding;
 };

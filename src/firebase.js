@@ -2,12 +2,21 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-app.js";
 import {
   getAuth,
+  onAuthStateChanged,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   GoogleAuthProvider,
   getRedirectResult,
   signInWithPopup,
 } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-auth.js";
+import {
+  getFirestore,
+  collection,
+  addDoc,
+  query,
+  onSnapshot,
+  orderBy,
+} from "https://www.gstatic.com/firebasejs/9.2.0/firebase-firestore.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAUzfV8SD5NXc-_42hUIkpmmrO-NugQnLs",
@@ -18,29 +27,34 @@ const firebaseConfig = {
   appId: "1:59327930943:web:7ddf2c82611ea43950ce8a",
   measurementId: "G-MC38L54242",
 };
-
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
-console.log(app);
 const provider = new GoogleAuthProvider(app);
+const db = getFirestore(app);
 
 export const signUp = () => {
   const signUpEmail = document.getElementById("emailSignUp").value;
   const signUpPassword = document.getElementById("passwordSignUp").value;
-  createUserWithEmailAndPassword(auth, signUpEmail, signUpPassword)
-    .then((userCredential) => {
-      // Signed in
-      const user = userCredential.user;
-      // ...
-      return user;
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      // ..
-      return errorCode + errorMessage;
-    });
+  //nombre de usuario
+  if (signUpPassword.length < 6) {
+    alert("contraseña debe ser mayor a 6 digitos");
+  } else {
+    createUserWithEmailAndPassword(auth, signUpEmail, signUpPassword)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        const mail = user.mail;
+        console.log(userCredential);
+        console.log("usuario creado");
+        return user;
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // console.log("Usuario ya existe");
+        return errorCode + errorMessage;
+      });
+  }
 };
 
 export const userLogin = () => {
@@ -50,6 +64,9 @@ export const userLogin = () => {
   signInWithEmailAndPassword(auth, loginEmail, loginPassword)
     .then((userCredential) => {
       const user = userCredential.user;
+      // const mail = userCredential.user.mail;
+      console.log(user);
+      console.log(userCredential);
       return user;
     })
     .catch((error) => {
@@ -68,7 +85,8 @@ export const loginWithGoogle = () => {
       const token = credential.accessToken;
       // The signed-in user info.
       const user = result.user;
-      return user + "logged in with google" + token;
+      console.log("usuario creado con google");
+      return `${user} + logged in with google + ${token}`;
     })
     .catch((error) => {
       // Handle Errors here.
@@ -78,6 +96,57 @@ export const loginWithGoogle = () => {
       const email = error.email;
       // The AuthCredential type that was used.
       const credential = GoogleAuthProvider.credentialFromError(error);
-      return errorMessage + email + credential;
+      console.log("usuario no creado");
+      return errorMessage + errorCode + email + credential;
     });
 };
+
+export const postData = async (postTheme, postMessage) => {
+  const docRef = await addDoc(collection(db, "publicaciones"), {
+    // usermail: mail,
+    theme: postTheme,
+    message: postMessage,
+    datePost: Date(Date.now()),
+  });
+  console.log("Document written with ID: ", docRef.id);
+  return docRef;
+};
+
+export const readData = (callback, publicaciones) => {
+  const q = query(collection(db, publicaciones), orderBy("datePost", "desc"));
+  onSnapshot(q, (querySnapshot) => {
+    const posts = [];
+    querySnapshot.forEach((doc) => {
+      posts.push(doc.data());
+    });
+    callback(posts);
+    // console.log("theme", "message", posts.join(", "));
+  });
+};
+
+// export const readData = async () => {
+//   const querySnapshot = await getDocs(collection(db, "publicaciones"));
+//   querySnapshot.forEach((doc) => {
+//     // doc.data() is never undefined for query doc snapshots
+//     console.log(doc.id, " => ", doc.data());
+//   });
+// };
+
+// export const getUser = () => {
+//   const user = auth.currentUser;
+//   if (user !== null) {
+//     // The user object has basic properties such as display name, email, etc.
+//     const displayName = user.displayName;
+//     const email = user.email;
+//     const photoURL = user.photoURL;
+//     const emailVerified = user.emailVerified;
+//     // The user's ID, unique to the Firebase project. Do NOT use
+//     // this value to authenticate with your backend server, if
+//     // you have one. Use User.getToken() instead.
+//     const uid = user.uid;
+//     return user;
+//   } else {
+//     console.log("usuario no existe");
+//   }
+// };
+// getUser();
