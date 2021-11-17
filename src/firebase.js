@@ -9,7 +9,10 @@ import {
   signInWithPopup,
 } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-auth.js";
 import {
-  getFirestore, collection, addDoc, getDocs,
+  getFirestore,
+  collection,
+  addDoc,
+  getDocs,
 } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-firestore.js";
 
 const firebaseConfig = {
