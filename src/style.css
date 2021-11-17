@@ -8,35 +8,29 @@
     margin: 0;
     padding: 0;
 }
-
 body {
     background-color: #292B36;
     height: 100vh;
 }
-
 .logo-container{
     display: flex;
     justify-content: center;
     margin: 2% 0% 5% 0%;
     width: 100%;
 }
-
 .logo-coders{
     height: 4em;
     width: 4em;
 }
-
 input, button {
     border: none;
     margin: 2%;
     text-align: center;
 }
-
 .input-box{
     padding: 2%;
     width: 15em;
 }
-
 .view-button{
     display: flex;
     align-items: center;
@@ -45,15 +39,12 @@ input, button {
     padding: 2%;
     width: 15em;
 }
-
 .login-btn, .view-button{
     background-color:#FAC710;
 }
-
 .create-account-link{
     margin-top: 7%;
 }
-
 .view-container{
     display: flex;
     align-items: center;
@@ -62,19 +53,16 @@ input, button {
     justify-content: center;
     width: 100%;
 }
-
 .coders-title{
     color: #FAC710; 
     font-family: titan one;
     font-size: 3rem;
     letter-spacing: 1.5px;
 }
-
 .google-logo{
     align-self: center;
     margin-right: 7%;
 }
-
 .timeline {
     display: flex;
     align-items: center;
@@ -82,52 +70,52 @@ input, button {
     flex-direction: column;
     height: 92vh;
 }
+.header-postwall {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background-color: #292B36;
+    height: 10vh;
+    justify-content: center;
+    width: 100%;
+}
 .header-timeline {
     display: flex;
     align-items: center;
     background-color: #292B36;
-    height: 50%;
+    height: 10vh;
     justify-content: center;
     width: 100%;
 }
+.header-postwall h1{
+    color: #FAC710;
+    font-family: titan one;
+    font-size: 30px;
+
+}
+
 .header-timeline h1{
     color: #FAC710;
     font-family: titan one;
-    font-size: 25px;
+    font-size: 30px;
 }
+    
 .create-post-container{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100%;
+    height: 90vh;
     width: 100%;
 }
-/* .create-post-container.active {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-image: url("/images/post-background.png");
-} */
 .create-post{
     display: flex;
     flex-direction: column;
     align-items: center;
     height: 80%;
     line-height: 0;
-    /* position: relative;
-    top: -50px; */
     width: 100%;
 }
-/* .create-post.active {
-    display: flex;
-    align-items: center;
-    background-image: url("/images/post-background.png");
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-    flex-direction: column;
-    justify-content: center;
-    height: 80%;
-} */
 .post-button{
     align-self: flex-end;
     background-color: #292B36;
@@ -138,6 +126,13 @@ input, button {
     outline: none;
     padding: 2% 0% 2% 0%; 
     width: 40%;
+}
+.close-btn{
+    background-color: #FAC710;
+    width: 40%;
+    color: #292B36;
+    padding: 2% 0% 2% 0%;
+    font-weight: bold; 
 }
 .create-post textarea{
     border: none;
@@ -165,6 +160,7 @@ input, button {
     flex-direction: column;
     background-image: url("/images/post-background.png");
     height: 85vh;
+    overflow-y: scroll;
     width: 100%;
 }
 
@@ -212,8 +208,9 @@ input, button {
     align-items: center;
     flex-direction: column;
     background-color: #FAC710;
-    height: 40%;
-    width: 100%;
+    height: 30%;
+    margin-top: 5%;
+    width: 50%;
 }
 .post-here-button {
     background-color: #FAC710;
@@ -221,18 +218,29 @@ input, button {
     font-weight: bold;
     height: 100%;
     text-align: center; 
-    width: 40%;
+    width: 60%;
 }
 .main-container {
     height: 100vh;
 }
 .container-logout {
-    height: 15vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url("/images/post-background.png");
+    color: none;
+    height: 20vh;
+}
+.logout-btn {
+    position: absolute;
+    top: 15%;
+    right: 5%;
+    background: none;
 }
 .post-here-container .post-here-button{
     cursor: pointer;
     transition: all .2s ease;
-    width: 40%;  
+    width: 50%;  
 }
 .post-here-container {
     display: flex;

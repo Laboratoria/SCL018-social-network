@@ -12,7 +12,7 @@ import {
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
     GoogleAuthProvider,
-    signInWithRedirect,
+    signInWithPopup,
     getRedirectResult,
     onAuthStateChanged,
     signOut
@@ -73,8 +73,7 @@ export const loginWithEmail = (loginEmail, loginPassword) => {
 }
 
 export const loginWithGoogle = () => {
-    signInWithRedirect(auth, provider);
-    getRedirectResult(auth)
+    signInWithPopup(auth, provider)
         .then((result) => {
             // This gives you a Google Access Token. You can use it to access Google APIs.
             const credential = GoogleAuthProvider.credentialFromResult(result);
@@ -103,6 +102,7 @@ export const signOutUser = () => {
         // Sign-out successful.
         }).catch((error) => {
         // An error happened.
+        console.log(error);
         });
 }
 export const authState = () => {
@@ -114,9 +114,10 @@ export const authState = () => {
           // ...
         } else {
           // User is signed out
-          // ...
-        window.location.hash = '#/login'
-        }
+        if (window.location.hash !== '#/createUser') {
+            signOutUser();
+        } else { console.log('Bueno ya, entra') }
+        };
     });
 }
 export const addData = async (title, description, link) => {

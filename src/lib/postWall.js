@@ -10,9 +10,9 @@ export const postWall = () => {
   containerPostWall.className = 'post-wall';
   containerPostWall.id = 'post';
   const templateSignOut = `
-  <header class="header-timeline">
+  <header class="header-postwall">
   <h1>CODERS</h1>
-    <button class="logout-btn">Cerrar sesión</button>
+    <button class="logout-btn"><img class="logout-icon" src="./images/logOut-icon.png"></img></button>
   </header>
   <div class="post-here">
     <button class="post-here-button">Publicar aquí</button>
@@ -21,6 +21,10 @@ export const postWall = () => {
   containerLogout.innerHTML = templateSignOut;
   mainContainer.appendChild(containerLogout);
   mainContainer.appendChild(containerPostWall);
+  const postHereBtn = containerLogout.querySelector('.post-here-button');
+  postHereBtn.addEventListener('click', () => {
+    window.location.hash = '#/timeline';
+  });
   showPost();
   const logOut = containerLogout.querySelector('.logout-btn');
   logOut.addEventListener('click', () => {
