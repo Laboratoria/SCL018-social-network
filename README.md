@@ -1,507 +1,139 @@
-# Creando una Red Social
+# Red Social Kambalache
 
-## Índice
 
-* [1. Preámbulo](#1-preámbulo)
-* [2. Resumen del proyecto](#2-resumen-del-proyecto)
-* [3. Objetivos de aprendizaje](#3-objetivos-de-aprendizaje)
-* [4. Consideraciones generales](#4-consideraciones-generales)
-* [5. Criterios de aceptación mínimos del proyecto](#5-criterios-de-aceptación-mínimos-del-proyecto)
-* [6. Hacker edition](#6-hacker-edition)
-* [7. Entrega](#7-entrega)
-* [8. Pistas, tips y lecturas complementarias](#8-pistas-tips-y-lecturas-complementarias)
+1. INTRODUCCIÓN 
 
-## 1. Preámbulo
+El mundo actual plantea grandes desafíos relacionados con la sostenibilidad y la necesidad de hacer frente a las consecuencias de la sobreproducción de bienes generados por el ser humano. Una de las formas en que podemos contribuir a paliar esta problemática es replanteando nuestros patrones de consumo. Una de las metas señaladas dentro de los Objetivos de desarrollo sostenible establecidos por todos los Estados miembros de la ONU en 2015, es "de aquí a 2030, reducir considerablemente la generación de desechos mediante actividades de prevención, reducción, reciclado y reutilización" (ODS N° 12.5).
+Este es el contexto que ha motivado el desarrollo de nuestro proyecto, el cual consiste en la creación de una Red Social destinada a facilitar el intercambio de bienes y servicios por parte de las personas usuarias, en la modalidad de trueque. De esta forma buscamos incentivar la extensión de la vida útil de los elementos físicos así como la oferta de prestaciones inmateriales como una forma de abrir nuevos espacios de intercambio comercial para individuos que desean prescindir del dinero en sus transacciones. 
+El nombre Kambalache proviene de un antiguo término popular chileno para referirse al trueque y fue elegido por su sonoridad lúdica e informal, aspectos que deseamos plasmar en nuestro proyecto. 
 
-Instagram, Snapchat, Twitter, Facebook, Twitch, Linkedin, etc. Las redes
-sociales han invadido nuestras vidas. Las amamos u odiamos, y muchos no podemos
-vivir sin ellas.
 
-Hay redes sociales de todo tipo y para todo tipo de intereses. Por ejemplo,
-en una ronda de financiamiento con inversionistas, se presentó una red social
-para químicos en la que los usuarios podían publicar artículos sobre sus
-investigaciones, comentar en los artículos de sus colegas, y filtrar artículos
-de acuerdo a determinadas etiquetas o su popularidad, lo más reciente, o lo
-más comentado.
+2. INVESTIGACIÓN UX
 
-## 2. Resumen del proyecto
+Para indagar sobre las personas usuarias de nuestro producto, utilizamos dos instancias. La primera fue de índole más general y se trató de una encuesta. La segunda estaba destinada a precisar información obtenida en la primera instancia, y se trató de entrevistas a miembros potenciales de nuestra red social
 
-En este proyecto construirás una Red Social sobre lo que decidan tú y tu equipo.
-Podría ser, por ejemplo, sobre alimentación saludable, feminismo, educación,
-salud, energías renovables, amantes de las [Empanadas](https://es.wikipedia.org/wiki/Empanada)
-o de los [Tacos de Canasta](https://es.wikipedia.org/wiki/Taco), de la
-[Feijoada](https://es.wikipedia.org/wiki/Feijoada), o de lo que sea.
+2.1. ENCUESTA:
 
-Tu Red Social tendrá que permitir a cualquier usuario crear una cuenta de
-acceso y loguearse con ella; crear, editar, borrar y _"likear"_ publicacciones.
+Este instrumento se elaboró utilizando la herramienta Google Forms, y fue enviada a un espectro diverso de individuos, tanto en edad como en género. Gracias a ella pudimos determinar que:
+a) La mayoría de nuestro público potencial tiene entre 20 y 40 años (70%).
+b) El 53.3% de las personas encuestadas declara que el principal atributo de su red social favorita es el hecho de que les permite leer contenido interesante. Otro sector, que abarca un 20%, indica que su principal característica es la facilidad en el uso. 
+c) Las principales razones por las cuales las personas encuestadas usan redes sociales son la entretención o distracción, la necesidad de informarse sobre la contingencia y el aprendizaje de cosas nuevas. 
+d) El 100% del universo encuestado conoce lo que es el trueque y de ellos, más de la mitad lo ha practicado al menos un par de veces en su vida (56.7%).
+e) Las principales razones para trocar de los sujetos encuestados son darle una segunda oportunidad a cosas en desuso y también adquirir cosas que desean o necesitan pero que no pueden comprar por el momento. 
+f) El 100% de las personas encuestadas declara que utilizaría una app que le permitiera concretar trueques.
 
-El objetivo principal de aprendizaje de este proyecto es construir una
-[Single-page Application (SPA)](https://es.wikipedia.org/wiki/Single-page_application)
-[_responsive_](https://curriculum.laboratoria.la/es/topics/css/02-responsive) (con más de una vista / página)
-en la que podamos **leer y escribir datos**.
+2.2. ENTREVISTAS:
 
-## 3. Objetivos de aprendizaje
+Se eligió a 3 personas que estuvieran dentro del rango etario de nuestro público para aplicarles una batería de preguntas. Se trató de dos mujeres, de 38 y 32 años respectivamente. Se procuró elegir individios de diferente sexo y edades. Se les preguntó lo siguiente:
 
-Reflexiona y luego marca los objetivos que has llegado a entender y aplicar en tu proyecto. Piensa en eso al decidir tu estrategia de trabajo.
+a) Si en una  red social de trueque encontraras cosas o servicios de tu interés, ¿con cuánta frecuencia te gustaría concretar trueques: 1 vez por trimestre/1 vez por mes/1 vez a la semana?
+b) ¿Qué cualidades principales debería tener esa red social, a tu juicio? (nombra 3)
+c) ¿Qué acciones te gustaría poder realizar en dicha red social? (nombra 3)
+d) ¿Hasta qué punto son importantes para ti los acuerdos de convivencia establecidos en dicha red social?
+e) ¿Qué aspectos te gustaría que abordaran dichos acuerdos de convivencia?
+f) ¿Sería requisito indispensable para ti que esa red verificara la identidad de sus usuarios? ¿Cómo imaginas que debería ser ese proceso?
+g) Al momento de concretar un trueque, ¿por qué medio te gustaría coordinar el encuentro? (Mensaje interno, whatsapp, correo electrónico, llamada telefónica)
+h) ¿Qué colores asocias a dicha red social? (Pasteles, cálidos, fríos)
 
-### HTML
 
-- [ ] **Uso de HTML semántico**
+2.3. PERFILAMIENTO DE USUARIOS:
 
-  <details><summary>Links</summary><p>
+A raíz de las indagaciones implementadas, concluimos que nuestros usuarios son hombres y mujeres de entre 20 y 40 años. Se trata de personas informadas y conscientes de los desafíos medioambientales que enfrenta nuestro planeta. Además, valoran de forma especial la idea de extender la vida útil de las cosas en desuso, mediante su intercambio.
 
-  * [HTML semántico](https://curriculum.laboratoria.la/es/topics/html/02-html5/02-semantic-html)
-  * [Semantics - MDN Web Docs Glossary](https://developer.mozilla.org/en-US/docs/Glossary/Semantics#Semantics_in_HTML)
-</p></details>
 
-### CSS
 
-- [ ] **Uso de selectores de CSS**
+3. DISEÑO UX 
 
-  <details><summary>Links</summary><p>
+3.1 Prototipo de baja fidelidad.
 
-  * [Intro a CSS](https://curriculum.laboratoria.la/es/topics/css/01-css/01-intro-css)
-  * [CSS Selectors - MDN](https://developer.mozilla.org/es/docs/Web/CSS/CSS_Selectors)
-</p></details>
+Esbozamos distintas interfaces de manera análoga, intentando trazar el camino lógico que realizaría una persona al momento de navegar por nuestra red social. Luego sometimos dichos bocetos al feedback de dos coaches por separado, quienes nos dieron consejos para simplificar las acciones de los usuarios, lo cual nos permitió eliminar algunos pasos innecesarios. 
 
-- [ ] **Modelo de caja (box model): borde, margen, padding**
+Teníamos en particular un problema a resolver relacionado con los términos de nuestro servicio. Por la naturaleza de nuestra Red Social, era necesario plasmar algunas condiciones de uso destinadas a informar a los miembros sobre conductas aceptables y rechazadas al momento de realizar intercambios de bienes y servicios. Decidimos llamarlas "Acuerdos de convivencia", debido al espíritu comunitario y colaborativo de nuestro producto. Inicialmente, pensamos desplegarlos en un modal que apareciera antes de que el usuario pudiera ingresar sus datos para el registro, con una casilla de verificación destinada a que la persona marcara su opción de aceptación, como requisito indispensable para seguir avanzando. Pero luego pensamos que eso podía hacer engorroso para el usuario el proceso de incorporación, y eventualmente desincentivarlo. Luego decidimos revisar distintas redes sociales para ver cómo resolvían esta problemática y comprendimos que incorporaban dichos términos y condiciones como un link en la parte inferior de la página al momento de realizar el registro, con una declaración que indicaba su aceptación implícita por parte del usuario al momento de registrarse. Ese link conduce a otro html, de forma tal que se evita saturar la misma página con demasiada información. Así que optamos por seguir este camino.
+Se hace presente que dichos Acuerdos de Convivencia también son accesibles desde el perfil de cada usuario, en caso de que desee revisarlos en cualquier momento. 
 
-  <details><summary>Links</summary><p>
+(pd: preguntar por consideración de responsabilidad y ver posibilidad de dedicar a los Acuerdos de Convivencia un capítulo aparte)
 
-  * [Box Model & Display](https://curriculum.laboratoria.la/es/topics/css/01-css/02-boxmodel-and-display)
-  * [The box model - MDN](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/The_box_model)
-  * [Introduction to the CSS box model - MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model)
-  * [CSS display - MDN](https://developer.mozilla.org/pt-BR/docs/Web/CSS/display)
-  * [display - CSS Tricks](https://css-tricks.com/almanac/properties/d/display/)
-</p></details>
 
-- [ ] **Uso de flexbox en CSS**
+3.2 Prototipo de baja fidelidad.
 
-  <details><summary>Links</summary><p>
+Al decidir emplear el término "kambalache" nos remontamos al pasado para hacer uso de una palabra popular antigua, por lo que nuestra primera inspiración fueron letreros vintage al estilo de los carteles de pulperías. Nos enfocamos en particular en un letrero que tenía tonalidades llamativas y de ahí obtuvimos nuestra paleta de colores. Luego de indagar en el aspecto visual de diversas redes sociales, definimos el uso que le daríamos a dicha paleta, reservando los tonos más claros para la interfaz general y los más intensos para el texto y pequeños "pops" de color.
+En cuanto a la tipografía, quisimos enfatizar la idea de darle un nuevo uso a lo viejo, y dimos a la palabra kambalache un aspecto moderno en lo visual, por lo que elegimos una tipografía sin serifas, de líneas limpias y fácil lectura a primera impresión. Paralelamente, la tipografía elegida tiene un aspecto desgastado, por lo que a nuestro juicio se equilibran adecuadamente la idea de lo antiguo y lo nuevo. 
+Sometimos estos aspectos al feedback de un grupo de compañeras, quienes nos indicaron que preferían que las letras tuvieran el color verde de nuestra paleta, pues eso evocaba la idea de reciclaje y sustentabilidad, que eran conceptos que ellas asociaban a la práctica del trueque, sugerencias que fueron incorporadas. 
+De esta manera, el logo de nuestra red social es la misma palabra kambalache en letras verdes, y la versión desktop va acompañada de una ilustración minimalista de dos personas realizando un intercambio de cosas, en los mismos tonos de nuestra paleta de colores. Respecto de este último punto, revisamos versiones desktop de diversas aplicaciones para comprender la lógica del uso del espacio que tienen y en función de eso definimos nuestra versión para computadores. 
+En general, durante el proceso de diseño de los prototipos, quisimos apelar al minimalismo y mantener un fondo claro, de modo que el contenido sea amigable a la vista del usuario. 
 
-  * [A Complete Guide to Flexbox - CSS Tricks](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
-  * [Flexbox Froggy](https://flexboxfroggy.com/#es)
-  * [Flexbox - MDN](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox)
-</p></details>
 
-- [ ] **Uso de CSS Grid Layout**
+4. HISTORIAS DE USUARIO
 
-  <details><summary>Links</summary><p>
+En consideración a los requerimientos oficiales del proyecto, más la investigación UX realizada,  se han definido las siguientes historias de usuario:
 
-  * [A Complete Guide to Grid - CSS Tricks](https://css-tricks.com/snippets/css/complete-guide-grid/)
-  * [Grids - MDN](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Grids)
-</p></details>
+1° Como usuario de la Red Social Kambalache quiero poder CREAR una cuenta en dicha red, para poder ser parte de ella. 
 
-### Web APIs
+CRITERIOS DE ACEPTACIÓN
 
-- [ ] **Uso de selectores del DOM**
+- El usuario debe poder acceder a la página de bienvenida o login page
+- En la parte inferior hay un mensaje que indica que al registrarse el usuario acepta los acuerdos de convivencia, con un link a otra página donde es posible leerlos
+- El usuario debe poder ingresar su nombre, email y contraseña en 3 inputs para registrarse
+- El usuario debe poder apretar un botón para confirmar su solicitud
+- Solamente se permite un email válido y si no es así aparece un alert de advertencia
+- El usuario recibe un correo de confirmación con un link para activar su cuenta
+- El registro debe poder hacerse desde distintos dispositivos
 
-  <details><summary>Links</summary><p>
+2° Como usuario de la Red Social Kambalache quiero poder LOGUEARME en la cuenta creada, para poder ingresar y revisar el contenido. 
 
-  * [Manipulación del DOM](https://curriculum.laboratoria.la/es/topics/browser/02-dom/03-1-dom-methods-selection)
-  * [Introducción al DOM - MDN](https://developer.mozilla.org/es/docs/Web/API/Document_Object_Model/Introduction)
-  * [Localizando elementos DOM usando selectores - MDN](https://developer.mozilla.org/es/docs/Web/API/Document_object_model/Locating_DOM_elements_using_selectors)
-</p></details>
+CRITERIOS DE ACEPTACIÓN
 
-- [ ] **Manejo de eventos del DOM (listeners, propagación, delegación)**
+- El usuario debe poder ingresar sus datos en 3 inputs (nombre, email, contraseña)
+- El usuario debe poder apretar un botón que lo haga ingresar a su cuenta
+- Si ingresa datos errados, aparece un mensaje de error
+- Debe poder loguearse desde distintos dispositivos
 
-  <details><summary>Links</summary><p>
+3° Como usuario de la Red Social Kambalache quiero poder PUBLICAR un post, para dar a conocer lo que deseo trocar.
 
-  * [Introducción a eventos - MDN](https://developer.mozilla.org/es/docs/Learn/JavaScript/Building_blocks/Events)
-  * [EventTarget.addEventListener() - MDN](https://developer.mozilla.org/es/docs/Web/API/EventTarget/addEventListener)
-  * [EventTarget.removeEventListener() - MDN](https://developer.mozilla.org/es/docs/Web/API/EventTarget/removeEventListener)
-  * [El objeto Event](https://developer.mozilla.org/es/docs/Web/API/Event)
-</p></details>
+4° Como usuario de la Red Social Kambalache quiero poder EDITAR una publicación propia, para poder corregir errores o modificar la información indicada en ella.
 
-- [ ] **Manipulación dinámica del DOM**
+5° Como usuario de la Red Social Kambalache quiero poder BORRAR una publicación, para poder eliminar el contenido que no deseo que se vea.
 
-  <details><summary>Links</summary><p>
+6° Como usuario de la Red Social Kambalache quiero poder LIKEAR una publicación, para indicar mi preferencia por el contenido de un tercero. 
 
-  * [Introducción al DOM](https://developer.mozilla.org/es/docs/Web/API/Document_Object_Model/Introduction)
-  * [Node.appendChild() - MDN](https://developer.mozilla.org/es/docs/Web/API/Node/appendChild)
-  * [Document.createElement() - MDN](https://developer.mozilla.org/es/docs/Web/API/Document/createElement)
-  * [Document.createTextNode()](https://developer.mozilla.org/es/docs/Web/API/Document/createTextNode)
-  * [Element.innerHTML - MDN](https://developer.mozilla.org/es/docs/Web/API/Element/innerHTML)
-  * [Node.textContent - MDN](https://developer.mozilla.org/es/docs/Web/API/Node/textContent)
-</p></details>
 
-- [ ] **Ruteado (History API, evento hashchange, window.location)**
+La DEFINICIÓN DE TERMINADO de todas las historias sigue una estructura común, que es la siguiente:
 
-  <details><summary>Links</summary><p>
+- Es una SPA.
+- Es responsive.
+- Ha recibido code review de al menos una compañera de otro equipo.
+- Ha aprobado los test unitarios con al menos un porcentaje mínimo del 70% de statements, functions, lines, y branches.
+- Se ha testeado manualmente buscando errores e imperfecciones simples.
+- Se ha realizado a su respecto pruebas de usabilidad y se ha incorporado el feedback de los usuarios como mejoras.
+- Se ha desplegado la aplicación y se ha etiquetado la versión (git tag).
 
-  * [Manipulando el historial del navegador - MDN](https://developer.mozilla.org/es/docs/DOM/Manipulando_el_historial_del_navegador)
-</p></details>
 
-### JavaScript
+5. TESTEOS DE USABIILDAD
 
-- [ ] **Arrays (arreglos)**
 
-  <details><summary>Links</summary><p>
+6. ASPECTOS TÉCNICOS / FUNCIONALIDAD
 
-  * [Arreglos](https://curriculum.laboratoria.la/es/topics/javascript/04-arrays)
-  * [Array - MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/)
-  * [Array.prototype.sort() - MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)
-  * [Array.prototype.forEach() - MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)
-  * [Array.prototype.map() - MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/map)
-  * [Array.prototype.filter() - MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)
-  * [Array.prototype.reduce() - MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce)
-</p></details>
 
-- [ ] **Objetos (key, value)**
+7. PROYECCIONES
 
-  <details><summary>Links</summary><p>
+Si bien actualmente nuestros usuarios son adultos jóvenes para quienes es importante la sostenibilidad, estimamos que en un futuro esta red social podría extenderse a otros segmentos, pues el trueque como forma de intercambio abarca necesidades y aspiraciones que son transversales a los individuos, independientemente del segmento etario al que pertenezcan. 
 
-  * [Objetos en JavaScript](https://curriculum.laboratoria.la/es/topics/javascript/05-objects/01-objects)
-</p></details>
+En cuanto a los desafíos que visualizamos para Kambalache se encuentran algunas consideraciones de seguridad destinadas a hacer más confiables las interacciones de los usuarios, sabiendo que es este un campo donde nos encontraremos con las limitaciones propias de la naturaleza humana, pues es imposible supervisar absolutamente la conducta de cada individuo, especialmente fuera de la vida digital.
 
-- [ ] **Diferenciar entre tipos de datos primitivos y no primitivos**
+En primer lugar, podría ser necesario habilitar alguna especie de verificación de identidad, para volver más fiables los perfiles de los individuos que desean concretar intercambios, ya que en muchos casos esto implicará un encuentro en persona. Podría tratarse del ingreso de datos esenciales, como por ejemplo el número de la cédula de identidad, o bien la implementación de identificación mediante rasgos biométricos. Otra forma de propender a la seguridad sería habilitar una sección donde los usuarios puedan ser evaluados por miembros de la red social que han intercambiado bienes o servicios con ellos, como una forma de prevenir sobre casos de transacciones insuficientes o engañosas. Entonces, un sistema de puntuación podría ayudar a detectar más fácilmente a aquellos usuarios que tienen un comportamiento deficiente en sus intercambios.
 
-- [ ] **Variables (declaración, asignación, ámbito)**
+En segundo lugar, por razones de seguridad, esta no es una red pensada para usuarios menores de edad, por lo que la verificación de cédula de identidad indicada precedentemente podría ser una buena manera de evitar su incorporación.
 
-  <details><summary>Links</summary><p>
 
-  * [Valores, tipos de datos y operadores](https://curriculum.laboratoria.la/es/topics/javascript/01-basics/01-values-variables-and-types)
-  * [Variables](https://curriculum.laboratoria.la/es/topics/javascript/01-basics/02-variables)
-</p></details>
 
-- [ ] **Uso de condicionales (if-else, switch, operador ternario, lógica booleana)**
 
-  <details><summary>Links</summary><p>
 
-  * [Estructuras condicionales y repetitivas](https://curriculum.laboratoria.la/es/topics/javascript/02-flow-control/01-conditionals-and-loops)
-  * [Tomando decisiones en tu código — condicionales - MDN](https://developer.mozilla.org/es/docs/Learn/JavaScript/Building_blocks/conditionals)
-</p></details>
 
-- [ ] **Uso de bucles/ciclos (while, for, for..of)**
 
-  <details><summary>Links</summary><p>
 
-  * [Bucles (Loops)](https://curriculum.laboratoria.la/es/topics/javascript/02-flow-control/02-loops)
-  * [Bucles e iteración - MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Loops_and_iteration)
-</p></details>
 
-- [ ] **Funciones (params, args, return)**
 
-  <details><summary>Links</summary><p>
 
-  * [Funciones (control de flujo)](https://curriculum.laboratoria.la/es/topics/javascript/02-flow-control/03-functions)
-  * [Funciones clásicas](https://curriculum.laboratoria.la/es/topics/javascript/03-functions/01-classic)
-  * [Arrow Functions](https://curriculum.laboratoria.la/es/topics/javascript/03-functions/02-arrow)
-  * [Funciones — bloques de código reutilizables - MDN](https://developer.mozilla.org/es/docs/Learn/JavaScript/Building_blocks/Functions)
-</p></details>
 
-- [ ] **Pruebas unitarias (unit tests)**
 
-  <details><summary>Links</summary><p>
 
-  * [Empezando con Jest - Documentación oficial](https://jestjs.io/docs/es-ES/getting-started)
-</p></details>
-
-- [ ] **Pruebas asíncronas**
-
-  <details><summary>Links</summary><p>
-
-  * [Tests de código asincrónico con Jest - Documentación oficial](https://jestjs.io/docs/es-ES/asynchronous)
-</p></details>
-
-- [ ] **Uso de mocks y espías**
-
-  <details><summary>Links</summary><p>
-
-  * [Manual Mocks con Jest - Documentación oficial](https://jestjs.io/docs/es-ES/manual-mocks)
-</p></details>
-
-- [ ] **Módulos de ECMAScript (ES Modules)**
-
-  <details><summary>Links</summary><p>
-
-  * [import - MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Statements/import)
-  * [export - MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Statements/export)
-</p></details>
-
-- [ ] **Uso de linter (ESLINT)**
-
-- [ ] **Uso de identificadores descriptivos (Nomenclatura y Semántica)**
-
-- [ ] **Diferenciar entre expresiones (expressions) y sentencias (statements)**
-
-- [ ] **Callbacks**
-
-  <details><summary>Links</summary><p>
-
-  * [Función Callback - MDN](https://developer.mozilla.org/es/docs/Glossary/Callback_function)
-</p></details>
-
-- [ ] **Promesas**
-
-  <details><summary>Links</summary><p>
-
-  * [Promise - MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Promise)
-  * [How to Write a JavaScript Promise - freecodecamp (en inglés)](https://www.freecodecamp.org/news/how-to-write-a-javascript-promise-4ed8d44292b8/)
-</p></details>
-
-### Control de Versiones (Git y GitHub)
-
-- [ ] **Git: Instalación y configuración**
-
-- [ ] **Git: Control de versiones con git (init, clone, add, commit, status, push, pull, remote)**
-
-- [ ] **Git: Integración de cambios entre ramas (branch, checkout, fetch, merge, reset, rebase, tag)**
-
-- [ ] **GitHub: Creación de cuenta y repos, configuración de llaves SSH**
-
-- [ ] **GitHub: Despliegue con GitHub Pages**
-
-  <details><summary>Links</summary><p>
-
-  * [Sitio oficial de GitHub Pages](https://pages.github.com/)
-</p></details>
-
-- [ ] **GitHub: Colaboración en Github (branches | forks | pull requests | code review | tags)**
-
-- [ ] **GitHub: Organización en Github (projects | issues | labels | milestones | releases)**
-
-### UX (User eXperience)
-
-- [ ] **Diseñar la aplicación pensando en y entendiendo al usuario**
-
-- [ ] **Crear prototipos para obtener feedback e iterar**
-
-- [ ] **Aplicar los principios de diseño visual (contraste, alineación, jerarquía)**
-
-- [ ] **Planear y ejecutar tests de usabilidad**
-
-### Firebase
-
-- [ ] **Firebase Auth**
-
-  <details><summary>Links</summary><p>
-
-  * [Primeros pasos con Firebase Authentication en sitios web - Documentación oficial](https://firebase.google.com/docs/auth/web/start?hl=es)
-  * [Administra usuarios en Firebase (onAuthStateChanged)](https://firebase.google.com/docs/auth/web/manage-users?hl=es#get_the_currently_signed-in_user)
-</p></details>
-
-- [ ] **Firestore**
-
-  <details><summary>Links</summary><p>
-
-  * [Firestore - Documentación oficial](https://firebase.google.com/docs/firestore?hl=es)
-  * [Reglas de seguridad de Firestore - Documentación oficial](https://firebase.google.com/docs/rules?hl=es)
-  * [Obtén actualizaciones en tiempo real con Cloud Firestore - Documentación oficial](https://firebase.google.com/docs/firestore/query-data/listen?hl=es)
-</p></details>
-
-## 4. Consideraciones generales
-
-* Este proyecto se debe trabajar en equipos de tres.
-
-* La lógica del proyecto debe estar implementada completamente en JavaScript
-  (ES6+), HTML y CSS :smiley:. Para este proyecto **no está permitido** utilizar
-  _frameworks_ o librerías de CSS y JS.
-
-* La división y organización del trabajo debe permitir, sin excepciones, que
-  **cada integrante** del equipo practique el aprendizaje de todo lo involucrado
-  en **cada historia**. _No se dividan el trabajo como en una fábrica._
-  - ¿Hasta acá has avanzado en tus proyectos con cierta fluidez y sin mayores
-    problemas? Sé generosa con tus compañeras, permíteles aprender y practicar
-    sin restricciones, aunque tome un poco más de tiempo. Aproveha de
-    _coachearlas_, de hacer _pair programming_, una de las mejores maneras de
-    aprender es explicando verbalmente.
-
-  - ¿Se te está haciendo difícil y te cuesta un poco más avanzar? No te quedes
-    con las partes "fáciles" del proyecto, conversa, negocia, exige tu oportunidad
-    para practicar y aprender lo que se te hace más difícil.
-
-* Solamente pueden trabajar en una única historia por vez, no pueden avanzar a
-  la siguiente sin haber completado la anterior. La historia se completa cuando
-  se cumplen **todos** sus Criterios de Aceptación + **toda** su Definición
-  de Terminado.
-
-Para comenzar tendrás que hacer un _fork_ y _clonar_ este repositorio.
-
-## 5. Criterios de aceptación mínimos del proyecto
-
-### 5.1 Boilerplate
-
-Este proyecto no incluye un _boilerplate_, así es que tendrás que definir la
-estructura de carpetas y escribir tus propias Pruebas Unitarias (_tests_). Para
-hacerlo, puedes guiarte de los proyectos anteriores.
-
-### 5.2 Definición del producto
-
-En el `README.md` cuéntanos brevemente cómo descubriste las necesidades de los
-usuarios y cómo llegaste a la definición final de tu producto. Es importante
-que detalles:
-
-* Quiénes son los principales usuarios de producto.
-* Qué problema resuelve el producto / para qué le servirá a estos usuarios.
-
-### 5.3 Historias de usuario
-
-Una vez que entiendas las necesidades de tus usuarixs, escribe las Historias de
-Usuario que representen todo lo que necesitan hacer/ver en la Red Social. Cada
-una de tus Historias de Usuario debe tener:
-
-* **Criterios de Aceptación:** todo lo que debe ocurrir para satisfacer las
-  necesidades del usuario.
-
-* **Definición de terminado:** todos los aspectos técnicos que deben cumplirse
-  para que, como equipo, sepan que esa historia está terminada y lista
-  para publicarse. **Todas** tus Historias de Usuario (salvo excepciones), deben
-  incluir estos aspectos en su Definición de Terminado (más todo lo que
-  necesiten agregar):
-
-  - Debe ser una SPA.
-  - Debe ser _responsive_.
-  - Deben haber recibido _code review_ de al menos una compañera de otro equipo.
-  - Hicieron los _test_ unitarios
-  - Testearon manualmente buscando errores e imperfecciones simples.
-  - Hicieron _pruebas_ de usabilidad e incorporaron el _feedback_ de los
-    usuarios como mejoras.
-  - Desplegaron su aplicación y etiquetaron la versión (git tag).
-
-### 5.4 Diseño de la Interfaz de Usuario (prototipo de baja fidelidad)
-
-Debes definir cuál será el flujo que seguirá el usuario dentro de tu aplicación
-y, con eso, diseña la Interfaz de Usuario (UI por sus siglas en inglés) que
-siga este flujo.
-
-### 5.5 Responsive
-
-Debe verse bien en dispositivos de pantallas grandes
-(computadoras/es, laptops, etc.) y pequeñas (_tablets_, celulares, etc.). Te
-sugerimos seguir la técnica de _`mobile first`_ (más detalles sobre esta técnica
-al final).
-
-### 5.6 Consideraciones del comportamiento de la interfaz de usuario (UI)
-
-Estas consideraciones te ayudarán a escribir las Definiciones de Terminado de
-tus H.U.:
-
-#### Creación de cuenta de usuario e inicio de sesión
-
-* _Login_ con Firebase:
-  - Para el _login_ y las publicaciones en el muro puedes utilizar [Firebase](https://firebase.google.com/products/database/)
-  - Creación de cuenta de acceso y autenticación con cuenta de correo y
-    contraseña, y también con una cuenta de Google.
-* Validaciones:
-  - Solamente se permite el acceso a usuarios con cuentas válidas.
-  - No pueden haber usuarios repetidos.
-  - La cuenta de usuario debe ser un correo electrónico válido.
-  - Lo que se escriba en el campo (_input_) de contraseña debe ser secreto.
-* Comportamiento:
-  - Al enviarse el formulario de registro o inicio de sesión, debe validarse.
-  - Si hay errores, se deben mostrar mensajes descriptivos para ayudar al
-  usuario a corregirlos.
-
-#### Muro/timeline
-
-* Validaciones:
-  - Al publicar, se debe validar que exista contenido en el _input_.
-* Comportamiento:
-  - Al recargar la aplicación, se debe verificar si el usuario está _logueado_
-    antes de mostrar contenido.
-  - Poder publicar un _post_.
-  - Poder dar y quitar _like_ a una publicación. Máximo uno por usuario.
-  - Llevar un conteo de los _likes_.
-  - Poder eliminar un post específico.
-  - Pedir confirmación antes de eliminar un _post_.
-  - Al dar _click_ para editar un _post_, debe cambiar el texto por un _input_
-    que permita editar el texto y luego guardar los cambios.
-  - Al guardar los cambios debe cambiar de vuelta a un texto normal pero con la
-    información editada.
-  - Al recargar la página debo de poder ver los textos editados.
-
-### 5.7 Consideraciones técnicas Front-end
-
-* Separar la manipulación del DOM de la lógica (Separación de responsabilidades).
-* Contar con múltiples vistas. Para esto, tu aplicación debe ser una
- [Single Page Application (SPA)](https://es.wikipedia.org/wiki/Single-page_application)
-* Alterar y persistir datos. Los datos que agregues o modifiques deberán
-  persistir a lo largo de la aplicación. Te recomendamos que uses
-  [Firebase](https://firebase.google.com/) para eso también.
-
-#### Pruebas unitarias (unit tests)
-
-* Recuerda que no hay un _setup_ de **tests** definido, dependerá de
-  la estructura de tu proyecto. Algo que no debes de olvidar es pensar en éstas
-  pruebas, te pueden ayudar a definir la estructura y nomenclatura de tu lógica.
-
-* Los tests unitarios deben cubrir un mínimo del 70% de _statements_, _functions_,
-  _lines_, y _branches_.
-
-### 5.8 Consideraciones técnicas UX
-
-* Hacer al menos 2 entrevistas con usuarios.
-* Hacer un  prototipo de baja fidelidad.
-* Asegurarte de que la implementación en código siga los lineamientos del
-  diseño.
-* Hacer sesiones de _testing de usabilidad_ con el producto en HTML.
-
-## 6. Hacker edition
-
-Las secciones llamadas _Hacker Edition_ son **opcionales**. Si **terminaste**
-con todo lo anterior y te queda tiempo, intenta completarlas. Así podrás
-profundizar y/o ejercitar más sobre los objetivos de aprendizaje del proyecto.
-
-* Permite crear posts con imágenes.
-* Permite buscar usuarios, agregar y eliminar "amigos".
-* Permite definir la privacidad de los _posts_ (público o solamente para amigos).
-* Permite ver su muro de cualquier usuario "no-amigo" (solamente los
-  posts _públicos_).
-* Permite comentar o responder una publicación.
-* Permite editar perfil.
-
-## 7. Entrega
-
-El proyecto será _entregado_ subiendo tu código a GitHub (`commit`/`push`) y la
-interfaz será desplegada usando GitHub pages u otro servicio de hosting que
-puedas haber encontrado en el camino.
-
-***
-
-## 8. Pistas, tips y Lecturas complementarias
-
-### Mobile first
-
-El concepto de [_mobile first_](https://www.mediaclick.es/blog/diseno-web-responsive-design-y-la-importancia-del-mobile-first/)
-hace referencia a un proceso de diseño y desarrollo donde partimos de cómo se ve
-y cómo funciona la aplicación en un dispositivo móvil primero, y más adelante se
-ve como adaptar la aplicación a pantallas progresivamente grandes y
-características específicas del entorno desktop. Esto es en contraposición al
-modelo tradicional, donde primero se diseñaban los websites (o webapps) para
-desktop y después se trataba de _arrugar_ el diseño para que entre en pantallas
-más chicas. La clave acá es asegurarse de que desde el principio diseñan usando
-la vista _responsive_ de las herramientas de desarrollador (developer tools) del
-navegador. De esa forma, partimos de cómo se ve y comporta la aplicación en una
-pantalla y entorno móvil.
-
-### Múltiples vistas
-
-En proyectos anteriores nuestras aplicaciones habían estado compuestas de una
-sola _vista_ principal (una sóla _página_). En este proyecto se introduce la
-necesidad de tener que dividir nuestra interfaz en varias _vistas_ o _páginas_
-y ofrecer una manera de navegar entre estas vistas. Este problema se puede
-afrontar de muchas maneras: con archivos HTML independientes (cada uno con su
-URL) y links tradicionales, manteniendo estado en memoria y rederizando
-condicionalmente (sin refrescar la página), [manipulando el historial del
-navegador](https://developer.mozilla.org/es/docs/DOM/Manipulando_el_historial_del_navegador)
-con [`window.history`](https://developer.mozilla.org/es/docs/Web/API/Window/history).
-En este proyecto te invitamos a explorar opciones y decidir una opción
-de implementación.
-
-### Escritura de datos
-
-En los proyectos anteriores hemos consumido (leído) datos, pero todavía no
-habíamos escrito datos (salvar cambios, crear datos, borrar, ...). En este
-proyecto tendrás que crear (salvar) nuevos datos, así como leer, actualizar y
-modificar datos existentes. Estos datos se podrán guardar de forma remota
-usando [Firebase](https://firebase.google.com/).
-
-Otras:
-
-* [Modulos: Export](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Sentencias/export)
-* [Modulos: Import](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Sentencias/import)
-* [Diseño web, responsive design y la importancia del mobile first - Media Click](https://www.mediaclick.es/blog/diseno-web-responsive-design-y-la-importancia-del-mobile-first/)
-* [Mobile First: el enfoque actual del diseño web móvil - 1and1](https://www.1and1.es/digitalguide/paginas-web/diseno-web/mobile-first-la-nueva-tendencia-del-diseno-web/)
-* [Mobile First - desarrolloweb.com](https://desarrolloweb.com/articulos/mobile-first-responsive.html)
-* [Mobile First Is NOT Mobile Only - Nielsen Norman Group](https://www.nngroup.com/articles/mobile-first-not-mobile-only/)
