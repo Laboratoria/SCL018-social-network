@@ -13,7 +13,9 @@ import {
     signInWithEmailAndPassword,
     GoogleAuthProvider,
     signInWithRedirect,
-    getRedirectResult
+    getRedirectResult,
+    onAuthStateChanged,
+    signOut
 } from 'https://www.gstatic.com/firebasejs/9.2.0/firebase-auth.js';
 import {
  getFirestore, collection, addDoc, onSnapshot, query, orderBy
@@ -41,7 +43,7 @@ export const signUp = (signUpEmail, signUpPassword) => {
     createUserWithEmailAndPassword(auth, signUpEmail, signUpPassword)
         .then((userCredential) => {
             // Signed in
-            window.location.hash = '#/timeline';
+            window.location.hash = '#/postWall';
             const user = userCredential.user;
             // ...
             console.log('created');
@@ -58,7 +60,7 @@ export const loginWithEmail = (loginEmail, loginPassword) => {
     signInWithEmailAndPassword(auth, loginEmail, loginPassword)
         .then((userCredential) => {
             // Signed in
-            window.location.hash = '#/timeline';
+            window.location.hash = '#/postWall';
             const user = userCredential.user;
 
             console.log('logged in');
@@ -80,7 +82,7 @@ export const loginWithGoogle = () => {
 
             // The signed-in user info.
             const user = result.user;
-            window.location.hash = '#/timeline';
+            window.location.hash = '#/postWall';
             console.log('logged in with google');
         }).catch((error) => {
             // Handle Errors here.
@@ -93,6 +95,29 @@ export const loginWithGoogle = () => {
             // ...
             console.log(errorMessage);
         });
+}
+export const signOutUser = () => {
+    signOut(auth)
+        .then(() => {
+        window.location.hash = '#/login'
+        // Sign-out successful.
+        }).catch((error) => {
+        // An error happened.
+        });
+}
+export const authState = () => {
+    onAuthStateChanged(auth, (user) => {
+        if (user) {
+          // User is signed in, see docs for a list of available properties
+          // https://firebase.google.com/docs/reference/js/firebase.User
+        const uid = user.uid;
+          // ...
+        } else {
+          // User is signed out
+          // ...
+        window.location.hash = '#/login'
+        }
+    });
 }
 export const addData = async (title, description, link) => {
     const docRef = await addDoc(collection(db, 'publicaciones'), {

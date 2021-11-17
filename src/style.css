@@ -86,7 +86,7 @@ input, button {
     display: flex;
     align-items: center;
     background-color: #292B36;
-    height: 8vh;
+    height: 50%;
     justify-content: center;
     width: 100%;
 }
@@ -118,7 +118,6 @@ input, button {
     /* position: relative;
     top: -50px; */
     width: 100%;
-    z-index: 2;
 }
 /* .create-post.active {
     display: flex;
@@ -164,17 +163,16 @@ input, button {
     display: flex;
     align-items: center;
     flex-direction: column;
+    background-image: url("/images/post-background.png");
+    height: 85vh;
     width: 100%;
 }
-/* .post-wall.active{
-    display: none;
-} */
+
 .container-post{
     display: flex;
     align-items: center; 
     flex-direction: column;
     height: auto;
-    margin-top: 7%;
     width: 90%;
 }
 .header-post{
@@ -213,25 +211,28 @@ input, button {
     display: flex;
     align-items: center;
     flex-direction: column;
-    height: 10%;
+    background-color: #FAC710;
+    height: 40%;
     width: 100%;
-    z-index: 3;
 }
 .post-here-button {
     background-color: #FAC710;
     font-size: 16px;
     font-weight: bold;
     height: 100%;
-    margin: 0%;
     text-align: center; 
-    width:100%;
-    position: absolute;
+    width: 40%;
+}
+.main-container {
+    height: 100vh;
+}
+.container-logout {
+    height: 15vh;
 }
 .post-here-container .post-here-button{
     cursor: pointer;
     transition: all .2s ease;
-    width: 40%;
-    z-index: 4;  
+    width: 40%;  
 }
 .post-here-container {
     display: flex;

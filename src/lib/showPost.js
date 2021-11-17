@@ -3,18 +3,16 @@ import { readData } from '../firebaseFile.js';
 export const createPost = (posts) => {
   const containerPost = document.getElementById('post');
   containerPost.innerHTML = '';
-  const divPost = document.createElement('div');
-  divPost.className = 'container-post';
 
   const postContent = (element) => {
-    const templatePost = `
+    const templatePost = `<div class="container-post">
       <div class="header-post">${element.headerPost}</div>
       <div class="post-content">${element.content}</div>
-      <div class="reference-link">${element.referenceLink}</div>`;
+      <div class="reference-link">${element.referenceLink}</div>
+      </div>`;
     containerPost.innerHTML += templatePost;
   };
   posts.forEach(postContent);
-  containerPost.appendChild(divPost);
   return containerPost;
 };
 
