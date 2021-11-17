@@ -36,7 +36,7 @@ g) Al momento de concretar un trueque, ¿por qué medio te gustaría coordinar e
 h) ¿Qué colores asocias a dicha red social? (Pasteles, cálidos, fríos)
 
 
-3.3. PERFILAMIENTO DE USUARIOS:
+2.3. PERFILAMIENTO DE USUARIOS:
 
 A raíz de las indagaciones implementadas, concluimos que nuestros usuarios son hombres y mujeres de entre 20 y 40 años. Se trata de personas informadas y conscientes de los desafíos medioambientales que enfrenta nuestro planeta. Además, valoran de forma especial la idea de extender la vida útil de las cosas en desuso, mediante su intercambio.
 
@@ -62,7 +62,7 @@ De esta manera, el logo de nuestra red social es la misma palabra kambalache en 
 En general, durante el proceso de diseño de los prototipos, quisimos apelar al minimalismo y mantener un fondo claro, de modo que el contenido sea amigable a la vista del usuario. 
 
 
-3. HISTORIAS DE USUARIO
+4. HISTORIAS DE USUARIO
 
 En consideración a los requerimientos oficiales del proyecto, más la investigación UX realizada,  se han definido las siguientes historias de usuario:
 
@@ -107,13 +107,13 @@ La DEFINICIÓN DE TERMINADO de todas las historias sigue una estructura común, 
 - Se ha desplegado la aplicación y se ha etiquetado la versión (git tag).
 
 
-4. TESTEOS DE USABIILDAD
+5. TESTEOS DE USABIILDAD
 
 
-5. ASPECTOS TÉCNICOS / FUNCIONALIDAD
+6. ASPECTOS TÉCNICOS / FUNCIONALIDAD
 
 
-6. PROYECCIONES
+7. PROYECCIONES
 
 Si bien actualmente nuestros usuarios son adultos jóvenes para quienes es importante la sostenibilidad, estimamos que en un futuro esta red social podría extenderse a otros segmentos, pues el trueque como forma de intercambio abarca necesidades y aspiraciones que son transversales a los individuos, independientemente del segmento etario al que pertenezcan. 
 
