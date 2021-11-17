@@ -49,8 +49,9 @@ A raíz de las indagaciones implementadas, concluimos que nuestros usuarios son 
 Esbozamos distintas interfaces de manera análoga, intentando trazar el camino lógico que realizaría una persona al momento de navegar por nuestra red social. Luego sometimos dichos bocetos al feedback de dos coaches por separado, quienes nos dieron consejos para simplificar las acciones de los usuarios, lo cual nos permitió eliminar algunos pasos innecesarios. 
 
 Teníamos en particular un problema a resolver relacionado con los términos de nuestro servicio. Por la naturaleza de nuestra Red Social, era necesario plasmar algunas condiciones de uso destinadas a informar a los miembros sobre conductas aceptables y rechazadas al momento de realizar intercambios de bienes y servicios. Decidimos llamarlas "Acuerdos de convivencia", debido al espíritu comunitario y colaborativo de nuestro producto. Inicialmente, pensamos desplegarlos en un modal que apareciera antes de que el usuario pudiera ingresar sus datos para el registro, con una casilla de verificación destinada a que la persona marcara su opción de aceptación, como requisito indispensable para seguir avanzando. Pero luego pensamos que eso podía hacer engorroso para el usuario el proceso de incorporación, y eventualmente desincentivarlo. Luego decidimos revisar distintas redes sociales para ver cómo resolvían esta problemática y comprendimos que incorporaban dichos términos y condiciones como un link en la parte inferior de la página al momento de realizar el registro, con una declaración que indicaba su aceptación implícita por parte del usuario al momento de registrarse. Ese link conduce a otro html, de forma tal que se evita saturar la misma página con demasiada información. Así que optamos por seguir este camino.
+Se hace presente que dichos Acuerdos de Convivencia también son accesibles desde el perfil de cada usuario, en caso de que desee revisarlos en cualquier momento. 
 
-(pd: preguntar por consideración de responsabilidad)
+(pd: preguntar por consideración de responsabilidad y ver posibilidad de dedicar a los Acuerdos de Convivencia un capítulo aparte)
 
 
 3.2 Prototipo de baja fidelidad.
