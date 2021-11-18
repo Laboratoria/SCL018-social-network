@@ -2,12 +2,12 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-app.js";
 import {
   getAuth,
-  onAuthStateChanged,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   GoogleAuthProvider,
   getRedirectResult,
   signInWithPopup,
+  onAuthStateChanged,
 } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-auth.js";
 import {
   getFirestore,
@@ -36,14 +36,20 @@ const db = getFirestore(app);
 export const signUp = () => {
   const signUpEmail = document.getElementById("emailSignUp").value;
   const signUpPassword = document.getElementById("passwordSignUp").value;
-  //nombre de usuario
+  const signUpUser = document.getElementById("userSignUp").value;
+
   if (signUpPassword.length < 6) {
     alert("contraseña debe ser mayor a 6 digitos");
   } else {
-    createUserWithEmailAndPassword(auth, signUpEmail, signUpPassword)
+    createUserWithEmailAndPassword(
+      auth,
+      signUpEmail,
+      signUpPassword,
+      userSignUp
+    )
       .then((userCredential) => {
         const user = userCredential.user;
-        const mail = user.mail;
+        // const mail = user.mail;
         console.log(userCredential);
         console.log("usuario creado");
         return user;
@@ -64,9 +70,9 @@ export const userLogin = () => {
   signInWithEmailAndPassword(auth, loginEmail, loginPassword)
     .then((userCredential) => {
       const user = userCredential.user;
-      // const mail = userCredential.user.mail;
-      console.log(user);
-      console.log(userCredential);
+      // const mail = user.mail;
+      // console.log(user.email);
+      // console.log(userCredential);
       return user;
     })
     .catch((error) => {
@@ -102,8 +108,8 @@ export const loginWithGoogle = () => {
 };
 
 export const postData = async (postTheme, postMessage) => {
+  // const usere = auth.currentUser;
   const docRef = await addDoc(collection(db, "publicaciones"), {
-    // usermail: mail,
     theme: postTheme,
     message: postMessage,
     datePost: Date(Date.now()),
@@ -111,6 +117,20 @@ export const postData = async (postTheme, postMessage) => {
   console.log("Document written with ID: ", docRef.id);
   return docRef;
 };
+
+// const auth = getAuth();
+// export const Observer
+// onAuthStateChanged(auth, (user) => {
+//   if (user) {
+//     // User is signed in, see docs for a list of available properties
+//     // https://firebase.google.com/docs/reference/js/firebase.User
+//     const uid = user.uid;
+//     // ...
+//   } else {
+//     // User is signed out
+//     // ...
+//   }
+// });
 
 export const readData = (callback, publicaciones) => {
   const q = query(collection(db, publicaciones), orderBy("datePost", "desc"));
@@ -150,4 +170,3 @@ export const readData = (callback, publicaciones) => {
 //     console.log("usuario no existe");
 //   }
 // };
-// getUser();

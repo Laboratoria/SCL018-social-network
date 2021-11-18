@@ -6,20 +6,19 @@ export const newPost = (posts) => {
   newPostContainer.innerHTML = "";
 
   const feedContent = (e) => {
+    newPostContainer.innerHTML = "";
+    // const divPost = document.createElement("div");
+    // divPost.className = "post-user";
 
-  newPostContainer.innerHTML = '';
-  // const divPost = document.createElement("div");
-  // divPost.className = "post-user";
+    const feedContent = (e) => {
+      // console.log(e);
 
-  const feedContent = (e) => {
-    // console.log(e);
-
-    const feedHtml = `<div class="post-user"> 
+      const feedHtml = `<div class="post-user"> 
             <div class="profile-container">
             <div class="pic-container">
             <img class="pic-profile" src="resources/images/Vector-user.svg" alt="user" />
             </div>
-            <h3 class="title-profile">${e.usermail}</h3>
+            <h3 class="title-profile">BB</h3>
             </div>
             <div class="textarea-container">
 
@@ -43,15 +42,15 @@ export const newPost = (posts) => {
             </div>
             </div>`;
 
-    newPostContainer.innerHTML += feedHtml;
+      newPostContainer.innerHTML += feedHtml;
+    };
+
+    posts.forEach(feedContent);
+
+    // newPostContainer.appendChild(divPost);
+
+    return newPostContainer;
   };
-
-  posts.forEach(feedContent);
-
-
-  // newPostContainer.appendChild(divPost);
-
-  return newPostContainer;
 };
 
 export const displayFeed = () => {
