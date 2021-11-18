@@ -23,7 +23,7 @@ html{
     justify-content: center;
 }
 
-.icon{
+.icon{  
     height: 30px;
     width: 30px;
 }
@@ -54,13 +54,35 @@ button {
     border:none;  
 }
 
-
 button:hover {
     background-color: #58ab2c;
     color: white;
 }
 
+footer {
+    justify-self: baseline;
+}
 
+#theContainerest {
+    display:grid;
+    grid-template:
+    "navbar navbar navbar navbar" 1 fr
+    "search search search search" 1 fr
+    "footer footer footer footer" 1 fr;
+}
+#navbar {
+    background-color: #45d89d;
+      
+
+}
+
+#navbar a {
+    text-align: center;
+    padding: 14px 16px;
+    color: #f2f2f2;
+
+    
+}
 @media (max-width: 900px) {
     .grid-template{
         display:grid;

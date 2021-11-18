@@ -2,7 +2,8 @@ export const feedSpace = () => {
   const containerFeedSpace = document.createElement('section');
   containerFeedSpace.className = 'feed-container';
   containerFeedSpace.innerHTML = `
-     <nav>
+     <div id='theContainerest'>
+     <nav id='navbar'>
        <a href="#/home">HOME</a> <img src="https://img.icons8.com/office/30/000000/home--v2.png"/>
        <a href="#/junta">JUNTAS</a> <img src="./imagenes/juntas.svg" />
        <a href="#/review">REVIEW</a> <img src="./imagenes/review.svg" />
@@ -14,6 +15,7 @@ export const feedSpace = () => {
      <footer>
      "todos los derechos reservados por Mewple"
      </footer>
+     </div>
       `;
 
   return containerFeedSpace;

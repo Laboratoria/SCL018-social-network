@@ -7,7 +7,6 @@ import {
   signInWithPopup,
   signInWithEmailAndPassword,
 } from 'https://www.gstatic.com/firebasejs/9.3.0/firebase-auth.js';
-import { feedSpace } from '../templates/nav.js';
 // import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-analytics.js";
 // En este enlace hay más SDK: https://firebase.google.com/docs/web/setup#available-libraries
 // const container = document.getElementById('root');
@@ -39,6 +38,7 @@ export const createUser = (emailSignup, passwordSignup) => {
       // Signed in
       const user = userCredential.user;
       // ...
+      window.location.hash = '#/login';
     })
     .catch((error) => {
       const errorCode = error.code;
