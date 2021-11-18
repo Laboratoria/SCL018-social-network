@@ -9,7 +9,7 @@ export const templateRegister = () => {
   const login = `
     <main class= "grid-template" >
     <div id="letter">
-    <input type="mail" 
+    <input type="email" 
     placeholder="Ingresa tu Correo"
     id="emailUp" />
     <img src="https://img.icons8.com/ios/50/000000/love-letter.png" class="icon"/>
@@ -45,19 +45,48 @@ export const clickRegister = () => {
 export const clickGoogle = () => {
   document.querySelector('#google').addEventListener('click', () => {
     console.log('ingresaste con google');
+
     authGoogle();
     // console.log(containerTemplateSignUp);
   });
 };
 
-//if para condicional
-
 export const clickSignin = () => {
   document.querySelector('#enter').addEventListener('click', () => {
     console.log('ingresaste a tú cuenta creada');
+    const email = document.getElementById('emailUp');
+    //aqui armar un listener del evento click del login
+    email.addEventListener('input', () => {
+      console.log('Estamos entrando al evento');
+      if (email.validity.typeMismatch) {
+        email.setCustomValidity('¡Se esperaba una dirección de correo electrónico!');
+      } else {
+        email.setCustomValidity('Esta funcionando! :O');
+      }
+    });
     // if para condicional de ingreso, para llamar signed cuando este lleno y cuando no se quede.
-    signed();
+    /*const validate = () => {
+      const email = document.getElementById("emailUp").value;
+      expression = /^[^@]+@\w+(\.\w+)+\w$/
+      if (expression.test(email) === true) {
+        return true;
+      } else {
+        return false;
+      }*/
+    //}
+    /* 
+        const password = document.getElementById("passwordUp").value;
+        if (password.lenght === 6) {
+          return true;
+          } else {
+          return false;
+          }
+      }if (validate = true ) {
+        signed();
+      }  */
+
+
     // container.innerHTML = feedSpace();
     // console.log(containerTemplateSignUp);
   });
-};
+}

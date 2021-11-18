@@ -84,8 +84,7 @@ export const signed = () => {
       const user = userCredential.user;
       // ...
       // redireccionar al muro
-      // container.innerHTML = ' ';
-      // container.innerHTML = feedSpace();
+      container.innerHTML = feedSpace();
     })
     .catch((error) => {
       const errorCode = error.code;
