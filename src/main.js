@@ -1,12 +1,5 @@
 // Este es el punto de entrada de tu aplicacion
 
-// import { myFunction } from './lib/index.js';
-// import {
-//   clickGoogle,
-//   clickRegister,
-//   clickSignin,
-//   templateRegister,
-// } from './templates/signup.js';
 import { changeRouter } from './lib/router.js';
 
 const init = () => {
