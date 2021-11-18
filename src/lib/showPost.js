@@ -6,9 +6,9 @@ export const createPost = (posts) => {
 
   const postContent = (element) => {
     const templatePost = `<div class="container-post">
-      <div class="header-post">${element.headerPost}</div>
-      <div class="post-content">${element.content}</div>
-      <div class="reference-link">${element.referenceLink}</div>
+      <textarea class="header-post" readonly>${element.headerPost}</textarea>
+      <textarea class="post-content" rows="4" cols="50" readonly>${element.content}</textarea>
+      <textarea class="reference-link" readonly>${element.referenceLink}</textarea>
       </div>`;
     containerPost.innerHTML += templatePost;
   };

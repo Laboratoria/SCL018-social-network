@@ -18,7 +18,7 @@ import {
     signOut
 } from 'https://www.gstatic.com/firebasejs/9.2.0/firebase-auth.js';
 import {
- getFirestore, collection, addDoc, onSnapshot, query, orderBy
+    getFirestore, collection, addDoc, onSnapshot, query, orderBy
 } from 'https://www.gstatic.com/firebasejs/9.2.0/firebase-firestore.js';
 
 const firebaseConfig = {
@@ -45,7 +45,7 @@ export const signUp = (signUpEmail, signUpPassword) => {
             // Signed in
             window.location.hash = '#/postWall';
             const user = userCredential.user;
-            // ...
+
             console.log('created');
         })
         .catch((error) => {
@@ -98,28 +98,28 @@ export const loginWithGoogle = () => {
 export const signOutUser = () => {
     signOut(auth)
         .then(() => {
-        window.location.hash = '#/login'
-        // Sign-out successful.
+            window.location.hash = '#/login'
+            // Sign-out successful.
         }).catch((error) => {
-        // An error happened.
-        console.log(error);
+            // An error happened.
+            console.log(error);
         });
 }
 export const authState = () => {
     onAuthStateChanged(auth, (user) => {
         if (user) {
-          // User is signed in, see docs for a list of available properties
-          // https://firebase.google.com/docs/reference/js/firebase.User
-        const uid = user.uid;
-          // ...
+            // User is signed in, see docs for a list of available properties
+            // https://firebase.google.com/docs/reference/js/firebase.User
+            const uid = user.uid;
+            // ...
         } else if (!user) {
             if (window.location.hash !== '#/createUser') {
                 // User is signed out
                 signOutUser();
-        } else {
-            console.log('Bueno ya, entra')
+            } else {
+                console.log('Crea tu cuenta')
+            }
         }
-    }
     });
 };
 
@@ -139,6 +139,7 @@ export const readData = (callback, publicaciones) => {
         const posts = [];
         querySnapshot.forEach((doc) => {
             posts.push(doc.data());
+            console.log(doc.id, ' => ', doc.data());
         });
         callback(posts);
     });
