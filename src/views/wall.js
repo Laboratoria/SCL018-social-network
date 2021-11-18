@@ -31,7 +31,6 @@ export const wall = () => {
     </aside>
     <section class="post-container">
       <div class="post">
-        <!-- <h3 class="post-title">Comparte</h3> -->
         <div class="textarea-container">
           <textarea class="post-theme" id="postTheme" cols="10" rows="1"
             placeholder="Ingresa el juego o plataforma"></textarea>
