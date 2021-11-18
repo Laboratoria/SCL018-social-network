@@ -34,7 +34,7 @@ export const login = () => {
     <button class="view-button login-google"><img class="google-logo" src="./images/google-logo.png"></img>Ingresar con Google</button>`;
   containerLoginUser.innerHTML = loginHTML;
   containerLoginUser.querySelector('.login-btn').addEventListener('click', () => {
-    //const nombreUsuario
+    // const nombreUsuario
     const loginEmail = document.getElementById('login-email').value;
     const loginPassword = document.getElementById('login-password').value;
     loginWithEmail(loginEmail, loginPassword);

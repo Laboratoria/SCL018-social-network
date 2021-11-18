@@ -1,8 +1,8 @@
-import { signUp } from "../firebaseFile.js";
+import { signUp } from '../firebaseFile.js';
 
 export const createUser = () => {
-  const containerCreateUser = document.createElement("section");
-  containerCreateUser.className = "view-container";
+  const containerCreateUser = document.createElement('section');
+  containerCreateUser.className = 'view-container';
   const signUpHTML = `
   <section class="view-container">
     <h1 class="coders-title">CODERS</h1>
@@ -30,9 +30,9 @@ export const createUser = () => {
         <button id="create-account" class="view-button">Crear cuenta</button>
         </section>`;
   containerCreateUser.innerHTML = signUpHTML;
-  containerCreateUser.querySelector("#create-account").addEventListener("click", () => {
-    const signUpEmail = document.getElementById("signup-email").value;
-    const signUpPassword = document.getElementById("signup-password").value;
+  containerCreateUser.querySelector('#create-account').addEventListener('click', () => {
+    const signUpEmail = document.getElementById('signup-email').value;
+    const signUpPassword = document.getElementById('signup-password').value;
     signUp(signUpEmail, signUpPassword);
   });
 

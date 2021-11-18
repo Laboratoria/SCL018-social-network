@@ -166,35 +166,47 @@ input, button {
 
 .container-post{
     display: flex;
-    align-items: center; 
     flex-direction: column;
     height: auto;
     width: 90%;
+    margin: 2% 0%;
 }
 .header-post{
-    background-color: #292B36;
-    border-radius: 5px 5px 0px 0px;
+    background-color: #292b36;
+    border: none;
     color:#FAC710;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: bold;
-    height: 1,75em;
+    height: auto;
+    outline:none;
     padding: 2%;
+    resize: none;
     width: 100%;
+    
+    
 }
 .post-content{
-    background: white;
-    color: #292B36;
-    border: 1px solid #292B36;
-    padding: 4%;
+    background-color: rgba(41, 43, 54, 0.8);
+    border: none;
+    color: white;
+    outline:none; 
+    padding: 2%;
+    resize: none;
     width: 100%;
+    height: auto;
+    
+   
 }
 .reference-link{
-    background: white;
-    border: 1px solid #292B36;
-    border-radius: 0px 0px 5px 5px;
-    height: 2em;
+    background-color: rgba(41, 43, 54, 0.8);
+    color: white;
+    height: auto;
+    outline:none;
+    padding: 2%;
+    resize: none;
     width: 100%;
+    
 }
 .post-button-container {
     display: flex;

@@ -32,7 +32,7 @@ export const timeline = () => {
     const content = containerTimeline.querySelector('#textarea-description').value;
     const link = containerTimeline.querySelector('#textarea-links').value;
     if (title === '' || content === '') {
-      alert('No puedes publicar contenido vacío, imbécil');
+      alert('No puedes publicar contenido vacío');
     } else {
       addData(title, content, link);
       window.location.hash = '#/postWall';
