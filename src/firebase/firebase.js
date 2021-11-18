@@ -33,9 +33,7 @@ const provider = new GoogleAuthProvider();
 // signInWithRedirect(auth, provider);
 
 // Crear Usuario en firebase con correo y contraseña
-export const createUser = () => {
-  const emailSignup = document.getElementById('emailUp').value;
-  const passwordSignup = document.getElementById('passwordUp').value;
+export const createUser = (emailSignup, passwordSignup) => {
   createUserWithEmailAndPassword(auth, emailSignup, passwordSignup)
     .then((userCredential) => {
       // Signed in
@@ -50,7 +48,7 @@ export const createUser = () => {
     });
 };
 // [END auth_signup_password_modular]
-const container = document.getElementById('root');
+
 // Ingreso autenticación google
 export const authGoogle = () => {
   signInWithPopup(auth, provider)
@@ -62,7 +60,7 @@ export const authGoogle = () => {
       const user = result.user;
       // funcion a muro (then)
       // ...
-      container.innerHTML = feedSpace();
+      window.location.hash = '#/feed';
     }).catch((error) => {
       // Handle Errors here.
       const errorCode = error.code;
@@ -75,16 +73,15 @@ export const authGoogle = () => {
     });
 };
 
-export const signed = () => {
-  const emailSignup = document.getElementById('emailUp').value;
-  const passwordSignup = document.getElementById('passwordUp').value;
+export const signed = (emailSignup, passwordSignup) => {
   signInWithEmailAndPassword(auth, emailSignup, passwordSignup)
     .then((userCredential) => {
       // Signed in
       const user = userCredential.user;
       // ...
       // redireccionar al muro
-      container.innerHTML = feedSpace();
+      console.log('validando');
+      window.location.hash = '#/feed';
     })
     .catch((error) => {
       const errorCode = error.code;
