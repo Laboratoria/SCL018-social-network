@@ -112,14 +112,17 @@ export const authState = () => {
           // https://firebase.google.com/docs/reference/js/firebase.User
         const uid = user.uid;
           // ...
+        } else if (!user) {
+            if (window.location.hash !== '#/createUser') {
+                // User is signed out
+                signOutUser();
         } else {
-          // User is signed out
-        if (window.location.hash !== '#/createUser') {
-            signOutUser();
-        } else { console.log('Bueno ya, entra') }
-        };
+            console.log('Bueno ya, entra')
+        }
+    }
     });
-}
+};
+
 export const addData = async (title, description, link) => {
     const docRef = await addDoc(collection(db, 'publicaciones'), {
         headerPost: title,
