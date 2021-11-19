@@ -30,8 +30,5 @@ export const postWall = () => {
   logOut.addEventListener('click', () => {
     signOutUser();
   });
-
- 
-
   return mainContainer;
 };

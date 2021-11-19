@@ -13,13 +13,11 @@ import {
     signInWithEmailAndPassword,
     GoogleAuthProvider,
     signInWithPopup,
-    getRedirectResult,
     onAuthStateChanged,
     signOut
 } from 'https://www.gstatic.com/firebasejs/9.2.0/firebase-auth.js';
 import {
-
-    getFirestore, collection, addDoc, onSnapshot, query, orderBy, Timestamp
+    getFirestore, collection, addDoc, onSnapshot, query, orderBy, Timestamp, deleteDoc, doc
 } from 'https://www.gstatic.com/firebasejs/9.2.0/firebase-firestore.js';
 
 const firebaseConfig = {
@@ -36,8 +34,6 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
-
-console.log(app);
 const provider = new GoogleAuthProvider(app);
 
 export const signUp = (signUpEmail, signUpPassword) => {
@@ -133,25 +129,19 @@ export const addData = async (title, description, link) => {
         datePosted: Timestamp.fromDate(new Date()),
 
     });
-    console.log('Document written with ID: ', docRef.id);
     return docRef;
 }
 export const readData = (callback, publicaciones) => {
     const q = query(collection(db, publicaciones), orderBy('datePosted', 'desc'));
     onSnapshot(q, (querySnapshot) => {
         const posts = [];
-        querySnapshot.forEach((doc) => {
-            posts.push(doc.data());
-            console.log(doc.id, ' => ', doc.data());
+        querySnapshot.forEach((e) => {
+            posts.push(e.data());
+            console.log(e.id, ' => ', e.data());
         });
         callback(posts);
     });
 }
-export const deleteDocData = () => {
-    db.collection('publicaciones').doc('title').delete().then(() => {
-        console.log('Document successfully deleted!');
-    })
-.catch((error) => {
-        console.error('Error removing document: ', error);
-    });
+export const deleteDocData = async () => {
+    await deleteDoc(doc(db, 'publicaciones', '7Ca2Ze6IqpZbsTceBBA3'));
 }
