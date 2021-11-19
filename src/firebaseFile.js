@@ -18,7 +18,8 @@ import {
     signOut
 } from 'https://www.gstatic.com/firebasejs/9.2.0/firebase-auth.js';
 import {
-    getFirestore, collection, addDoc, onSnapshot, query, orderBy,
+
+    getFirestore, collection, addDoc, onSnapshot, query, orderBy, Timestamp
 } from 'https://www.gstatic.com/firebasejs/9.2.0/firebase-firestore.js';
 
 const firebaseConfig = {
@@ -128,13 +129,15 @@ export const addData = async (title, description, link) => {
         headerPost: title,
         content: description,
         referenceLink: link,
-        datePost: Date(Date.now()),
+        // datePost: Date(Date.now()),
+        datePosted: Timestamp.fromDate(new Date()),
+
     });
     console.log('Document written with ID: ', docRef.id);
     return docRef;
 }
 export const readData = (callback, publicaciones) => {
-    const q = query(collection(db, publicaciones), orderBy('datePost', 'desc'));
+    const q = query(collection(db, publicaciones), orderBy('datePosted', 'desc'));
     onSnapshot(q, (querySnapshot) => {
         const posts = [];
         querySnapshot.forEach((doc) => {
