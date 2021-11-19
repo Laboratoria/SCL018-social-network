@@ -1,7 +1,8 @@
 // importar cada archivo de template hacia aca
-import { feedSpace } from '../templates/nav.js';
+import { feedSpace } from '../templates/feed.js';
 import { templateLogin } from '../templates/login.js';
 import { templateSignUp } from '../templates/signup.js';
+import { newPost } from '../templates/post.js';
 
 // Efectivamente mostrar los hash
 export const changeRouter = (hash) => {
@@ -19,6 +20,9 @@ export const changeRouter = (hash) => {
       break;
     case '#/feed':
       containerRoot.appendChild(feedSpace());
+      break;
+    case '#/newPost':
+      containerRoot.appendChild(newPost());
       break;
     default:
       containerRoot.innerHTML = '<h1>Ups!, no hay nada. Mientras esperas, toma un tecito ~(=^.^)_旦~</h1>';

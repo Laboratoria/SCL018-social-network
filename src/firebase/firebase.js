@@ -7,6 +7,7 @@ import {
   signInWithPopup,
   signInWithEmailAndPassword,
 } from 'https://www.gstatic.com/firebasejs/9.3.0/firebase-auth.js';
+import { getFirestore, collection, addDoc, getDocs  } from 'https://www.gstatic.com/firebasejs/9.3.0/firebase-firestore.js';
 // import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-analytics.js";
 // En este enlace hay más SDK: https://firebase.google.com/docs/web/setup#available-libraries
 // const container = document.getElementById('root');
@@ -88,3 +89,25 @@ export const signed = (emailSignup, passwordSignup) => {
       const errorMessage = error.message;
     });
 };
+
+// DESDE AQUI INICIA FIRESTORE
+
+const db = getFirestore();
+
+//agregar datos.
+try {
+  const docRef = await addDoc(collection(db, "users"), {
+    first: "Ada",
+    last: "Lovelace",
+    born: 1815
+  });
+  console.log("Document written with ID: ", docRef.id);
+} catch (e) {
+  console.error("Error adding document: ", e);
+}
+
+//leer colección de post
+const querySnapshot = await getDocs(collection(db, "users"));
+querySnapshot.forEach((doc) => {
+  console.log(`${doc.id} => ${doc.data()}`);
+});

@@ -63,26 +63,48 @@ footer {
     justify-self: baseline;
 }
 
-#theContainerest {
+.navbar {
+    grid-area: navbar;
+}
+
+.main {
+    grid-area: main;
+}
+
+.search{
+    grid-area: search;
+}
+
+.footer{
+    grid-area: footer;
+}
+
+.feedContainer {
     display:grid;
     grid-template:
-    "navbar navbar navbar navbar" 1 fr
-    "search search search search" 1 fr
-    "footer footer footer footer" 1 fr;
+    "navbar navbar" auto
+    "main search" auto
+    "footer footer" auto/
+    auto auto;
 }
+
 #navbar {
     background-color: #45d89d;
-      
-
+    display: flex;
+    flex-direction: row; 
+    align-content: space-between;    
 }
 
-#navbar a {
-    text-align: center;
+/* .icon{
+    display: flex;
+    align-content: space-between;
+} */
+
+#navbar a{
     padding: 14px 16px;
-    color: #f2f2f2;
-
-    
+    color: #f2f2f2;  
 }
+
 @media (max-width: 900px) {
     .grid-template{
         display:grid;
