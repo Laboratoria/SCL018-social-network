@@ -18,6 +18,7 @@ import {
     signOut
 } from 'https://www.gstatic.com/firebasejs/9.2.0/firebase-auth.js';
 import {
+
     getFirestore, collection, addDoc, onSnapshot, query, orderBy, Timestamp
 } from 'https://www.gstatic.com/firebasejs/9.2.0/firebase-firestore.js';
 
@@ -146,4 +147,11 @@ export const readData = (callback, publicaciones) => {
         callback(posts);
     });
 }
-
+export const deleteDocData = () => {
+    db.collection('publicaciones').doc('title').delete().then(() => {
+        console.log('Document successfully deleted!');
+    })
+.catch((error) => {
+        console.error('Error removing document: ', error);
+    });
+}
