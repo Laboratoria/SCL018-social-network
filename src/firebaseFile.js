@@ -18,7 +18,7 @@ import {
     signOut
 } from 'https://www.gstatic.com/firebasejs/9.2.0/firebase-auth.js';
 import {
-    getFirestore, collection, addDoc, onSnapshot, query, orderBy,
+    getFirestore, collection, addDoc, onSnapshot, query, orderBy, deleteDoc
 } from 'https://www.gstatic.com/firebasejs/9.2.0/firebase-firestore.js';
 
 const firebaseConfig = {
@@ -144,11 +144,25 @@ export const readData = (callback, publicaciones) => {
         callback(posts);
     });
 }
-export const deleteDocData = () => {
-    db.collection('publicaciones').doc('title').delete().then(() => {
-        console.log('Document successfully deleted!');
-    })
-.catch((error) => {
-        console.error('Error removing document: ', error);
-    });
-}
+// export const getDocument = async () => {
+//     const docRef = doc(db, 'publicaciones');
+//     const docSnap = await getDoc(docRef);
+
+//   if (docSnap.exists()) {
+//   console.log('Document data:', docSnap.data());
+// } else {
+//   // doc.data() will be undefined in this case
+//   console.log('No such document!');
+// }
+// }
+// export const deleteDocData = async () => {
+//     const docRef = (db, 'publicaciones');
+//     const docSnap = await getDoc(docRef);
+//     deleteDoc(docSnap)
+//     .then(() => {
+//         console.log('data borrada con exito');
+//     })
+//     .catch((error) => {
+//         console.log(`error:${error}al borrar la data`)
+//     });
+// };

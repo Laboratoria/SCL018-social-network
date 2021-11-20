@@ -1,4 +1,4 @@
-import { readData, deleteDocData } from '../firebaseFile.js';
+import { readData} from '../firebaseFile.js';
 
 export const createPost = (posts) => {
   const containerPost = document.getElementById('post');
@@ -16,10 +16,10 @@ export const createPost = (posts) => {
     containerPost.innerHTML += templatePost;
   };
   posts.forEach(postContent);
-  const deleteBtn = containerPost.querySelector('.delete-btn');
-  deleteBtn.addEventListener('click', () => {
-    deleteDocData();
-  });
+  // const deleteBtn = containerPost.querySelector('.delete-btn');
+  // deleteBtn.addEventListener('click', () => {
+  //   // deleteDocData();
+  // });
   return containerPost;
 };
 
