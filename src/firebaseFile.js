@@ -138,6 +138,7 @@ export const readData = (callback, publicaciones) => {
         querySnapshot.forEach((e) => {
             posts.push(e.data());
             console.log(e.id, ' => ', e.data());
+            
         });
         callback(posts);
     });
