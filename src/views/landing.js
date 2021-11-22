@@ -58,7 +58,6 @@ export const landingPage = () => {
         </div>
       </div>
   </div> `;
-
   containerLanding.innerHTML = viewLanding;
   containerLanding.querySelector(".login-btn").addEventListener("click", () => {
     userLogin();
