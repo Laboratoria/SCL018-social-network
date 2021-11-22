@@ -1,34 +1,20 @@
 import { readData } from "../firebase.js";
 
 export const newPost = (posts) => {
-  const newPostContainer = document.getElementById("postSection");
-
+  const newPostContainer = document.querySelector("#postSection");
   newPostContainer.innerHTML = "";
-
-  const feedContent = (e) => {
-
-  newPostContainer.innerHTML = '';
-  // const divPost = document.createElement("div");
-  // divPost.className = "post-user";
-
   const feedContent = (e) => {
     // console.log(e);
-
-    const feedHtml = `<div class="post-user"> 
+    const feedHtml = `<div class="post-user">
             <div class="profile-container">
             <div class="pic-container">
             <img class="pic-profile" src="resources/images/Vector-user.svg" alt="user" />
             </div>
-            <h3 class="title-profile">${e.usermail}</h3>
+            <h3 class="title-profile">Lady Gaga</h3>
             </div>
             <div class="textarea-container">
-
-            <textarea readonly class="post-theme" id="postTheme" cols="10" rows="1">${e.theme}</textarea>
-            <textarea readonly class="post-message" id="postMessage" cols="15" rows="5">${e.message}</textarea>
-
             <textarea class="post-theme" id="postTheme" cols="10" rows="1" readonly>${e.theme}</textarea>
             <textarea class="post-message" id="postMessage" cols="15" rows="5" readonly>${e.message}</textarea>
-
             </div>
             <div class="icons-container">
             <div class="like-container">
@@ -47,9 +33,6 @@ export const newPost = (posts) => {
   };
 
   posts.forEach(feedContent);
-
-
-  // newPostContainer.appendChild(divPost);
 
   return newPostContainer;
 };

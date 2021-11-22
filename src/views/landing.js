@@ -9,8 +9,7 @@ export const landingPage = () => {
         <img
         class="landing-logo"
         src="resources/images/logo-GG-white.png"
-        alt="landing-logo"
-        />
+        alt="landing-logo"/>
     </div>
     <div class="title-container">
         <h1 class="landing-title">Gamer Girl</h1>
@@ -59,17 +58,20 @@ export const landingPage = () => {
         </div>
       </div>
   </div> `;
-
   containerLanding.innerHTML = viewLanding;
   containerLanding.querySelector(".login-btn").addEventListener("click", () => {
     userLogin();
   });
-  containerLanding.querySelector(".register-btn").addEventListener("click", () => {
-    window.location.hash = "#/register";
-  });
-  containerLanding.querySelector("#googleLogin").addEventListener("click", () => {
-    loginWithGoogle();
-  });
+  containerLanding
+    .querySelector(".register-btn")
+    .addEventListener("click", () => {
+      window.location.hash = "#/register";
+    });
+  containerLanding
+    .querySelector("#googleLogin")
+    .addEventListener("click", () => {
+      loginWithGoogle();
+    });
   containerLanding.querySelector("#signUp").addEventListener("click", () => {
     window.location.hash = "#/wall";
   });

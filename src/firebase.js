@@ -2,12 +2,14 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-app.js";
 import {
   getAuth,
-  onAuthStateChanged,
+  // eslint-disable-next-line no-unused-vars
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   GoogleAuthProvider,
-  getRedirectResult,
+  // getRedirectResult,
   signInWithPopup,
+  onAuthStateChanged,
+  signOut,
 } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-auth.js";
 import {
   getFirestore,
@@ -36,22 +38,35 @@ const db = getFirestore(app);
 export const signUp = () => {
   const signUpEmail = document.getElementById("emailSignUp").value;
   const signUpPassword = document.getElementById("passwordSignUp").value;
-  //nombre de usuario
-  if (signUpPassword.length < 6) {
+  const signUpUserName = document.getElementById("userSignUp").value;
+  if (
+    signUpPassword.length < 6 &&
+    signUpEmail === "" &&
+    signUpUserName === ""
+  ) {
+    alert("ingrese datos");
+  } else if (signUpPassword.length < 6) {
     alert("contraseña debe ser mayor a 6 digitos");
+  } else if (signUpEmail === "") {
+    alert("ingrese email");
+  } else if (signUpUserName === "") {
+    alert("ingrese nombre de usuario");
   } else {
-    createUserWithEmailAndPassword(auth, signUpEmail, signUpPassword)
+    createUserWithEmailAndPassword(
+      auth,
+      signUpEmail,
+      signUpPassword,
+      userSignUp
+    )
       .then((userCredential) => {
+        // const username = signUpUser;
         const user = userCredential.user;
-        const mail = user.mail;
-        console.log(userCredential);
         console.log("usuario creado");
         return user;
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        // console.log("Usuario ya existe");
         return errorCode + errorMessage;
       });
   }
@@ -60,31 +75,33 @@ export const signUp = () => {
 export const userLogin = () => {
   const loginEmail = document.getElementById("emailLogin").value;
   const loginPassword = document.getElementById("passLogin").value;
-
-  signInWithEmailAndPassword(auth, loginEmail, loginPassword)
-    .then((userCredential) => {
-      const user = userCredential.user;
-      // const mail = userCredential.user.mail;
-      console.log(user);
-      console.log(userCredential);
-      return user;
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      return errorCode + errorMessage;
-    });
+  if (loginEmail === "" || loginPassword === "") {
+    alert("email o contraseña no ingresados");
+  } else {
+    signInWithEmailAndPassword(auth, loginEmail, loginPassword)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        // const mail = userCredential.user.mail;
+        return user;
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        return errorCode + errorMessage;
+      });
+  }
 };
 
 export const loginWithGoogle = () => {
-  signInWithPopup(auth, provider);
-  getRedirectResult(auth)
+  signInWithPopup(auth, provider)
+    // getRedirectResult(auth)
     .then((result) => {
       // This gives you a Google Access Token. You can use it to access Google APIs.
       const credential = GoogleAuthProvider.credentialFromResult(result);
       const token = credential.accessToken;
       // The signed-in user info.
       const user = result.user;
+      console.log(user.displayName);
       console.log("usuario creado con google");
       return `${user} + logged in with google + ${token}`;
     })
@@ -94,16 +111,15 @@ export const loginWithGoogle = () => {
       const errorMessage = error.message;
       // The email of the user's account used.
       const email = error.email;
+      console.log(error);
       // The AuthCredential type that was used.
       const credential = GoogleAuthProvider.credentialFromError(error);
       console.log("usuario no creado");
       return errorMessage + errorCode + email + credential;
     });
 };
-
 export const postData = async (postTheme, postMessage) => {
   const docRef = await addDoc(collection(db, "publicaciones"), {
-    // usermail: mail,
     theme: postTheme,
     message: postMessage,
     datePost: Date(Date.now()),
@@ -118,20 +134,33 @@ export const readData = (callback, publicaciones) => {
     const posts = [];
     querySnapshot.forEach((doc) => {
       posts.push(doc.data());
-      // console.log(posts);
     });
     callback(posts);
-    // console.log("theme", "message", posts.join(", "));
   });
 };
 
-// export const readData = async () => {
-//   const querySnapshot = await getDocs(collection(db, "publicaciones"));
-//   querySnapshot.forEach((doc) => {
-//     // doc.data() is never undefined for query doc snapshots
-//     console.log(doc.id, " => ", doc.data());
-//   });
-// };
+export const observer = () => {
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      window.location.hash = "#/wall";
+      const uid = user.uid;
+    } else if (!user) {
+      if (window.location.hash !== "#/register") {
+        // User is signed out
+        logOut();
+      }
+    }
+  });
+};
+export const logOut = () => {
+  signOut(auth)
+    .then(() => {
+      window.location.hash = "#/landing";
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
 
 // export const getUser = () => {
 //   const user = auth.currentUser;
@@ -150,4 +179,3 @@ export const readData = (callback, publicaciones) => {
 //     console.log("usuario no existe");
 //   }
 // };
-// getUser();

@@ -21,7 +21,7 @@ export const register = () => {
     <div class="login-inputs">
       <h3 class="login-title">Únete a la legión</h3>
       <input class="user-name"  
-      id="user" 
+      id="userSignUp" 
       type="text" 
       placeholder="Ingresa tu usuario"
       maxlength="30"
