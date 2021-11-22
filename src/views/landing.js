@@ -59,8 +59,9 @@ export const landingPage = () => {
       </div>
   </div> `;
   containerLanding.innerHTML = viewLanding;
-  containerLanding.querySelector(".login-btn").addEventListener("click", () => {
+  containerLanding.querySelector("#signUp").addEventListener("click", () => {
     userLogin();
+    window.location.hash = "#/wall";
   });
   containerLanding
     .querySelector(".register-btn")
@@ -72,8 +73,8 @@ export const landingPage = () => {
     .addEventListener("click", () => {
       loginWithGoogle();
     });
-  containerLanding.querySelector("#signUp").addEventListener("click", () => {
-    window.location.hash = "#/wall";
-  });
+  // containerLanding.querySelector("#signUp").addEventListener("click", () => {
+  //   window.location.hash = "#/wall";
+  // });
   return containerLanding;
 };
