@@ -303,9 +303,9 @@ header {
   cursor: pointer;
 }
 
-#trash-icon{
- background:none;
- border:none;
+.trash-icon{
+  background:none;
+  border:none;
 }
 
 .textarea-container {
