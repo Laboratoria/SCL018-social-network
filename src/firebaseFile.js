@@ -134,15 +134,19 @@ export const addData = async (title, description, link) => {
 export const readData = (callback, publicaciones) => {
     const q = query(collection(db, publicaciones), orderBy('datePosted', 'desc'));
     onSnapshot(q, (querySnapshot) => {
+        
         const posts = [];
-        querySnapshot.forEach((e) => {
-            posts.push(e.data());
-            console.log(e.id, ' => ', e.data());
-            
+        querySnapshot.forEach((document) => {
+            const element = {};
+            element['id'] = document.id;
+            element['data'] = document.data();
+            posts.push({ element });
+
         });
+        // console.log(posts);
         callback(posts);
     });
 }
-export const deleteDocData = async () => {
-    await deleteDoc(doc(db, 'publicaciones', '7Ca2Ze6IqpZbsTceBBA3'));
+export const deleteDocData = async (id) => {
+    await deleteDoc(doc(db, 'publicaciones', id));
 }
