@@ -2,11 +2,12 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-app.js";
 import {
   getAuth,
+  // eslint-disable-next-line no-unused-vars
   onAuthStateChanged,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   GoogleAuthProvider,
-  getRedirectResult,
+  // getRedirectResult,
   signInWithPopup,
 } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-auth.js";
 import {
@@ -36,15 +37,20 @@ const db = getFirestore(app);
 export const signUp = () => {
   const signUpEmail = document.getElementById("emailSignUp").value;
   const signUpPassword = document.getElementById("passwordSignUp").value;
-  //nombre de usuario
+  // const signUpUser = document.getElementById("userSignUp").value;
+  // console.log(signUpUser);
+  // nombre de usuario
   if (signUpPassword.length < 6) {
+    // eslint-disable-next-line no-alert
     alert("contraseña debe ser mayor a 6 digitos");
   } else {
     createUserWithEmailAndPassword(auth, signUpEmail, signUpPassword)
       .then((userCredential) => {
+        // const username = signUpUser;
+        // console.log(username);
         const user = userCredential.user;
-        const mail = user.mail;
-        console.log(userCredential);
+        // console.log(user.displayName);
+        // console.log(user);
         console.log("usuario creado");
         return user;
       })
@@ -65,8 +71,8 @@ export const userLogin = () => {
     .then((userCredential) => {
       const user = userCredential.user;
       // const mail = userCredential.user.mail;
-      console.log(user);
-      console.log(userCredential);
+      // console.log(user);
+      // console.log(userCredential);
       return user;
     })
     .catch((error) => {
@@ -77,14 +83,15 @@ export const userLogin = () => {
 };
 
 export const loginWithGoogle = () => {
-  signInWithPopup(auth, provider);
-  getRedirectResult(auth)
+  signInWithPopup(auth, provider)
+  // getRedirectResult(auth)
     .then((result) => {
       // This gives you a Google Access Token. You can use it to access Google APIs.
       const credential = GoogleAuthProvider.credentialFromResult(result);
       const token = credential.accessToken;
       // The signed-in user info.
       const user = result.user;
+      console.log(user.displayName);
       console.log("usuario creado con google");
       return `${user} + logged in with google + ${token}`;
     })
@@ -94,6 +101,7 @@ export const loginWithGoogle = () => {
       const errorMessage = error.message;
       // The email of the user's account used.
       const email = error.email;
+      console.log(error);
       // The AuthCredential type that was used.
       const credential = GoogleAuthProvider.credentialFromError(error);
       console.log("usuario no creado");
@@ -101,9 +109,11 @@ export const loginWithGoogle = () => {
     });
 };
 
+// const user = auth.currentUser;
+// console.log(user);
 export const postData = async (postTheme, postMessage) => {
+  // console.log(user);
   const docRef = await addDoc(collection(db, "publicaciones"), {
-    // usermail: mail,
     theme: postTheme,
     message: postMessage,
     datePost: Date(Date.now()),
@@ -125,14 +135,6 @@ export const readData = (callback, publicaciones) => {
   });
 };
 
-// export const readData = async () => {
-//   const querySnapshot = await getDocs(collection(db, "publicaciones"));
-//   querySnapshot.forEach((doc) => {
-//     // doc.data() is never undefined for query doc snapshots
-//     console.log(doc.id, " => ", doc.data());
-//   });
-// };
-
 // export const getUser = () => {
 //   const user = auth.currentUser;
 //   if (user !== null) {
@@ -150,4 +152,3 @@ export const readData = (callback, publicaciones) => {
 //     console.log("usuario no existe");
 //   }
 // };
-// getUser();
