@@ -59,7 +59,6 @@ export const signUp = () => {
       userSignUp
     )
       .then((userCredential) => {
-        // const username = signUpUser;
         const user = userCredential.user;
         console.log("usuario creado");
         return user;
