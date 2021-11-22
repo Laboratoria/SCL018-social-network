@@ -18,6 +18,8 @@ import {
   query,
   onSnapshot,
   orderBy,
+  deleteDoc,
+  doc,
 } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-firestore.js";
 
 const firebaseConfig = {
@@ -131,11 +133,35 @@ export const readData = (callback, publicaciones) => {
   const q = query(collection(db, publicaciones), orderBy("datePost", "desc"));
   onSnapshot(q, (querySnapshot) => {
     const posts = [];
-    querySnapshot.forEach((doc) => {
-      posts.push(doc.data());
+    querySnapshot.forEach((document) => {
+      const element = {};
+      element['id'] = document.id;
+      element['data'] = document.data();
+      posts.push({ element });
     });
     callback(posts);
   });
+};
+
+// export const readData = (callback, publicaciones) => {
+//   const q = query(collection(db, publicaciones), orderBy("datePost", "desc"));
+//   onSnapshot(q, (querySnapshot) => {
+//     const posts = [];
+//     querySnapshot.forEach((doc) => {
+//       posts.push(doc.data());
+//     });
+//     callback(posts);
+//   });
+// };
+
+export const logOut = () => {
+  signOut(auth)
+    .then(() => {
+      window.location.hash = "#/landing";
+    })
+    .catch((error) => {
+      console.log(error);
+    });
 };
 
 export const observer = () => {
@@ -145,20 +171,14 @@ export const observer = () => {
       const uid = user.uid;
     } else if (!user) {
       if (window.location.hash !== "#/register") {
-        // User is signed out
         logOut();
       }
     }
   });
 };
-export const logOut = () => {
-  signOut(auth)
-    .then(() => {
-      window.location.hash = "#/landing";
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+
+export const deletePost = async (id) => {
+  await deleteDoc(doc(db, 'publicaciones', id));
 };
 
 // export const getUser = () => {
