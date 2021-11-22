@@ -1,3 +1,5 @@
+import { printPost } from '../firebase/firebase.js';
+
 export const feedSpace = () => {
   const containerFeedSpace = document.createElement('section');
   containerFeedSpace.className = 'feed-container';
@@ -12,6 +14,7 @@ export const feedSpace = () => {
        <a href="#/perfil">PERFIL</a> <img class='icon' src="./imagenes/perfil.svg" />
      </nav>
      <main class= 'main'>
+     <div> </div>
      <button class= 'post'>NUEVA PUBLICACIÓN
      </button>
      <input type = "search" class='search' placeholder="busca la categoria"/>
@@ -28,5 +31,8 @@ export const feedSpace = () => {
 
   return containerFeedSpace;
 
+  /* <div class = "boxPerson">
+    ${films.gente.map((x) => `<img src= "${x.img}" class= "orderPerson"/>`)};
+    </div> */
   // dejar root vacio con el innerthtml Y luego concatenar += el nuevo container para el cambio.
 };
