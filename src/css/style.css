@@ -300,6 +300,12 @@ header {
   width: 40px;
   height: 40px;
   margin: 0% 5% 0% 2%;
+  cursor: pointer;
+}
+
+#trash-icon{
+ background:none;
+ border:none;
 }
 
 .textarea-container {

@@ -1,4 +1,4 @@
-import { postData, logOut, readData } from "../firebase.js";
+import { postData, logOut } from "../firebase.js";
 import { displayFeed } from "./post-display.js";
 
 export const wall = () => {

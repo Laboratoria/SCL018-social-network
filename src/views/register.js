@@ -55,6 +55,7 @@ export const register = () => {
   containerCreateUser.innerHTML = registerpage;
   containerCreateUser.querySelector("#signup").addEventListener("click", () => {
     signUp();
+    window.location.hash = "#/landing";
   });
 
   containerCreateUser.querySelector(".login").addEventListener("click", () => {
