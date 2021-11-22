@@ -1,4 +1,4 @@
-import { postData } from "../firebase.js";
+import { postData, logOut, readData } from "../firebase.js";
 import { displayFeed } from "./post-display.js";
 
 export const wall = () => {
@@ -12,7 +12,7 @@ export const wall = () => {
       <div class="user-icon">
         <img src="resources/images/Vector-user.svg" alt="user" />
       </div>
-      <div class="logout-icon">
+      <div class="logout-icon" id= "logoutBtn">
         <img src="resources/images/Vector-logout.svg" alt="logout" />
       </div>
     </header>
@@ -72,5 +72,11 @@ export const wall = () => {
     postData(postTheme, postMessage);
     console.log(postTheme, postMessage);
   });
+
+  const btnLogout = feedContainer.querySelector("#logoutBtn");
+  btnLogout.addEventListener("click", () => {
+    logOut();
+  });
+
   return feedContainer;
 };
