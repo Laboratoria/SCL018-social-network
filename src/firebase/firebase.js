@@ -112,6 +112,7 @@ export const posting = async (gameTitle, description) => {
 export const printPost = async () => {
   const querySnapshot = await getDocs(collection(db, 'posts'));
   querySnapshot.forEach((doc) => {
-    console.log(`${doc.id} => ${doc.data()}`);
+    console.log(`${doc.id} => ${doc.data().description}`);
+    window.location.hash = '#/newPost';
   });
 };

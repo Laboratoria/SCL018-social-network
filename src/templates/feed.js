@@ -15,6 +15,7 @@ export const feedSpace = () => {
      </nav>
      <main class= 'main'>
      <div> </div>
+     <div> </div>
      <button class= 'post'>NUEVA PUBLICACIÓN
      </button>
      <input type = "search" class='search' placeholder="busca la categoria"/>
@@ -26,13 +27,11 @@ export const feedSpace = () => {
       `;
 
   containerFeedSpace.querySelector('.post').addEventListener('click', () => {
-    window.location.hash = '#/newPost';
+    containerFeedSpace.innerHTML = ' ';
+    printPost();
   });
 
   return containerFeedSpace;
 
-  /* <div class = "boxPerson">
-    ${films.gente.map((x) => `<img src= "${x.img}" class= "orderPerson"/>`)};
-    </div> */
   // dejar root vacio con el innerthtml Y luego concatenar += el nuevo container para el cambio.
 };
