@@ -17,7 +17,16 @@ import {
     signOut
 } from 'https://www.gstatic.com/firebasejs/9.2.0/firebase-auth.js';
 import {
-    getFirestore, collection, addDoc, onSnapshot, query, orderBy, Timestamp, deleteDoc, doc
+    getFirestore,
+    collection,
+    addDoc,
+    onSnapshot,
+    query,
+    orderBy,
+    Timestamp,
+    deleteDoc,
+    doc,
+    updateDoc,
 } from 'https://www.gstatic.com/firebasejs/9.2.0/firebase-firestore.js';
 
 const firebaseConfig = {
@@ -134,12 +143,12 @@ export const addData = async (title, description, link) => {
 export const readData = (callback, publicaciones) => {
     const q = query(collection(db, publicaciones), orderBy('datePosted', 'desc'));
     onSnapshot(q, (querySnapshot) => {
-        
+
         const posts = [];
         querySnapshot.forEach((document) => {
             const element = {};
-            element['id'] = document.id;
-            element['data'] = document.data();
+            element.id = document.id;
+            element.data = document.data();
             posts.push({ element });
 
         });
@@ -149,4 +158,15 @@ export const readData = (callback, publicaciones) => {
 }
 export const deleteDocData = async (id) => {
     await deleteDoc(doc(db, 'publicaciones', id));
+}
+
+export const updateData = async (id, titleUpdate, descriptionUpdate, linkUpdate) => {
+
+    const postRef = doc(db, 'publicaciones', id);
+    await updateDoc(postRef, {
+        headerPost: titleUpdate,
+        content: descriptionUpdate,
+        referenceLink: linkUpdate,
+});
+
 }
