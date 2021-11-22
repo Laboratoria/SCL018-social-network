@@ -5,8 +5,7 @@ export const createPost = (posts) => {
   containerPost.innerHTML = '';
 
   const postContent = (e) => {
-    let iterator = Object.values(e);
-    // console.log(iterator);
+    const iterator = Object.values(e);
     const templatePost = `<div class="container-post">
     <div class="header-post-container">
       <textarea class="header-post" readonly>${iterator[0].data.headerPost}</textarea>
@@ -21,12 +20,16 @@ export const createPost = (posts) => {
   const deleteBtn = containerPost.querySelectorAll('.delete-btn');
   deleteBtn.forEach((btn) => {
     btn.addEventListener('click', () => {
-      deleteDocData(btn.value);
-    })
-  })
+      const confirm = prompt('¡Vas a borrar tu post!, ¿Deseas continuar? Si / No');
+      if (confirm === 'Si' || confirm === 'si'|| confirm === 'Sí' || confirm === 'sí') {
+        deleteDocData(btn.value);
+      } else {
+        alert('No borraste el post');
+      }
+    });
+  });
   return containerPost;
 };
-
 export const showPost = () => {
   readData(createPost, 'publicaciones');
 };
