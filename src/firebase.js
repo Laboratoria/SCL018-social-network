@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 /* eslint-disable import/no-unresolved */
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-app.js";
 import {
@@ -20,6 +21,7 @@ import {
   orderBy,
   deleteDoc,
   doc,
+  updateDoc,
 } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-firestore.js";
 
 const firebaseConfig = {
@@ -42,9 +44,9 @@ export const signUp = () => {
   const signUpPassword = document.getElementById("passwordSignUp").value;
   const signUpUserName = document.getElementById("userSignUp").value;
   if (
-    signUpPassword.length < 6 &&
-    signUpEmail === "" &&
-    signUpUserName === ""
+    signUpPassword.length < 6
+    && signUpEmail === ""
+    && signUpUserName === ""
   ) {
     alert("ingrese datos");
   } else if (signUpPassword.length < 6) {
@@ -58,11 +60,12 @@ export const signUp = () => {
       auth,
       signUpEmail,
       signUpPassword,
-      userSignUp
+      signUpUserName,
     )
       .then((userCredential) => {
         const user = userCredential.user;
-        console.log("usuario creado");
+        alert("usuario creado");
+        console.log(user);
         return user;
       })
       .catch((error) => {
@@ -135,8 +138,8 @@ export const readData = (callback, publicaciones) => {
     const posts = [];
     querySnapshot.forEach((document) => {
       const element = {};
-      element['id'] = document.id;
-      element['data'] = document.data();
+      element.id = document.id;
+      element.data = document.data();
       posts.push({ element });
     });
     callback(posts);
@@ -158,6 +161,7 @@ export const logOut = () => {
   signOut(auth)
     .then(() => {
       window.location.hash = "#/landing";
+      console.log(`bai bai bitch`);
     })
     .catch((error) => {
       console.log(error);
@@ -169,6 +173,7 @@ export const observer = () => {
     if (user) {
       window.location.hash = "#/wall";
       const uid = user.uid;
+      console.log(`bienvenida ${uid}`);
     } else if (!user) {
       if (window.location.hash !== "#/register") {
         logOut();
@@ -179,6 +184,16 @@ export const observer = () => {
 
 export const deletePost = async (id) => {
   await deleteDoc(doc(db, 'publicaciones', id));
+  console.log(id);
+};
+
+export const updatePost = async (id, themeUpdate, messageUpdate) => {
+  const uniquePost = doc(db, "publicaciones", id);
+  await updateDoc(uniquePost, {
+    // id: idUpdate,
+    theme: themeUpdate,
+    message: messageUpdate,
+  });
 };
 
 // export const getUser = () => {
