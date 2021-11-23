@@ -16,16 +16,7 @@ export const createPost = (posts) => {
       <textarea class="post-content" rows="4" cols="50" readonly>${iterator[0].data.content}</textarea>
       <textarea class="reference-link" readonly>${iterator[0].data.referenceLink}</textarea>
       </div>`;
-    const modalTemplate = `<div class="update-modal">
-    <input type="text" id="title-update" placeholder="Título">
-    <textarea placeholder="Descripción" id="description-update" maxlength="150"></textarea>
-    <input type="text" id="link-update" placeholder="Link de referencia">
-    <div class="modal-btn-container">
-      <button class="update-btn">Actualizar</button>
-      <button class="close-modal-btn">Cerrar</button>
-    </div> 
-  <div>`;
-    containerPost.innerHTML += modalTemplate;
+
     containerPost.innerHTML += templatePost;
   };
   posts.forEach(postContent);
@@ -36,30 +27,20 @@ export const createPost = (posts) => {
     });
   });
   const editBtn = containerPost.querySelectorAll('.edit-btn');
-  const modal = containerPost.querySelector('.update-modal');
-  const titleUpdate = containerPost.querySelector('#title-update').value;
-  const descriptionUpdate = containerPost.querySelector('#description-update').value;
-  const linkUpdate = containerPost.querySelector('#link-update').value;
-  const updateBtn = containerPost.querySelector('.update-btn');
 
-  // modal functions
-  let postID = '';
-  editBtn.forEach((ebtn) => {
-    ebtn.addEventListener('click', () => {
-      // deleteDocData(btn.value);
-      postID = ebtn.value;
-      modal.style.display = 'flex';
-      
+  const headerPost = containerPost.querySelector('.header-post');
+  const contentPost = containerPost.querySelector('.post-content');
+  const linkReference = containerPost.querySelector('.reference-link');
+
+  editBtn.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      headerPost.removeAttribute('readonly');
+      contentPost.removeAttribute('readonly');
+      linkReference.removeAttribute('readonly');
+      // updateData(headerPost.value, contentPost.value, linkReference.value, editBtn.value);
     });
   });
 
-  updateBtn.addEventListener('click', () => {
-    updateData(titleUpdate, descriptionUpdate, linkUpdate, postID);
-  });
-  const closeModalBtn = containerPost.querySelector('.close-modal-btn');
-  closeModalBtn.addEventListener('click', () => {
-    modal.style.display = 'none';
-  });
   return containerPost;
 };
 
