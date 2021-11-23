@@ -1,6 +1,6 @@
 import { printPost } from '../firebase/firebase.js';
 
-export const feedSpace = () => {
+export const feedSpace = (posts) => {
   const containerFeedSpace = document.createElement('section');
   containerFeedSpace.className = 'feed-container';
   containerFeedSpace.innerHTML = `
@@ -26,9 +26,11 @@ export const feedSpace = () => {
      </div>
       `;
 
+
   containerFeedSpace.querySelector('.post').addEventListener('click', () => {
+    containerFeedSpace.forEach(feedSpace);
     containerFeedSpace.innerHTML = ' ';
-    printPost();
+    printPost(posts);
   });
 
   return containerFeedSpace;
