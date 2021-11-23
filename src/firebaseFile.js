@@ -55,7 +55,7 @@ export const signUp = (signUpEmail, signUpPassword) => {
             const user = userCredential.user;
             updateProfile(auth.currentUser, {
                 displayName: name,
-              });
+            });
             console.log('created');
         })
         .catch((error) => {
@@ -163,12 +163,10 @@ export const deleteDocData = async (id) => {
 }
 
 export const updateData = async (id, titleUpdate, descriptionUpdate, linkUpdate) => {
-
     const postRef = doc(db, 'publicaciones', id);
     await updateDoc(postRef, {
         headerPost: titleUpdate,
         content: descriptionUpdate,
         referenceLink: linkUpdate,
 });
-
 }
