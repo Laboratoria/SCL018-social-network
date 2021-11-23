@@ -27,17 +27,17 @@ export const createPost = (posts) => {
     });
   });
   const editBtn = containerPost.querySelectorAll('.edit-btn');
-  const headerPost = containerPost.querySelector('.header-post');
-  const contentPost = containerPost.querySelector('.post-content');
-  const linkReference = containerPost.querySelector('.reference-link');
 
   editBtn.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      headerPost.removeAttribute('readonly');
-      contentPost.removeAttribute('readonly');
-      linkReference.removeAttribute('readonly');
+    btn.addEventListener('click', (event) => {
+      const targetBtn = event.target;
+      targetBtn.previousElementSibling.removeAttribute('readonly');
+      const siblingTextarea = targetBtn.parentElement.nextElementSibling;
+      targetBtn.parentElement.nextElementSibling.removeAttribute('readonly');
+      siblingTextarea.nextElementSibling.removeAttribute('readonly');
       const postId = btn.value;
       const parentDivPost = document.getElementById(postId);
+      // console.log(document.getElementById(postId));
       const header = parentDivPost.querySelector('.header-post').value;
       const content = parentDivPost.querySelector('.post-content').value;
       const link = parentDivPost.querySelector('.reference-link').value;
