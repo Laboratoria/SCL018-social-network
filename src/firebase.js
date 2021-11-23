@@ -21,6 +21,7 @@ import {
   orderBy,
   deleteDoc,
   doc,
+  updateDoc,
 } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-firestore.js";
 
 const firebaseConfig = {
@@ -185,6 +186,15 @@ export const observer = () => {
 export const deletePost = async (id) => {
   await deleteDoc(doc(db, 'publicaciones', id));
   console.log(id);
+};
+
+export const updatePost = async (id, themeUpdate, messageUpdate) => {
+  const uniquePost = doc(db, "publicaciones", id);
+  await updateDoc(uniquePost, {
+    // id: idUpdate,
+    theme: themeUpdate,
+    message: messageUpdate,
+  });
 };
 
 // export const getUser = () => {
