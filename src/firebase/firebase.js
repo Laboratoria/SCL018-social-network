@@ -8,7 +8,7 @@ import {
   signInWithEmailAndPassword,
 } from 'https://www.gstatic.com/firebasejs/9.3.0/firebase-auth.js';
 import {
-  getFirestore, collection, addDoc, getDocs,
+  getFirestore, collection, addDoc, query, onSnapshot, orderBy,
 } from 'https://www.gstatic.com/firebasejs/9.3.0/firebase-firestore.js';
 // import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-analytics.js";
 // En este enlace hay más SDK: https://firebase.google.com/docs/web/setup#available-libraries
@@ -101,6 +101,8 @@ export const posting = async (gameTitle, description) => {
     const docRef = await addDoc(collection(db, 'posts'), {
       boardgame: gameTitle,
       description,
+      datepost: Date(Date.now()),
+
     });
     console.log('Document written with ID: ', docRef.id);
   } catch (e) {
@@ -108,11 +110,23 @@ export const posting = async (gameTitle, description) => {
   }
 };
 
-// imprimir post,
-export const printPost = async () => {
-  const querySnapshot = await getDocs(collection(db, 'posts'));
-  querySnapshot.forEach((doc) => {
-    console.log(`${doc.id} => ${doc.data().description}`);
-    window.location.hash = '#/newPost';
+export const printPost = (posts, callback) => {
+  const q = query(collection(db, posts), orderBy('datepost', 'desc'));
+  onSnapshot(q, (querySnapshot) => {
+    const postedPost = [];
+    querySnapshot.forEach((doc) => {
+      postedPost.push(doc.data());
+    });
+    callback(postedPost);
+    console.log('posts', 'datepost', 'boardgame', postedPost.join(', '));
   });
 };
+
+/* imprimir post,
+ export const printPost = async () => {
+const querySnapshot = await getDocs(collection(db, 'posts'));
+ querySnapshot.forEach((doc) => {
+   console.log(`${doc.id} => ${doc.data().description}`);
+  window.location.hash = '#/newPost';
+  });
+};  */
