@@ -271,5 +271,14 @@ input, button {
     width: 100%;
     position: relative;
 }
-
-
+/* .hide{
+    display: none;
+} */
+.update-modal{
+    z-index: 1;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
