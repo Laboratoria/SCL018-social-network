@@ -14,7 +14,8 @@ import {
     GoogleAuthProvider,
     signInWithPopup,
     onAuthStateChanged,
-    signOut
+    signOut,
+    updateProfile
 } from 'https://www.gstatic.com/firebasejs/9.2.0/firebase-auth.js';
 import {
     getFirestore,
@@ -44,6 +45,7 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 const provider = new GoogleAuthProvider(app);
+// const user = auth.currentUser;
 
 export const signUp = (signUpEmail, signUpPassword) => {
     createUserWithEmailAndPassword(auth, signUpEmail, signUpPassword)
@@ -51,7 +53,9 @@ export const signUp = (signUpEmail, signUpPassword) => {
             // Signed in
             window.location.hash = '#/postWall';
             const user = userCredential.user;
-
+            updateProfile(auth.currentUser, {
+                displayName: name,
+              });
             console.log('created');
         })
         .catch((error) => {
@@ -131,10 +135,10 @@ export const authState = () => {
 
 export const addData = async (title, description, link) => {
     const docRef = await addDoc(collection(db, 'publicaciones'), {
+        name: auth.currentUser.displayName,
         headerPost: title,
         content: description,
         referenceLink: link,
-        // datePost: Date(Date.now()),
         datePosted: Timestamp.fromDate(new Date()),
 
     });
@@ -150,9 +154,7 @@ export const readData = (callback, publicaciones) => {
             element.id = document.id;
             element.data = document.data();
             posts.push({ element });
-
         });
-        // console.log(posts);
         callback(posts);
     });
 }

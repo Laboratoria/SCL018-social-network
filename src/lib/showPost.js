@@ -6,7 +6,7 @@ export const createPost = (posts) => {
 
   const postContent = (e) => {
     const iterator = Object.values(e);
-    // console.log(iterator);
+
     const templatePost = `<div class="container-post">
     <div class="header-post-container">
       <textarea class="header-post" readonly>${iterator[0].data.headerPost}</textarea>
@@ -23,6 +23,7 @@ export const createPost = (posts) => {
   const deleteBtn = containerPost.querySelectorAll('.delete-btn');
   deleteBtn.forEach((btn) => {
     btn.addEventListener('click', () => {
+
       deleteDocData(btn.value);
     });
   });
@@ -40,10 +41,8 @@ export const createPost = (posts) => {
       // updateData(headerPost.value, contentPost.value, linkReference.value, editBtn.value);
     });
   });
-
   return containerPost;
 };
-
 export const showPost = () => {
   readData(createPost, 'publicaciones');
 };
