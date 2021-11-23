@@ -3,7 +3,7 @@
 *{
     box-sizing: border-box;
     color: #292B36;
-    font-family: Arial, Helvetica, sans-serif; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
     font-size: 16px;
     margin: 0;
     padding: 0;
@@ -27,22 +27,35 @@ input, button {
     margin: 2%;
     text-align: center;
 }
-.input-box{
+.input-box-email, .input-box-password{
+    border-radius: 3px;
     padding: 2%;
+    text-align: left;
     width: 15em;
+}
+.input-box-email{
+    background-image: url("images/email-logo.png");
+    background-position: 58vw;
+    background-repeat: no-repeat;
+}
+.input-box-password{
+    background-image: url("images/password-logo.png");
+    background-position: 58vw;
+    background-repeat: no-repeat;
 }
 .view-button{
     display: flex;
     align-items: center;
+    border-radius: 15px;
     font-weight: bold;
     justify-content: center;
     padding: 2%;
     width: 15em;
 }
-.login-btn, .view-button{
+.login-btn, .create-account{
     background-color:#FAC710;
 }
-.create-account-link{
+.create-account{
     margin-top: 7%;
 }
 .view-container{
@@ -91,7 +104,6 @@ input, button {
     color: #FAC710;
     font-family: titan one;
     font-size: 30px;
-
 }
 
 .header-timeline h1{
@@ -253,7 +265,7 @@ input, button {
 }
 .logout-btn {
     position: absolute;
-    top: 15%;
+    top: 17%;
     right: 5%;
     background: none;
 }

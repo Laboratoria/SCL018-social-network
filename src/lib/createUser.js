@@ -9,14 +9,14 @@ export const createUser = () => {
         <section class="logo-container">
           <img
             class="logo-coders"
-            src="./images/logo_principal.png"
+            src="./images/logo-principal.png"
             alt="logo CODERS"
           />
         </section>
         <input
           type="email"
           id="signup-email"
-          class="input-box"
+          class="input-box-email"
           name=""
           placeholder="Ingrese su email"
         />
@@ -24,10 +24,10 @@ export const createUser = () => {
           title="Debe tener 6 caracteres mínimo"
           type="password"
           id="signup-password"
-          class="input-box"
+          class="input-box-password"
           placeholder="Ingrese una contraseña"
         />
-        <button id="create-account" class="view-button">Crear cuenta</button>
+        <button id="create-account" class="view-button create-account">Crear cuenta</button>
         </section>`;
   containerCreateUser.innerHTML = signUpHTML;
   containerCreateUser.querySelector('#create-account').addEventListener('click', () => {
