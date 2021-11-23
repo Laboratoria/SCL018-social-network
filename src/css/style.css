@@ -1,0 +1,109 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+.container-register{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.container-images{
+    margin-top: 30%;
+    display: flex;
+    flex-direction: column;
+    align-content: space-around;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.form,
+.illustration,
+.logo {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.conditions,
+.login-here,
+.register-here
+{
+    display: flex;
+    width: 60%;
+    text-align: justify;
+    font-size: .8rem;
+}
+
+.logo,
+.illustration
+{   
+    width: 60%;
+    position: center;
+}
+
+
+input {
+    width: 236px;
+    height: 41px;
+    left: 38px;
+    top: 408px;
+    background: #FFFFFF;
+    border: 1px solid #7F8442;
+    box-sizing: border-box;
+    border-radius: 30px;
+    
+    font-size: 13px;
+    line-height: 15px;
+
+    color: #142030;
+}
+
+input:hover{
+    border: 1px solid #EB583E;
+}
+
+::placeholder {
+    color: #142030;
+    font-size: 1.2em;
+}
+
+button {
+    width: 236px;
+    height: 41px;
+    left: 38px;
+    top: 408px;
+    background: #EB583E;
+    box-sizing: border-box;
+    border-radius: 30px;
+    border: none;
+
+    font-family: ;
+    font-size: 13px;
+    line-height: 15px;
+    color: #EFF1C6;
+}
+
+
+@media (max-width: 425px) {
+}
+
+@media (min-width: 426px) and (max-width: 768px) {
+}
+
+@media (min-width: 769px) and (max-width: 992px) {
+}
+
+@media (min-width: 993px) {
+    .illustration {
+        width: 50%;
+        align-items: flex-start;
+    }
+
+    .logo{
+        flex: 0 0 20%;
+    }
+
+}
