@@ -131,6 +131,7 @@ input, button {
 .post-button{
     align-self: flex-end;
     background-color: #292B36;
+    border-radius: 50px;
     color: #FAC710;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
@@ -141,6 +142,7 @@ input, button {
 }
 .close-btn{
     background-color: #FAC710;
+    border-radius: 50px;
     width: 40%;
     color: #292B36;
     padding: 2% 0% 2% 0%;
@@ -155,7 +157,9 @@ input, button {
     width: 100%;
 }
 #textarea-description, #textarea-title, #textarea-links{
+    background-color: #f5eeee;
     border: 2px solid #292B36;
+    border-radius:5px;
     box-shadow:2px 2px #c0bdbd;
     font-size: 14px;
     height: 8%;
@@ -185,6 +189,7 @@ input, button {
 }
 .header-post-container{
     background-color: #292b36;
+    border-radius: 5px 5px 0px 0px;
     display: flex;
     flex-direction: row;
     height: auto;
@@ -192,6 +197,7 @@ input, button {
     
 }
 .header-post{
+    align-self: center;
     background-color: #292b36;
     border: none;
     color:#FAC710;
@@ -199,12 +205,10 @@ input, button {
     font-size: 16px;
     font-weight: bold;
     height: auto;
+    margin-left:2%;
     outline:none;
-    padding: 2%;
     resize: none;
     width: 80%;
-    
-    
 }
 .post-content{
     background-color: rgba(41, 43, 54, 0.8);
@@ -215,18 +219,22 @@ input, button {
     resize: none;
     width: 100%;
     height: auto;
-    
-   
 }
 .reference-link{
     background-color: rgba(41, 43, 54, 0.8);
+    border-radius: 0px 0px 5px 5px;
     color: white;
     height: auto;
     outline:none;
     padding: 2%;
     resize: none;
     width: 100%;
-    
+}
+.edit-btn, .delete-btn{
+    background: none;
+}
+.edit-icon{
+    height: 29px;
 }
 .post-button-container {
     display: flex;
@@ -240,6 +248,7 @@ input, button {
     align-items: center;
     flex-direction: column;
     background-color: #FAC710;
+    border-radius: 50px;
     height: 30%;
     margin-top: 5%;
     width: 50%;
