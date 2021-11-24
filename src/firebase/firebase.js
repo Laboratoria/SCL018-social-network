@@ -93,7 +93,7 @@ export const signed = (emailSignup, passwordSignup) => {
 };
 
 // DESDE AQUI INICIA FIRESTORE
-const db = getFirestore();
+const db = getFirestore(app);
 
 // agregar datos.
 export const posting = async (gameTitle, description) => {
@@ -110,15 +110,15 @@ export const posting = async (gameTitle, description) => {
   }
 };
 
-export const printPost = (posts, callback) => {
-  const q = query(collection(db, posts), orderBy('datepost', 'desc'));
+export const printPost = (callback) => {
+  const q = query(collection(db, 'posts'), orderBy('datepost', 'desc'));
   onSnapshot(q, (querySnapshot) => {
     const postedPost = [];
     querySnapshot.forEach((doc) => {
       postedPost.push(doc.data());
     });
     callback(postedPost);
-    console.log('posts', 'datepost', 'boardgame', postedPost.join(', '));
+    console.log(postedPost);
   });
 };
 

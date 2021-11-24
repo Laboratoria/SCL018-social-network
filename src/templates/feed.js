@@ -14,8 +14,7 @@ export const feedSpace = (posts) => {
        <a href="#/perfil">PERFIL</a> <img class='icon' src="./imagenes/perfil.svg" />
      </nav>
      <main class= 'main'>
-     <div> </div>
-     <div> </div>
+     <section id='postContainer'> </section>
      <button class= 'post'>NUEVA PUBLICACIÓN
      </button>
      <input type = "search" class='search' placeholder="busca la categoria"/>
@@ -25,12 +24,17 @@ export const feedSpace = (posts) => {
      </footer>
      </div>
       `;
+  const callback = (array) => {
+    array.forEach((element) => {
+      containerFeedSpace.querySelector('#postContainer').innerHTML += `<h1> ${element.boardgame} </h1>`;
+    });
+  };
+  printPost(callback);
 
-  containerFeedSpace.querySelector('.post').addEventListener('click', () => {
+/*   containerFeedSpace.querySelector('.post').addEventListener('click', () => {
     containerFeedSpace.forEach(feedSpace);
     containerFeedSpace.innerHTML = ' ';
-    printPost(posts);
-  });
+  }); */
 
   return containerFeedSpace;
 
