@@ -16,14 +16,15 @@ export const createPost = (posts) => {
       <textarea class="post-content" rows="4" cols="50" readonly>${iterator[0].data.content}</textarea>
       <textarea class="reference-link" readonly>${iterator[0].data.referenceLink}</textarea>
       </div>`;
-
     containerPost.innerHTML += templatePost;
   };
   posts.forEach(postContent);
   const deleteBtn = containerPost.querySelectorAll('.delete-btn');
   deleteBtn.forEach((btn) => {
     btn.addEventListener('click', () => {
-      deleteDocData(btn.value);
+      if(confirm('¡Vas a borrar tu post! ¿Deseas continuar?')) {
+        deleteDocData(btn.value);
+      }
     });
   });
   const editBtn = containerPost.querySelectorAll('.edit-btn');
@@ -32,9 +33,8 @@ export const createPost = (posts) => {
     btn.addEventListener('click', (event) => {
       const targetBtn = event.target;
       targetBtn.previousElementSibling.removeAttribute('readonly');
-      const siblingTextarea = targetBtn.parentElement.nextElementSibling;
       targetBtn.parentElement.nextElementSibling.removeAttribute('readonly');
-      siblingTextarea.nextElementSibling.removeAttribute('readonly');
+      targetBtn.parentElement.nextElementSibling.nextElementSibling.removeAttribute('readonly');
       const postId = btn.value;
       const parentDivPost = document.getElementById(postId);
       // console.log(document.getElementById(postId));

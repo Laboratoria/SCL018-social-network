@@ -11,14 +11,14 @@ export const login = () => {
     <section class="logo-container">
       <img
         class="logo-coders"
-        src="./images/logo_principal.png"
+        src="./images/logo-principal.png"
         alt="logo CODERS"
       />
     </section>
     <input
       type="email"
       id="login-email"
-      class="input-box"
+      class="input-box-email"
       name=""
       placeholder="Email"
     />
@@ -26,12 +26,12 @@ export const login = () => {
       title="Debe tener 6 caracteres mínimo"
       type="password"
       id="login-password"
-      class="input-box"
+      class="input-box-password"
       placeholder="Contraseña"
     />
     <button class="view-button login-btn">Iniciar sesión</button>
-    <button class="view-button create-account-link">Crear cuenta</button>
-    <button class="view-button login-google"><img class="google-logo" src="./images/google-logo.png"></img>Ingresar con Google</button>`;
+    <button class="view-button create-account">Crear cuenta nueva</button>
+    <button class="view-button login-google"><img class="google-logo" src="./images/google-logo.png"></img>Iniciar con Google</button>`;
   containerLoginUser.innerHTML = loginHTML;
   containerLoginUser.querySelector('.login-btn').addEventListener('click', () => {
     // const nombreUsuario
@@ -39,7 +39,7 @@ export const login = () => {
     const loginPassword = document.getElementById('login-password').value;
     loginWithEmail(loginEmail, loginPassword);
   });
-  containerLoginUser.querySelector('.create-account-link').addEventListener('click', () => {
+  containerLoginUser.querySelector('.create-account').addEventListener('click', () => {
     window.location.hash = '#/createUser';
   });
   containerLoginUser.querySelector('.login-google').addEventListener('click', () => {
