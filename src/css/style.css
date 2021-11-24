@@ -270,7 +270,7 @@ header {
   align-items: center;
 }
 
-.wall-title{ 
+.wall-title {
   width: 100%;
   font-size: 45px;
   color: white;
@@ -296,16 +296,17 @@ header {
 
 .user-icon,
 .logout-icon {
-  display:flex;
+  display: flex;
   width: 40px;
   height: 40px;
   margin: 0% 5% 0% 2%;
   cursor: pointer;
 }
 
-.trash-icon, .edit-icon{
-  background:none;
-  border:none;
+.trash-icon,
+.edit-icon {
+  background: none;
+  border: none;
   cursor: pointer;
 }
 
@@ -338,7 +339,7 @@ header {
   border-radius: 5px;
 }
 
-.post-container-user{
+.post-container-user {
   overflow-y: scroll;
   overflow-x: hidden;
   grid-column: 2/6;
@@ -348,7 +349,8 @@ header {
   border-radius: 5px;
 }
 
-.post, .post-user {
+.post,
+.post-user {
   background-color: rgb(54, 49, 89, 0.8);
   display: flex;
   flex-direction: column;
@@ -356,24 +358,24 @@ header {
   margin: 2%;
 }
 
-.icons-container{
-  display:flex;
+.icons-container {
+  display: flex;
   width: 100%;
   margin: 1%;
   justify-content: space-between;
 }
 
-.like-container{
+.like-container {
   margin-left: 2%;
   cursor: pointer;
 }
 
-.trash-container{
+.trash-container {
   margin-left: 82%;
   cursor: pointer;
-} 
+}
 
-.edit-container{
+.edit-container {
   margin-right: 2%;
   align-self: self-end;
   cursor: pointer;
@@ -398,31 +400,30 @@ header {
   border-radius: 3px;
   font-size: 20px;
 }
-.profile-container{
-  display:flex;
+.profile-container {
+  display: flex;
   width: 100%;
-  margin: 2% 0% 0% 2%; 
+  margin: 2% 0% 0% 2%;
 }
 
 .pic-profile {
-  width: 25px;
-  height: 25px;
+  width: 40px;
+  height: 40px;
 }
 
-.title-profile{
+.title-profile {
   font-family: Tomorrow-medium;
   font-weight: normal;
   font-size: 25px;
   color: #ffffff;
-  margin:0%;
+  margin: 0%;
   margin-left: 2%;
 }
 
-
-.wall-links{
+.wall-links {
   display: grid;
   /* flex-direction: column; */
-  grid-row: 2/8; 
+  grid-row: 2/8;
   grid-column: 1/1;
   background-color: rgba(20, 16, 42, 0.8);
   align-items: center;
@@ -449,7 +450,7 @@ header {
 }
 
 .footer-mobile {
-  display:none;
+  display: none;
 }
 
 .footer-desktop {
@@ -459,15 +460,14 @@ header {
   background-color: rgba(20, 16, 42, 0.8);
   /* display: flex; */
   justify-content: center;
-  font-family:Tomorrow-light;
+  font-family: Tomorrow-light;
   font-weight: bold;
   color: rgb(255, 255, 255);
 }
 
-
 @media (min-width: 320px) and (max-width: 488px) {
   .wall-title {
-    display:none;
+    display: none;
   }
 
   /* .wall-container {
@@ -497,7 +497,7 @@ header {
   .footer-mobile {
     background-color: rgba(20, 16, 42);
   }
-  
+
   .footer-container {
     display: flex;
     align-items: center;
@@ -506,19 +506,19 @@ header {
   }
 }
 
-::-webkit-scrollbar{
+::-webkit-scrollbar {
   width: 15px;
 }
-::-webkit-scrollbar-track{
-  background:rgb(92, 43, 138)
+::-webkit-scrollbar-track {
+  background: rgb(92, 43, 138);
 }
 
-.post-container-user::-webkit-scrollbar-track{
-  background:rgb(92, 43, 138) ;
+.post-container-user::-webkit-scrollbar-track {
+  background: rgb(92, 43, 138);
   border-radius: 50px;
 }
 
-::-webkit-scrollbar-thumb{
-  background:darkorchid ;
+::-webkit-scrollbar-thumb {
+  background: darkorchid;
   border-radius: 50px;
 }
