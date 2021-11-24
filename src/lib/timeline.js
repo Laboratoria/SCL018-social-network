@@ -12,7 +12,7 @@ export const timeline = () => {
     <button class="close-btn">Cerrar</button>
       <section class="create-post">
         <input type="text" id="textarea-title" placeholder="Título">
-        <textarea id="textarea-description" placeholder="Descripción" maxlength="150"></textarea>
+        <textarea id="textarea-description" placeholder="Descripción" maxlength="300"></textarea>
         <input type="text" id="textarea-links" placeholder="Link de referencia">
         <div class="post-button-container">
           <button class="post-button">Publicar</button>
