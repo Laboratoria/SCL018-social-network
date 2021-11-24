@@ -35,7 +35,7 @@ const firebaseConfig = {
 };
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
+export const auth = getAuth(app);
 const provider = new GoogleAuthProvider(app);
 const db = getFirestore(app);
 
@@ -44,9 +44,9 @@ export const signUp = () => {
   const signUpPassword = document.getElementById("passwordSignUp").value;
   const signUpUserName = document.getElementById("userSignUp").value;
   if (
-    signUpPassword.length < 6
-    && signUpEmail === ""
-    && signUpUserName === ""
+    signUpPassword.length < 6 &&
+    signUpEmail === "" &&
+    signUpUserName === ""
   ) {
     alert("ingrese datos");
   } else if (signUpPassword.length < 6) {
@@ -60,10 +60,9 @@ export const signUp = () => {
       auth,
       signUpEmail,
       signUpPassword,
-      signUpUserName,
+      signUpUserName
     )
       .then((userCredential) => {
-        // const username = signUpUser;
         const user = userCredential.user;
         alert("usuario creado");
         console.log(user);
@@ -123,8 +122,11 @@ export const loginWithGoogle = () => {
       return errorMessage + errorCode + email + credential;
     });
 };
+
 export const postData = async (postTheme, postMessage) => {
   const docRef = await addDoc(collection(db, "publicaciones"), {
+    username: auth.currentUser.displayName,
+    userId: auth.currentUser.uid,
     theme: postTheme,
     message: postMessage,
     datePost: Date(Date.now()),
@@ -138,10 +140,12 @@ export const readData = (callback, publicaciones) => {
   onSnapshot(q, (querySnapshot) => {
     const posts = [];
     querySnapshot.forEach((document) => {
+      // console.log(document);
       const element = {};
       element.id = document.id;
       element.data = document.data();
       posts.push({ element });
+      // console.log(element);
     });
     callback(posts);
   });
@@ -184,7 +188,7 @@ export const observer = () => {
 };
 
 export const deletePost = async (id) => {
-  await deleteDoc(doc(db, 'publicaciones', id));
+  await deleteDoc(doc(db, "publicaciones", id));
   console.log(id);
 };
 
