@@ -10,7 +10,8 @@ html{
     "email email email email" 1 fr
     "password password password password" 1 fr
     "click click click click" 1 fr;
-    margin-top: 130px;
+    padding: 15vh 8vw;
+
 }
 
 #signupemail{
@@ -108,34 +109,36 @@ footer {
 }
 
 #newpost {
-    align-self: center;
-    justify-self: center;
-    max-width: 800px;
+    max-width: auto;
     display: grid;
     gap: 1rem;
-    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(100vw, 1fr));
     border: solid gray 3px;
     border-radius: 8px;
-    padding: 30px;
+    padding: 30vw 5vh;
     justify-items: center;
+    justify-content: center;
 
 }
 
 #gameTitle {
     display: flex;
+    justify-content: center;
     flex-direction: column;
-    padding-left:15px;
     height: 45px;
-    min-width: 80%;
+    min-width: auto;
     border: 1px solid #194a40;
     box-shadow: inset 0px 0px 3px #194a40;
     font-size: 24px;
     color: #194a40;
     margin-bottom: 20px;
+    padding-left: 5vw;
+    padding-right: 4vw;
 }
 
 #gameDescription {
     display: flex;
+    justify-content: center;
     flex-direction: column;
     min-width: 80%;
     padding-left:15px;
