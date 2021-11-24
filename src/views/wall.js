@@ -69,6 +69,8 @@ export const wall = () => {
   post.addEventListener("click", () => {
     const postTheme = feedContainer.querySelector("#postTheme").value;
     const postMessage = feedContainer.querySelector("#postMessage").value;
+    document.getElementById("postTheme").value = "";
+    document.getElementById("postMessage").value = "";
     postData(postTheme, postMessage);
     console.log(postTheme, postMessage);
   });
