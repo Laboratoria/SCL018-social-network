@@ -13,9 +13,13 @@ export const newPost = (posts) => {
     let feedHtml = `<div class="post-user" id=${e.element.id}>
             <div class="profile-container">
             <div class="pic-container">
-            <img class="pic-profile" src="resources/images/Vector-user.svg" alt="user" />
+            <img class="pic-profile" src="resources/images/gamer.png" alt="user" />
             </div>
-            <h3 class="title-profile">Lady Gaga</h3>
+            <h3 class="title-profile">${
+              e.element.data.username === null
+                ? "Anonimo"
+                : e.element.data.username
+            }</h3>
             </div>`;
 
     if (e.element.data.userId === auth.currentUser.uid) {
@@ -48,11 +52,9 @@ export const newPost = (posts) => {
     newPostContainer.innerHTML += feedHtml;
     // buscar si es template ${postsValues[0].id} debe ir entre comillas o no
   };
-
   posts.forEach(feedContent);
 
   const deleteBtn = newPostContainer.querySelectorAll("#trashBtn");
-
   deleteBtn.forEach((trash) => {
     trash.addEventListener("click", () => {
       if (confirm("¿estás segura que quieres eliminar el post?")) {
@@ -60,22 +62,18 @@ export const newPost = (posts) => {
       }
     });
   });
-
   const editBtn = newPostContainer.querySelectorAll("#editBtn");
   const postTheme = newPostContainer.querySelector("#postTheme");
   const postMessage = newPostContainer.querySelector("#postMessage");
 
   editBtn.forEach((edit) => {
-    // console.log(edit);
     edit.addEventListener("click", () => {
-      // console.log(edit);
-      // postTheme.removeAttribute("readonly");
-      // postMessage.removeAttribute("readonly");
       const postId = edit.value;
-      // console.log(postId);
       const parentDivPost = document.getElementById(postId);
       const theme = parentDivPost.querySelector("#postTheme").value;
       const message = parentDivPost.querySelector("#postMessage").value;
+      postTheme.removeAttribute("readonly");
+      postMessage.removeAttribute("readonly");
       updatePost(postId, theme, message);
     });
   });
