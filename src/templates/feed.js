@@ -1,4 +1,4 @@
-import { printPost } from '../firebase/firebase.js';
+import { posting, printPost } from '../firebase/firebase.js';
 
 export const feedSpace = (posts) => {
   const containerFeedSpace = document.createElement('section');
@@ -26,15 +26,19 @@ export const feedSpace = (posts) => {
       `;
   const callback = (array) => {
     array.forEach((element) => {
-      containerFeedSpace.querySelector('#postContainer').innerHTML += `<h1> ${element.boardgame} </h1>`;
+      const postContainer = containerFeedSpace.querySelector('#postContainer');
+      postContainer.innerHTML += `
+      <article>
+      <div> ${element.boardgame} </div>
+      <div> ${element.description} </div>
+      </article>`;
     });
   };
   printPost(callback);
 
-/*   containerFeedSpace.querySelector('.post').addEventListener('click', () => {
-    containerFeedSpace.forEach(feedSpace);
-    containerFeedSpace.innerHTML = ' ';
-  }); */
+  containerFeedSpace.querySelector('.post').addEventListener('click', () => {
+    window.location.hash = '#/newPost';
+  });
 
   return containerFeedSpace;
 
