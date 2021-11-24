@@ -6,11 +6,11 @@ export const newPost = () => {
   containerNewPost.className = 'feed-container';
   containerNewPost.innerHTML = `
         <section>
-        <div>
-        <input type='text' id='gameTitle' placeholder="¿De qué juego quieres hablar?"/>
+        <div id='newpost'>
+        <input type='text' id='gameTitle' placeholder="Nombre del juego a comentar"/>
         <textarea minlength='10' maxlength='100' rows='10' columns='55' id='gameDescription' placeholder="Escribe aquí tu post"></textarea>
         </div>
-        <button class='publish'>PUBLICAR
+        <button id='publish'>PUBLICAR
         </button>
         </section>`;
 
