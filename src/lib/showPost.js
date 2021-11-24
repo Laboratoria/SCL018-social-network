@@ -22,7 +22,7 @@ export const createPost = (posts) => {
   const deleteBtn = containerPost.querySelectorAll('.delete-btn');
   deleteBtn.forEach((btn) => {
     btn.addEventListener('click', () => {
-      if (confirm('¡Vas a borrar tu post! ¿Deseas continuar?')) {
+      if(confirm('¡Vas a borrar tu post! ¿Deseas continuar?')) {
         deleteDocData(btn.value);
       }
     });
