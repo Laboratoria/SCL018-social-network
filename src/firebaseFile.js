@@ -42,7 +42,7 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
+export const auth = getAuth(app);
 const db = getFirestore(app);
 const provider = new GoogleAuthProvider(app);
 // const user = auth.currentUser;
@@ -135,19 +135,18 @@ export const authState = () => {
 
 export const addData = async (title, description, link) => {
     const docRef = await addDoc(collection(db, 'publicaciones'), {
-        name: auth.currentUser.displayName,
+        username: auth.currentUser.displayName,
+        userId: auth.currentUser.uid,
         headerPost: title,
         content: description,
         referenceLink: link,
         datePosted: Timestamp.fromDate(new Date()),
-
     });
     return docRef;
 }
 export const readData = (callback, publicaciones) => {
     const q = query(collection(db, publicaciones), orderBy('datePosted', 'desc'));
     onSnapshot(q, (querySnapshot) => {
-
         const posts = [];
         querySnapshot.forEach((document) => {
             const element = {};
