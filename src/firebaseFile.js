@@ -155,6 +155,7 @@ export const readData = (callback, publicaciones) => {
             element.data = document.data();
             posts.push({ element });
         });
+        console.log(posts);
         callback(posts);
     });
 }

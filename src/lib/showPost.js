@@ -5,16 +5,16 @@ export const createPost = (posts) => {
   containerPost.innerHTML = '';
 
   const postContent = (postData) => {
-    const iterator = Object.values(postData);
+    // const iterator = Object.values(postData);
 
-    const templatePost = `<div class="container-post" id="${iterator[0].id}">
+    const templatePost = `<div class="container-post" id="${postData.element.id}">
     <div class="header-post-container">
-      <textarea class="header-post" readonly>${iterator[0].data.headerPost}</textarea>
-      <button value=${iterator[0].id} class="edit-btn"><img class="edit-icon" src="./images/edit-icon.png"></img></button>
-      <button value=${iterator[0].id} class="delete-btn"><img class="delete-icon" src="./images/delete-icon.png"></img></button>
+      <textarea class="header-post" readonly>${postData.element.data.headerPost}</textarea>
+      <button value=${postData.element.id} class="edit-btn"><img class="edit-icon" src="./images/edit-icon.png"></img></button>
+      <button value=${postData.element.id} class="delete-btn"><img class="delete-icon" src="./images/delete-icon.png"></img></button>
     </div>
-      <textarea class="post-content" rows="4" cols="50" readonly>${iterator[0].data.content}</textarea>
-      <textarea class="reference-link" readonly>${iterator[0].data.referenceLink}</textarea>
+      <textarea class="post-content" rows="4" cols="50" readonly>${postData.element.data.content}</textarea>
+      <textarea class="reference-link" readonly>${postData.element.data.referenceLink}</textarea>
       </div>`;
     containerPost.innerHTML += templatePost;
   };
@@ -22,7 +22,7 @@ export const createPost = (posts) => {
   const deleteBtn = containerPost.querySelectorAll('.delete-btn');
   deleteBtn.forEach((btn) => {
     btn.addEventListener('click', () => {
-      if(confirm('¡Vas a borrar tu post! ¿Deseas continuar?')) {
+      if (confirm('¡Vas a borrar tu post! ¿Deseas continuar?')) {
         deleteDocData(btn.value);
       }
     });
