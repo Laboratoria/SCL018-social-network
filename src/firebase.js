@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 /* eslint-disable import/no-unresolved */
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-app.js";
 import {
@@ -18,6 +19,9 @@ import {
   query,
   onSnapshot,
   orderBy,
+  deleteDoc,
+  doc,
+  updateDoc,
 } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-firestore.js";
 
 const firebaseConfig = {
@@ -31,7 +35,7 @@ const firebaseConfig = {
 };
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
+export const auth = getAuth(app);
 const provider = new GoogleAuthProvider(app);
 const db = getFirestore(app);
 
@@ -56,12 +60,12 @@ export const signUp = () => {
       auth,
       signUpEmail,
       signUpPassword,
-      userSignUp
+      signUpUserName
     )
       .then((userCredential) => {
-        // const username = signUpUser;
         const user = userCredential.user;
-        console.log("usuario creado");
+        alert("usuario creado");
+        console.log(user);
         return user;
       })
       .catch((error) => {
@@ -118,8 +122,11 @@ export const loginWithGoogle = () => {
       return errorMessage + errorCode + email + credential;
     });
 };
+
 export const postData = async (postTheme, postMessage) => {
   const docRef = await addDoc(collection(db, "publicaciones"), {
+    username: auth.currentUser.displayName,
+    userId: auth.currentUser.uid,
     theme: postTheme,
     message: postMessage,
     datePost: Date(Date.now()),
@@ -132,11 +139,38 @@ export const readData = (callback, publicaciones) => {
   const q = query(collection(db, publicaciones), orderBy("datePost", "desc"));
   onSnapshot(q, (querySnapshot) => {
     const posts = [];
-    querySnapshot.forEach((doc) => {
-      posts.push(doc.data());
+    querySnapshot.forEach((document) => {
+      // console.log(document);
+      const element = {};
+      element.id = document.id;
+      element.data = document.data();
+      posts.push({ element });
+      // console.log(element);
     });
     callback(posts);
   });
+};
+
+// export const readData = (callback, publicaciones) => {
+//   const q = query(collection(db, publicaciones), orderBy("datePost", "desc"));
+//   onSnapshot(q, (querySnapshot) => {
+//     const posts = [];
+//     querySnapshot.forEach((doc) => {
+//       posts.push(doc.data());
+//     });
+//     callback(posts);
+//   });
+// };
+
+export const logOut = () => {
+  signOut(auth)
+    .then(() => {
+      window.location.hash = "#/landing";
+      console.log(`bai bai bitch`);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
 };
 
 export const observer = () => {
@@ -144,22 +178,27 @@ export const observer = () => {
     if (user) {
       window.location.hash = "#/wall";
       const uid = user.uid;
+      console.log(`bienvenida ${uid}`);
     } else if (!user) {
       if (window.location.hash !== "#/register") {
-        // User is signed out
         logOut();
       }
     }
   });
 };
-export const logOut = () => {
-  signOut(auth)
-    .then(() => {
-      window.location.hash = "#/landing";
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+
+export const deletePost = async (id) => {
+  await deleteDoc(doc(db, "publicaciones", id));
+  console.log(id);
+};
+
+export const updatePost = async (id, themeUpdate, messageUpdate) => {
+  const uniquePost = doc(db, "publicaciones", id);
+  await updateDoc(uniquePost, {
+    // id: idUpdate,
+    theme: themeUpdate,
+    message: messageUpdate,
+  });
 };
 
 // export const getUser = () => {
