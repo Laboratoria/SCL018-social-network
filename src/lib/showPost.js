@@ -10,8 +10,8 @@ export const createPost = (posts) => {
     const templatePost = `<div class="container-post" id="${iterator[0].id}">
     <div class="header-post-container">
       <textarea class="header-post" readonly>${iterator[0].data.headerPost}</textarea>
-      <button value=${iterator[0].id} class="edit-btn">Editar</button>
-      <button value=${iterator[0].id} class="delete-btn">Borrar</button>
+      <button value=${iterator[0].id} class="edit-btn"><img class="edit-icon" src="./images/edit-icon.png"></img></button>
+      <button value=${iterator[0].id} class="delete-btn"><img class="delete-icon" src="./images/delete-icon.png"></img></button>
     </div>
       <textarea class="post-content" rows="4" cols="50" readonly>${iterator[0].data.content}</textarea>
       <textarea class="reference-link" readonly>${iterator[0].data.referenceLink}</textarea>
@@ -31,7 +31,7 @@ export const createPost = (posts) => {
 
   editBtn.forEach((btn) => {
     btn.addEventListener('click', (event) => {
-      const targetBtn = event.target;
+      const targetBtn = event.target.parentElement;
       targetBtn.previousElementSibling.removeAttribute('readonly');
       targetBtn.parentElement.nextElementSibling.removeAttribute('readonly');
       targetBtn.parentElement.nextElementSibling.nextElementSibling.removeAttribute('readonly');
