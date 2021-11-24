@@ -26,7 +26,6 @@ export const feedSpace = (posts) => {
      </div>
       `;
 
-
   containerFeedSpace.querySelector('.post').addEventListener('click', () => {
     containerFeedSpace.forEach(feedSpace);
     containerFeedSpace.innerHTML = ' ';
