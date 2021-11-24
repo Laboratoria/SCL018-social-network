@@ -24,8 +24,8 @@ export const newPost = (posts) => {
 
     if (e.element.data.userId === auth.currentUser.uid) {
       feedHtml += `<div class="textarea-container">
-      <textarea class="post-theme" id="postTheme" cols="10" rows="1" readonly>${e.element.data.theme}</textarea>
-     <textarea class="post-message" id="postMessage" cols="15" rows="5" readonly>${e.element.data.message}</textarea>
+      <textarea class="post-theme" id="postTheme" cols="10" rows="1">${e.element.data.theme}</textarea>
+     <textarea class="post-message" id="postMessage" cols="15" rows="5">${e.element.data.message}</textarea>
       </div>
       <div class="icons-container">
      <div class="like-container">
@@ -72,8 +72,8 @@ export const newPost = (posts) => {
       const parentDivPost = document.getElementById(postId);
       const theme = parentDivPost.querySelector("#postTheme").value;
       const message = parentDivPost.querySelector("#postMessage").value;
-      postTheme.removeAttribute("readonly");
-      postMessage.removeAttribute("readonly");
+      // postTheme.removeAttribute("readonly");
+      // postMessage.removeAttribute("readonly");
       updatePost(postId, theme, message);
     });
   });
