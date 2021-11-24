@@ -1,7 +1,7 @@
 import { createUser } from '../lib/firebase.js';
 
 export const registerUser = () => {
-  const drawRegister = document.createElement('section'); //crea un nodo de tipo element
+  const drawRegister = document.createElement('section'); // crea un nodo de tipo element
   const registerTemplate = `
   <section class="container-register">
   <section class="container-images">

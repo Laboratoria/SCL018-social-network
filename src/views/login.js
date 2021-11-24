@@ -1,3 +1,5 @@
+/* import { signIn } from '../lib/firebase.js'; */
+
 export const loginUser = () => {
   const drawLogin = document.createElement('section');
   const loginTemplate = `
@@ -9,22 +11,31 @@ export const loginUser = () => {
   </section>
     <section class="form">
     <section class="email">
-      <input type="email" placeholder="Email"></input>
+      <input type="email" id= "loginEmail" placeholder="Email"></input>
     </section>
     <section class="password">
-      <input type="password" placeholder="Contraseña"></input>
+      <input type="password" id= "loginPassword" placeholder="Contraseña"></input>
     </section>
-    <section class="name">
-      <button>Iniciar Sesion</button>
+    <section class="">
+      <button id= "loginBtn">Iniciar Sesión</button>
     </section>
     <section class="register-here">
-      <h4>¿No tienes cuenta?<a href='#/register'>Registrate aqui</h4>
+      <h4>¿No tienes cuenta?<a href='#/register'>Regístrate aquí</h4>
     </section>
   </section>
 </section>
 `;
 
-
   drawLogin.innerHTML = loginTemplate;
+
+  const loginBtn = drawLogin.querySelector('#loginBtn');
+  loginBtn.addEventListener('click', () => {
+    const loginEmail = drawLogin.querySelector('#loginEmail');
+    const loginPassword = drawLogin.querySelector('#loginPassword').value;
+    console.log(loginEmail);
+    console.log(loginPassword);
+  /*  signIn(loginEmail, loginPassword); */
+  });
+
   return drawLogin;
 };
