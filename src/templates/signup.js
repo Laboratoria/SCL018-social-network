@@ -7,13 +7,13 @@ export const templateSignUp = () => {
   // aqui tu codigo
   containerTemplateSignUp.innerHTML = `
     <main class= "grid-template" >
-    <div id="letter">
+    <div id="signupemail">
     <input type="email" 
     placeholder="Ingresa tu Correo"
     id="emailUp" />
     <img src="https://img.icons8.com/ios/50/000000/love-letter.png" class="icon"/>
     </div>
-    <div id="unlock">
+    <div id="signuppassword">
     <input type="password"
     placeholder="Ingresa tu contraseña " 
     id="passwordUp"/>

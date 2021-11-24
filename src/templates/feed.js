@@ -21,7 +21,7 @@ export const feedSpace = (posts) => {
      <input type = "search" class='search' placeholder="busca la categoria"/>
      </main>
      <footer class='footer'>
-     "todos los derechos reservados por Mewple"
+     "Mewple, todos los derechos reservados ©"
      </footer>
      </div>
       `;
