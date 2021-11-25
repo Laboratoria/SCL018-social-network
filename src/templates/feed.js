@@ -1,6 +1,6 @@
-import { signOutUser, posting, printPost } from '../firebase/firebase.js';
+import { signOutUser, printPost } from '../firebase/firebase.js';
 
-export const feedSpace = (posts) => {
+export const feedSpace = () => {
   const containerFeedSpace = document.createElement('section');
   containerFeedSpace.className = 'feed-container';
   containerFeedSpace.innerHTML = `
