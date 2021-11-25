@@ -6,6 +6,7 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
   signInWithEmailAndPassword,
+  signOut,
 } from 'https://www.gstatic.com/firebasejs/9.3.0/firebase-auth.js';
 import {
   getFirestore, collection, addDoc, query, onSnapshot, orderBy,
@@ -91,6 +92,20 @@ export const signed = (emailSignup, passwordSignup) => {
       const errorMessage = error.message;
     });
 };
+
+// Aqui esta el logout
+export const signOutUser = () => {
+  signOut(auth)
+    .then(() => {
+      window.location.hash = '#/login';
+      console.log('Te has deslogeado con exito ;)');
+      // Sign-out successful.
+    }).catch((error) => {
+      // An error happened.
+      console.log(error);
+    });
+};
+
 
 // DESDE AQUI INICIA FIRESTORE
 const db = getFirestore(app);
