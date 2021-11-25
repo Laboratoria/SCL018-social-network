@@ -73,8 +73,5 @@ export const landingPage = () => {
     .addEventListener("click", () => {
       loginWithGoogle();
     });
-  // containerLanding.querySelector("#signUp").addEventListener("click", () => {
-  //   window.location.hash = "#/wall";
-  // });
   return containerLanding;
 };
