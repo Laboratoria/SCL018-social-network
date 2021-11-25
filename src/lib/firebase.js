@@ -1,6 +1,9 @@
+/* eslint-disable import/no-unresolved */
 // Import the functions you need from the SDKs you need
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword} from 'https://www.gstatic.com/firebasejs/9.3.0/firebase-auth.js';
+
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.2.0/firebase-app.js';
+
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.2.0/firebase-auth.js';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -19,24 +22,22 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
-export const createUser = (email, password) => {
-  createUserWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
+export const createUser = (email, password) => createUserWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => { // aquí debería ir lo que sucede luego de registrarse
     // Signed in
-      const user = userCredential.user;
+    const user = userCredential.user;
+    console.log(user);
     // ...
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    console.log(errorCode);
+    console.log(errorMessage);
     // ..
-    });
-};
+  });
 
-/*
-const auth = getAuth();
-export const signIn = (loginEmail, loginPassword) =>
-signInWithEmailAndPassword(auth, loginEmail, loginPassword)
+export const signIn = (email, password) => signInWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
     // Signed in
     const user = userCredential.user;
@@ -46,5 +47,6 @@ signInWithEmailAndPassword(auth, loginEmail, loginPassword)
   .catch((error) => {
     const errorCode = error.code;
     const errorMessage = error.message;
+    console.log(errorCode);
+    console.log(errorMessage);
   });
-  */

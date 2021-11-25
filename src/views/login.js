@@ -1,4 +1,4 @@
-/* import { signIn } from '../lib/firebase.js'; */
+import { signIn } from '../lib/firebase.js'; 
 
 export const loginUser = () => {
   const drawLogin = document.createElement('section');
@@ -30,11 +30,11 @@ export const loginUser = () => {
 
   const loginBtn = drawLogin.querySelector('#loginBtn');
   loginBtn.addEventListener('click', () => {
-    const loginEmail = drawLogin.querySelector('#loginEmail');
+    const loginEmail = drawLogin.querySelector('#loginEmail').value;
     const loginPassword = drawLogin.querySelector('#loginPassword').value;
     console.log(loginEmail);
     console.log(loginPassword);
-  /*  signIn(loginEmail, loginPassword); */
+    signIn(loginEmail, loginPassword); 
   });
 
   return drawLogin;
