@@ -28,9 +28,11 @@ export const feedSpace = (posts) => {
     array.forEach((element) => {
       const postContainer = containerFeedSpace.querySelector('#postContainer');
       postContainer.innerHTML += `
-      <article>
-      <div> ${element.boardgame} </div>
-      <div> ${element.description} </div>
+      <article class='newpost' >
+      <h4 class='gameTitle'> ${element.boardgame} </h4>
+      <div class='gameDescription'>${element.description}</div>
+      <button class='like'>ME GUSTA
+      </button>
       </article>`;
     });
   };
