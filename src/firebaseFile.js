@@ -51,7 +51,7 @@ export const signUp = (signUpEmail, signUpPassword) => {
     createUserWithEmailAndPassword(auth, signUpEmail, signUpPassword)
         .then((userCredential) => {
             // Signed in
-            window.location.hash = '#/postWall';
+            window.location.hash = '#/login';
             const user = userCredential.user;
             updateProfile(auth.currentUser, {
                 displayName: name,
@@ -167,5 +167,5 @@ export const updateData = async (id, titleUpdate, descriptionUpdate, linkUpdate)
         headerPost: titleUpdate,
         content: descriptionUpdate,
         referenceLink: linkUpdate,
-});
+    });
 }

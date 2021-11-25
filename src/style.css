@@ -205,6 +205,7 @@ input, button {
     font-size: 16px;
     font-weight: bold;
     height: auto;
+    margin-top:2%;
     margin-left:2%;
     outline:none;
     resize: none;
@@ -292,9 +293,6 @@ input, button {
     width: 100%;
     position: relative;
 }
-/* .hide{
-    display: none;
-} */
 .update-modal{
     z-index: 1;
     display: none;
@@ -302,4 +300,104 @@ input, button {
     align-items: center;
     height: 100%;
     width: 100%;
+}
+@media (max-width: 1920px) and (min-width: 1080px) {
+    html{
+        height: 100%;
+    }
+    body {
+        height: 100%;
+    }
+    main{
+        height: 100%;
+    }
+    .coders-title{
+        font-size: 3.4rem;
+    }
+    .logout-btn{
+        right: 10%;
+    }
+    .logo-container{
+        margin: 1%;
+    }
+    .input-box-email, .input-box-password{
+        padding: .5%;
+    }
+    input, button {
+        margin: .5%;
+    }
+    .view-button{
+        padding: .5%;
+    }
+    .create-account{
+        margin-top: 2%;
+    }
+    .container-logout{
+        height: 20%;
+    }
+    .header-postwall h1{
+        font-size: 2.5rem;
+    }
+    .header-postwall{
+        height: 100%;
+    }
+    .post-wall{
+        height: 80%;
+    }
+    .post-here{
+        height: 60%;
+        margin-top: 2%;
+        width: 25%;
+    }
+    .container-post{
+        height: 100%;
+        width: 50%;
+    }
+    .header-post-container{
+        justify-content: space-around;
+        height: 20%;
+    }
+    .header-post{
+        height: 50%;
+    }
+    .post-content{
+        height: 60%;
+        text-align: justify;
+    }
+    .reference-link{
+        height: 20%;
+        text-align: justify;
+    }
+    .timeline-container{
+        height: 100%;
+    }
+    .header-timeline h1{
+        font-size: 2.5rem;
+    }
+    .header-timeline{
+        height: 10%;
+    }
+    .timeline{
+        height: 90%;
+    }
+    .create-post-container{
+        height: 100%;
+    }
+    .close-btn{
+        margin-top: 2%;
+        padding: .8%;
+        width: 15%;
+    }
+    .create-post{
+        margin-top: 2%;
+        height: 95%;
+        width: 50%;
+    }
+    #textarea-description, #textarea-title, #textarea-links{
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin-bottom: 1%;
+    }
+    .post-button{
+        width: 30%;
+    }
 }

@@ -1,4 +1,6 @@
-import { readData, deleteDocData, updateData, auth } from '../firebaseFile.js';
+import {
+  readData, deleteDocData, updateData, auth,
+} from '../firebaseFile.js';
 
 export const createPost = (posts) => {
   const containerPost = document.getElementById('post');
@@ -36,16 +38,18 @@ export const createPost = (posts) => {
   const editBtn = containerPost.querySelectorAll('.edit-btn');
 
   editBtn.forEach((btn) => {
-    btn.addEventListener('click', (event) => {
-      const targetBtn = event.target.parentElement;
-      targetBtn.previousElementSibling.removeAttribute('readonly');
-      targetBtn.parentElement.nextElementSibling.removeAttribute('readonly');
-      targetBtn.parentElement.nextElementSibling.nextElementSibling.removeAttribute('readonly');
+    btn.addEventListener('click', () => {
       const postId = btn.value;
       const parentDivPost = document.getElementById(postId);
-      const header = parentDivPost.querySelector('.header-post').value;
-      const content = parentDivPost.querySelector('.post-content').value;
-      const link = parentDivPost.querySelector('.reference-link').value;
+      const currentHeader = parentDivPost.querySelector('.header-post');
+      const currentContent = parentDivPost.querySelector('.post-content');
+      const currentLink = parentDivPost.querySelector('.reference-link');
+      currentHeader.removeAttribute('readonly');
+      currentContent.removeAttribute('readonly');
+      currentLink.removeAttribute('readonly');
+      const header = currentHeader.value;
+      const content = currentContent.value;
+      const link = currentLink.value;
       updateData(postId, header, content, link);
     });
   });
