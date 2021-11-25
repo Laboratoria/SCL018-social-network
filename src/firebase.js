@@ -151,17 +151,6 @@ export const readData = (callback, publicaciones) => {
   });
 };
 
-// export const readData = (callback, publicaciones) => {
-//   const q = query(collection(db, publicaciones), orderBy("datePost", "desc"));
-//   onSnapshot(q, (querySnapshot) => {
-//     const posts = [];
-//     querySnapshot.forEach((doc) => {
-//       posts.push(doc.data());
-//     });
-//     callback(posts);
-//   });
-// };
-
 export const logOut = () => {
   signOut(auth)
     .then(() => {
@@ -200,21 +189,3 @@ export const updatePost = async (id, themeUpdate, messageUpdate) => {
     message: messageUpdate,
   });
 };
-
-// export const getUser = () => {
-//   const user = auth.currentUser;
-//   if (user !== null) {
-//     // The user object has basic properties such as display name, email, etc.
-//     const displayName = user.displayName;
-//     const email = user.email;
-//     const photoURL = user.photoURL;
-//     const emailVerified = user.emailVerified;
-//     // The user's ID, unique to the Firebase project. Do NOT use
-//     // this value to authenticate with your backend server, if
-//     // you have one. Use User.getToken() instead.
-//     const uid = user.uid;
-//     return user;
-//   } else {
-//     console.log("usuario no existe");
-//   }
-// };
