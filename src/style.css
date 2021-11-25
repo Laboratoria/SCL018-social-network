@@ -108,7 +108,7 @@ footer {
 
 }
 
-#newpost {
+.newpost {
     max-width: auto;
     display: grid;
     gap: 1rem;
@@ -118,15 +118,17 @@ footer {
     padding: 30vw 5vh;
     justify-items: center;
     justify-content: center;
+    margin-bottom: 5vh;
 
 }
 
-#gameTitle {
+.gameTitle {
     display: flex;
     justify-content: center;
     flex-direction: column;
     height: 45px;
     min-width: auto;
+    max-width: 90vw;
     border: 1px solid #194a40;
     box-shadow: inset 0px 0px 3px #194a40;
     font-size: 24px;
@@ -136,18 +138,24 @@ footer {
     padding-right: 4vw;
 }
 
-#gameDescription {
+.gameDescription {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    min-width: 80%;
-    padding-left:15px;
-    height: 200px;
+    max-width: 75vw;
+    padding:10px;
+    height: auto;
     border: 1px solid #194a40;
     box-shadow: inset 0px 0px 3px #194a40;
-    font-size: 24px;
+    font-size: 20px;
     color: #194a40;
-    margin-bottom: 20px;
+}
+
+#postContainer {
+    max-width:90vw;
+    padding: 5vw;
+    /* margin-bottom: 10vh; */
+    height:auto;
 }
 
 #publish {
@@ -157,8 +165,6 @@ footer {
     align-items: center;
     font-size: 24px;
     max-width: 50%;
-    
-
 }
 
 
