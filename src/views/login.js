@@ -1,4 +1,4 @@
-import { signIn } from '../lib/firebase.js'; 
+import { signIn } from '../lib/firebase.js';
 
 export const loginUser = () => {
   const drawLogin = document.createElement('section');
@@ -33,9 +33,12 @@ export const loginUser = () => {
     const loginEmail = drawLogin.querySelector('#loginEmail').value;
     const loginPassword = drawLogin.querySelector('#loginPassword').value;
     console.log(loginEmail);
-    console.log(loginPassword);
-    signIn(loginEmail, loginPassword); 
+
+    signIn(loginEmail, loginPassword);
   });
 
   return drawLogin;
 };
+
+// usuario: marion@hola.cl , contraseña: blabla //
+// quitamos el console.log de contraseña porque nos aparecía mensaje de error //

@@ -3,7 +3,13 @@
 
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.2.0/firebase-app.js';
 
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.2.0/firebase-auth.js';
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithRedirect,
+} from 'https://www.gstatic.com/firebasejs/9.2.0/firebase-auth.js';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -19,11 +25,11 @@ const firebaseConfig = {
   measurementId: 'G-ZFMM9GB4C3',
 };
 
-// Initialize Firebase
+// Método para registrar un usuario nuevo
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 export const createUser = (email, password) => createUserWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => { // aquí debería ir lo que sucede luego de registrarse
+  .then((userCredential) => { // aquí en el then debería ir lo que sucede luego de registrarse
     // Signed in
     const user = userCredential.user;
     console.log(user);
@@ -36,6 +42,8 @@ export const createUser = (email, password) => createUserWithEmailAndPassword(au
     console.log(errorMessage);
     // ..
   });
+
+// Método para loguear un usuario ya registrado
 
 export const signIn = (email, password) => signInWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
@@ -50,3 +58,6 @@ export const signIn = (email, password) => signInWithEmailAndPassword(auth, emai
     console.log(errorCode);
     console.log(errorMessage);
   });
+
+export const provider = new GoogleAuthProvider();
+signInWithRedirect(auth, provider);
