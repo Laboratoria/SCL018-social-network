@@ -61,16 +61,14 @@ export const createPost = (posts) => {
 
   const likeBtn = containerPost.querySelectorAll('.like-btn');
   likeBtn.forEach((btn) => {
-    btn.addEventListener('click', (event) => {
+    btn.addEventListener('click', () => {
       const postId = btn.value;
-      const likeDiv = event.target.parentElement;
+      // const likeDiv = event.target.parentElement;
       const userId = auth.currentUser.uid;
       console.log(userId);
       updateLikes(postId, userId);
-      
-      
-    })
-  })
+    });
+  });
   return containerPost;
 };
 export const showPost = () => {

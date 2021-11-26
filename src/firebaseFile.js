@@ -115,6 +115,10 @@ export const signOutUser = () => {
 export const authState = () => {
   onAuthStateChanged(auth, (user) => {
     if (user) {
+      if (window.location.hash !== '#/timeline') {
+        // User is signed out
+        window.location.hash = '#/postWall';
+      } 
       // User is signed in, see docs for a list of available properties
       // https://firebase.google.com/docs/reference/js/firebase.User
       const uid = user.uid;
@@ -122,7 +126,7 @@ export const authState = () => {
     } else if (!user) {
       if (window.location.hash !== '#/createUser') {
         // User is signed out
-        signOutUser();
+        window.location.hash = '#/login';
       } else {
         console.log('Crea tu cuenta');
       }
