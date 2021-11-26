@@ -11,14 +11,14 @@ import {
 import {
   getFirestore, collection, addDoc, query, onSnapshot, orderBy,
 } from 'https://www.gstatic.com/firebasejs/9.3.0/firebase-firestore.js';
-// import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-analytics.js";
-// En este enlace hay más SDK: https://firebase.google.com/docs/web/setup#available-libraries
-// const container = document.getElementById('root');
+
+import { getDatabase } from 'https://www.gstatic.com/firebasejs/9.3.0/firebase-database.js';
 
 // Configuración firebase v7.20.0
 const firebaseConfig = {
   apiKey: 'AIzaSyDs1DSRW6_kwqsLzPZWUUtUxUdL8-ZDFf8',
   authDomain: 'mewple.firebaseapp.com',
+  databaseURL: 'https://mewple-default-rtdb.firebaseio.com/',
   projectId: 'mewple',
   storageBucket: 'mewple.appspot.com',
   messagingSenderId: '796773484437',
@@ -137,11 +137,7 @@ export const printPost = (callback) => {
   });
 };
 
-/* imprimir post,
- export const printPost = async () => {
-const querySnapshot = await getDocs(collection(db, 'posts'));
- querySnapshot.forEach((doc) => {
-   console.log(`${doc.id} => ${doc.data().description}`);
-  window.location.hash = '#/newPost';
-  });
-};  */
+// firebase database (likes)
+
+export const database = getDatabase(app);
+
