@@ -1,11 +1,10 @@
 import {
-  readData, deleteDocData, updateData, auth,
+  readData, deleteDocData, updateData, auth, updateLikes,
 } from '../firebaseFile.js';
 
 export const createPost = (posts) => {
   const containerPost = document.getElementById('post');
   containerPost.innerHTML = '';
-
   const postContent = (postData) => {
     let templatePost = `<div class="container-post" id="${postData.element.id}">
     <div class="header-post-container">
@@ -17,11 +16,17 @@ export const createPost = (posts) => {
         </div>
       <textarea class="post-content" rows="4" cols="50" readonly>${postData.element.data.content}</textarea>
       <textarea class="reference-link" readonly>${postData.element.data.referenceLink}</textarea>
+      <div class="like-bar" value=${auth.currentUser.uid}>
+      <button class="like-btn" value=${postData.element.id}>Me gusta</button>
+    </div>
       </div>`;
     } else {
       templatePost += `</div>
         <textarea class="post-content" rows="4" cols="50" readonly>${postData.element.data.content}</textarea>
         <textarea class="reference-link" readonly>${postData.element.data.referenceLink}</textarea>
+        <div class="like-bar" value=${auth.currentUser.uid}>
+          <button class="like-btn" value=${postData.element.id}>Me gusta</button>
+        </div>
         </div>`;
     }
     containerPost.innerHTML += templatePost;
@@ -53,6 +58,19 @@ export const createPost = (posts) => {
       updateData(postId, header, content, link);
     });
   });
+
+  const likeBtn = containerPost.querySelectorAll('.like-btn');
+  likeBtn.forEach((btn) => {
+    btn.addEventListener('click', (event) => {
+      const postId = btn.value;
+      const likeDiv = event.target.parentElement;
+      const userId = auth.currentUser.uid;
+      console.log(userId);
+      updateLikes(postId, userId);
+      
+      
+    })
+  })
   return containerPost;
 };
 export const showPost = () => {
