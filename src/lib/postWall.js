@@ -12,7 +12,7 @@ export const postWall = () => {
   const templateSignOut = `
   <header class="header-postwall">
   <h1>CODERS</h1>
-    <button class="logout-btn"><img class="logout-icon" src="./images/sign-out-icon.png"></img></button>
+    <button title="Cerrar Sesión" class="logout-btn"><img class="logout-icon" src="./images/sign-out-icon.png"></img></button>
   </header>
   <div class="post-here">
     <button class="post-here-button">Publicar aquí</button>

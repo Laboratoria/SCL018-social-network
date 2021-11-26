@@ -22,6 +22,9 @@ import {
   deleteDoc,
   doc,
   updateDoc,
+  arrayUnion,
+  arrayRemove,
+  getDoc,
 } from 'https://www.gstatic.com/firebasejs/9.2.0/firebase-firestore.js';
 
 const firebaseConfig = {
@@ -45,7 +48,7 @@ export const signUp = (signUpEmail, signUpPassword) => {
   createUserWithEmailAndPassword(auth, signUpEmail, signUpPassword)
     .then((userCredential) => {
       // Signed in
-      window.location.hash = '#/postWall';
+      window.location.hash = '#/login';
       const user = userCredential.user;
       updateProfile(auth.currentUser, {
         displayName: name,
@@ -134,6 +137,8 @@ export const addData = async (title, description, link) => {
     headerPost: title,
     content: description,
     referenceLink: link,
+    likes: [],
+    likesCounter: 0,
     datePosted: Timestamp.fromDate(new Date()),
   });
   return docRef;
@@ -163,4 +168,23 @@ export const updateData = async (id, titleUpdate, descriptionUpdate, linkUpdate)
     content: descriptionUpdate,
     referenceLink: linkUpdate,
   });
+};
+
+export const updateLikes = async (id, likesUpdate) => {
+  const postRef = doc(db, 'publicaciones', id);
+  const docSnap = await getDoc(postRef);
+  const postData = docSnap.data();
+  const likesCount = postData.likesCounter;
+
+  if ((postData.likes).includes(likesUpdate)) {
+    await updateDoc(postRef, {
+      likes: arrayRemove(likesUpdate),
+      likesCounter: likesCount - 1,
+    });
+  } else {
+    await updateDoc(postRef, {
+      likes: arrayUnion(likesUpdate),
+      likesCounter: likesCount + 1,
+    });
+  }
 };

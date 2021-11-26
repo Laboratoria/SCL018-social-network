@@ -1,11 +1,10 @@
 import {
-  readData, deleteDocData, updateData, auth,
+  readData, deleteDocData, updateData, auth, updateLikes,
 } from '../firebaseFile.js';
 
 export const createPost = (posts) => {
   const containerPost = document.getElementById('post');
   containerPost.innerHTML = '';
-
   const postContent = (postData) => {
     let templatePost = `<div class="container-post" id="${postData.element.id}">
     <div class="header-post-container">
@@ -17,11 +16,17 @@ export const createPost = (posts) => {
         </div>
       <textarea class="post-content" rows="4" cols="50" readonly>${postData.element.data.content}</textarea>
       <textarea class="reference-link" readonly>${postData.element.data.referenceLink}</textarea>
+      <div class="like-bar" value=${auth.currentUser.uid}>
+      <button class="like-btn" value=${postData.element.id}>Me gusta</button>
+    </div>
       </div>`;
     } else {
       templatePost += `</div>
         <textarea class="post-content" rows="4" cols="50" readonly>${postData.element.data.content}</textarea>
         <textarea class="reference-link" readonly>${postData.element.data.referenceLink}</textarea>
+        <div class="like-bar" value=${auth.currentUser.uid}>
+          <button class="like-btn" value=${postData.element.id}>Me gusta</button>
+        </div>
         </div>`;
     }
     containerPost.innerHTML += templatePost;
@@ -38,21 +43,34 @@ export const createPost = (posts) => {
   const editBtn = containerPost.querySelectorAll('.edit-btn');
 
   editBtn.forEach((btn) => {
-    btn.addEventListener('click', (event) => {
-      const targetBtn = event.target.parentElement;
-      targetBtn.previousElementSibling.removeAttribute('readonly');
-      targetBtn.parentElement.nextElementSibling.removeAttribute('readonly');
-      targetBtn.parentElement.nextElementSibling.select();
-      targetBtn.parentElement.nextElementSibling.nextElementSibling.removeAttribute('readonly');
+    btn.addEventListener('click', () => {
       const postId = btn.value;
       const parentDivPost = document.getElementById(postId);
-      // console.log(document.getElementById(postId));
-      const header = parentDivPost.querySelector('.header-post').value;
-      const content = parentDivPost.querySelector('.post-content').value;
-      const link = parentDivPost.querySelector('.reference-link').value;
+      const currentHeader = parentDivPost.querySelector('.header-post');
+      const currentContent = parentDivPost.querySelector('.post-content');
+      const currentLink = parentDivPost.querySelector('.reference-link');
+      currentHeader.removeAttribute('readonly');
+      currentContent.removeAttribute('readonly');
+      currentLink.removeAttribute('readonly');
+      const header = currentHeader.value;
+      const content = currentContent.value;
+      const link = currentLink.value;
       updateData(postId, header, content, link);
     });
   });
+
+  const likeBtn = containerPost.querySelectorAll('.like-btn');
+  likeBtn.forEach((btn) => {
+    btn.addEventListener('click', (event) => {
+      const postId = btn.value;
+      const likeDiv = event.target.parentElement;
+      const userId = auth.currentUser.uid;
+      console.log(userId);
+      updateLikes(postId, userId);
+      
+      
+    })
+  })
   return containerPost;
 };
 export const showPost = () => {
