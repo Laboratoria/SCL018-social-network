@@ -27,8 +27,11 @@ export const feedSpace = () => {
       <article class='newpost' >
       <h4 class='gameTitle'> ${element.boardgame} </h4>
       <div class='gameDescription'>${element.description}</div>
-      <button class='like'>ME GUSTA
+      <div id ='countLike'>
+      <button class='like'> 
+      <i class='italic'></i> ME GUSTA <span class="counterStat">...</span>
       </button>
+      </div>
       </article>`;
     });
   };
@@ -37,5 +40,23 @@ export const feedSpace = () => {
   containerFeedSpace.querySelector('#logout').addEventListener('click', () => {
     signOutUser();
   });
+
+ /*  const dCounters = containerFeedSpace.querySelector('#countLike');
+  [].forEach.call(dCounters, (dCounter) => {
+    const likeBtn = dCounter.querySelector('.like');
+    const userLike = dCounter.id;
+    const dDatabase = firebase.database().ref('Like Number Counter').child(userLike);
+
+    // get firebase data
+    dDatabase.on('value', (cLike) => {
+      const data = cLike.val() || 0;
+      containerFeedSpace.querySelector('span').innerHTML += data;
+    });
+
+    // set firebase data
+    likeBtn.addEventListener('click', () => {
+      dDatabase.transaction((dCount) => (dCount || 0) + 1);
+    });
+  }); */
   return containerFeedSpace;
 };
