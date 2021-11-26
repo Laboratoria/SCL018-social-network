@@ -1,4 +1,4 @@
-import { signIn } from '../lib/firebase.js';
+import { signIn, googleSignIn } from '../lib/firebase.js';
 
 export const loginUser = () => {
   const drawLogin = document.createElement('section');
@@ -19,6 +19,9 @@ export const loginUser = () => {
     <section class="">
       <button id= "loginBtn">Iniciar Sesión</button>
     </section>
+    <section class="">
+      <button id= "googleBtn">Iniciar Sesión con Google</button>
+    </section>
     <section class="register-here">
       <h4>¿No tienes cuenta?<a href='#/register'>Regístrate aquí</h4>
     </section>
@@ -35,6 +38,12 @@ export const loginUser = () => {
     console.log(loginEmail);
 
     signIn(loginEmail, loginPassword);
+  });
+
+  const googleBtn = drawLogin.querySelector('#googleBtn');
+  googleBtn.addEventListener('click', ()=> {
+  googleSignIn();
+
   });
 
   return drawLogin;
