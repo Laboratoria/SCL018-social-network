@@ -11,21 +11,24 @@ export const createPost = (posts) => {
       <textarea class="header-post" readonly>${postData.element.data.headerPost}</textarea>`;
 
     if (postData.element.data.userId === auth.currentUser.uid) {
-      templatePost += `<button value=${postData.element.id} class="edit-btn"><img class="edit-icon" src="./images/edit-icon.png"></img></button>
+      templatePost += `
+      <div class ="edit-delete-btn">
+      <button value=${postData.element.id} class="edit-btn"><img class="edit-icon" src="./images/edit-icon.png"></img></button>
         <button value=${postData.element.id} class="delete-btn"><img class="delete-icon" src="./images/delete-icon.png"></img></button>
-        </div>
+      </div>
+      </div>
       <textarea class="post-content" rows="4" cols="50" readonly>${postData.element.data.content}</textarea>
       <textarea class="reference-link" readonly>${postData.element.data.referenceLink}</textarea>
       <div class="like-bar" value=${auth.currentUser.uid}>
-      <button class="like-btn" value=${postData.element.id}>Me gusta</button>
-    </div>
+      <button class="like-btn" value=${postData.element.id}>${postData.element.data.likesCounter} Me gusta</button>
+      </div>
       </div>`;
     } else {
       templatePost += `</div>
         <textarea class="post-content" rows="4" cols="50" readonly>${postData.element.data.content}</textarea>
         <textarea class="reference-link" readonly>${postData.element.data.referenceLink}</textarea>
-        <div class="like-bar" value=${auth.currentUser.uid}>
-          <button class="like-btn" value=${postData.element.id}>Me gusta</button>
+        <div class="like-bar">
+          <button class="like-btn" value=${postData.element.id}>${postData.element.data.likesCounter} Me gusta</button>
         </div>
         </div>`;
     }
@@ -63,7 +66,6 @@ export const createPost = (posts) => {
   likeBtn.forEach((btn) => {
     btn.addEventListener('click', () => {
       const postId = btn.value;
-      // const likeDiv = event.target.parentElement;
       const userId = auth.currentUser.uid;
       console.log(userId);
       updateLikes(postId, userId);

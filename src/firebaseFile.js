@@ -118,7 +118,7 @@ export const authState = () => {
       if (window.location.hash !== '#/timeline') {
         // User is signed out
         window.location.hash = '#/postWall';
-      } 
+      }
       // User is signed in, see docs for a list of available properties
       // https://firebase.google.com/docs/reference/js/firebase.User
       const uid = user.uid;
@@ -174,20 +174,20 @@ export const updateData = async (id, titleUpdate, descriptionUpdate, linkUpdate)
   });
 };
 
-export const updateLikes = async (id, likesUpdate) => {
+export const updateLikes = async (id, userIdentifier) => {
   const postRef = doc(db, 'publicaciones', id);
   const docSnap = await getDoc(postRef);
   const postData = docSnap.data();
   const likesCount = postData.likesCounter;
 
-  if ((postData.likes).includes(likesUpdate)) {
+  if ((postData.likes).includes(userIdentifier)) {
     await updateDoc(postRef, {
-      likes: arrayRemove(likesUpdate),
+      likes: arrayRemove(userIdentifier),
       likesCounter: likesCount - 1,
     });
   } else {
     await updateDoc(postRef, {
-      likes: arrayUnion(likesUpdate),
+      likes: arrayUnion(userIdentifier),
       likesCounter: likesCount + 1,
     });
   }
