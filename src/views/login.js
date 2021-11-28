@@ -36,7 +36,6 @@ export const loginUser = () => {
     const loginEmail = drawLogin.querySelector('#loginEmail').value;
     const loginPassword = drawLogin.querySelector('#loginPassword').value;
     console.log(loginEmail);
-  
     signIn(loginEmail, loginPassword);
   });
 
@@ -50,4 +49,6 @@ export const loginUser = () => {
 };
 
 // usuario: marion@hola.cl , contraseña: blabla //
+// usuario: kambalache018@gmail.com , contraseña: Hola1234 //
+
 // quitamos el console.log de contraseña porque nos aparecía mensaje de error //

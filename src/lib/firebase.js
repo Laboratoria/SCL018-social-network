@@ -50,7 +50,7 @@ export const createUser = (email, password) => createUserWithEmailAndPassword(au
 export const signIn = (email, password) => signInWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
     // Signed in
-  // window.location.hash = '#/login';
+    window.location.hash = '#/home';
     const user = userCredential.user;
     console.log(user);
     // ...
@@ -64,28 +64,26 @@ export const signIn = (email, password) => signInWithEmailAndPassword(auth, emai
 
 export const provider = new GoogleAuthProvider();
 export const googleSignIn = () => {
-signInWithRedirect(auth, provider);
+  signInWithRedirect(auth, provider);
 };
 
+export const redirection = () => getRedirectResult(auth)
+  .then((result) => {
+    window.location.hash = '#/home';
+    // This gives you a Google Access Token. You can use it to access Google APIs.
+    const credential = GoogleAuthProvider.credentialFromResult(result);
+    const token = credential.accessToken;
 
-export const redirection = () => {
-  getRedirectResult(auth)
-    .then((result) => {
-      // This gives you a Google Access Token. You can use it to access Google APIs.
-      const credential = GoogleAuthProvider.credentialFromResult(result);
-      const token = credential.accessToken;
-
-      // The signed-in user info.
-      const user = result.user;
-      window.location.hash = '#/home';
-    }).catch((error) => {
-      // Handle Errors here.
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      // The email of the user's account used.
-      const email = error.email;
-      // The AuthCredential type that was used.
-      const credential = GoogleAuthProvider.credentialFromError(error);
-      // ...
-    });
-};
+    // The signed-in user info.
+    const user = result.user;
+    // window.location.hash = '#/home';
+  }).catch((error) => {
+    // Handle Errors here.
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // The email of the user's account used.
+    const email = error.email;
+    // The AuthCredential type that was used.
+    const credential = GoogleAuthProvider.credentialFromError(error);
+    // ...
+  });
