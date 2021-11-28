@@ -1,5 +1,12 @@
-// Este es el punto de entrada de tu aplicacion
+import { routes } from "./views/routes.js";
+import { observer } from "./firebase.js";
 
-import { myFunction } from './lib/index.js';
+window.addEventListener("load", () => {
+  routes(window.location.hash);
+  observer();
+});
 
-myFunction();
+window.addEventListener("hashchange", () => {
+  routes(window.location.hash);
+  observer();
+});
