@@ -7,12 +7,16 @@ import {
   signInWithPopup,
   signInWithEmailAndPassword,
   signOut,
+  onAuthStateChanged,
 } from 'https://www.gstatic.com/firebasejs/9.3.0/firebase-auth.js';
 import {
-  getFirestore, collection, addDoc, query, onSnapshot, orderBy,
+  getFirestore,
+  collection,
+  addDoc,
+  query,
+  onSnapshot,
+  orderBy,
 } from 'https://www.gstatic.com/firebasejs/9.3.0/firebase-firestore.js';
-
-import { getDatabase } from 'https://www.gstatic.com/firebasejs/9.3.0/firebase-database.js';
 
 // Configuración firebase v7.20.0
 const firebaseConfig = {
@@ -106,20 +110,38 @@ export const signOutUser = () => {
     });
 };
 
+// Aqui esta el observador
+export const observer = () => {
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+    // User is signed in, see docs for a list of available properties
+    // https://firebase.google.com/docs/reference/js/firebase.User
+      const uid = user.uid;
+    // ...
+    } else {
+      alert('porfavor registrate');
+      window.location.hash = '#/register';
+    // User is signed out
+    // ...
+    }
+  });
+};
 
 // DESDE AQUI INICIA FIRESTORE
 const db = getFirestore(app);
 
 // agregar datos.
-export const posting = async (gameTitle, description) => {
+export const posting = async (gameTitle, description, user) => {
   try {
     const docRef = await addDoc(collection(db, 'posts'), {
       boardgame: gameTitle,
       description,
       datepost: Date(Date.now()),
+      megusta: user.uid,
 
     });
     console.log('Document written with ID: ', docRef.id);
+    console.log('megusta');
   } catch (e) {
     console.error('Error adding document: ', e);
   }
@@ -136,8 +158,3 @@ export const printPost = (callback) => {
     console.log(postedPost);
   });
 };
-
-// firebase database (likes)
-
-export const database = getDatabase(app);
-
