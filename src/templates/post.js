@@ -1,4 +1,4 @@
-import { posting, signOutUser } from '../firebase/firebase.js';
+import { posting, signOutUser, observer } from '../firebase/firebase.js';
 
 // Aqui deberin ir los post;
 export const newPost = () => {
@@ -29,6 +29,7 @@ export const newPost = () => {
     signOutUser();
   });
 
+  observer();
   return containerNewPost;
 
 // dejar root vacio con el innerthtml Y luego concatenar += el nuevo container para el cambio.

@@ -1,4 +1,4 @@
-import { signOutUser, printPost } from '../firebase/firebase.js';
+import { signOutUser, printPost, observer } from '../firebase/firebase.js';
 
 export const feedSpace = () => {
   const containerFeedSpace = document.createElement('section');
@@ -35,28 +35,36 @@ export const feedSpace = () => {
       </article>`;
     });
   };
+  // aqui se valida que el usuario existe, sino no pasa al print
+  observer();
   printPost(callback);
 
   containerFeedSpace.querySelector('#logout').addEventListener('click', () => {
     signOutUser();
   });
 
- /*  const dCounters = containerFeedSpace.querySelector('#countLike');
+  const dCounters = containerFeedSpace.querySelector('#countLike');
+  // en un array vacio: recorremos los id existentes a un boton me gusta
   [].forEach.call(dCounters, (dCounter) => {
+    // por cada uno recorrido sumamos uno
     const likeBtn = dCounter.querySelector('.like');
-    const userLike = dCounter.id;
+    const userLike = dCounter.uid;
     const dDatabase = firebase.database().ref('Like Number Counter').child(userLike);
 
-    // get firebase data
+    /*  // get firebase data
     dDatabase.on('value', (cLike) => {
       const data = cLike.val() || 0;
       containerFeedSpace.querySelector('span').innerHTML += data;
     });
+ */
 
-    // set firebase data
+    // suma uno más al hacer click
     likeBtn.addEventListener('click', () => {
+      // aqui escucha si ya existia, entonces borra el like.
+      // en cambio si no existe, lo agrega like++
       dDatabase.transaction((dCount) => (dCount || 0) + 1);
+      // cuenta el largo total del array (cuenta en cada elemento)
     });
-  }); */
+  });
   return containerFeedSpace;
 };
