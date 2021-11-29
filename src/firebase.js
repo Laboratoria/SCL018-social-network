@@ -1,15 +1,27 @@
+/* eslint-disable no-alert */
 /* eslint-disable import/no-unresolved */
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-app.js";
 import {
   getAuth,
+  // eslint-disable-next-line no-unused-vars
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   GoogleAuthProvider,
-  getRedirectResult,
+  // getRedirectResult,
   signInWithPopup,
+  onAuthStateChanged,
+  signOut,
 } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-auth.js";
 import {
-  getFirestore, collection, addDoc, query, onSnapshot, orderBy,
+  getFirestore,
+  collection,
+  addDoc,
+  query,
+  onSnapshot,
+  orderBy,
+  deleteDoc,
+  doc,
+  updateDoc,
 } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-firestore.js";
 
 const firebaseConfig = {
@@ -23,52 +35,79 @@ const firebaseConfig = {
 };
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-// console.log(app);
+export const auth = getAuth(app);
 const provider = new GoogleAuthProvider(app);
 const db = getFirestore(app);
 
 export const signUp = () => {
   const signUpEmail = document.getElementById("emailSignUp").value;
   const signUpPassword = document.getElementById("passwordSignUp").value;
-  createUserWithEmailAndPassword(auth, signUpEmail, signUpPassword)
-    .then((userCredential) => {
-      const user = userCredential.user;
-      return user;
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      return errorCode + errorMessage;
-    });
+  const signUpUserName = document.getElementById("userSignUp").value;
+  if (
+    signUpPassword.length < 6
+    && signUpEmail === ""
+    && signUpUserName === ""
+  ) {
+    alert("ingrese datos");
+  } else if (signUpPassword.length < 6) {
+    alert("contraseña debe ser mayor a 6 digitos");
+  } else if (signUpEmail === "") {
+    alert("ingrese email");
+  } else if (signUpUserName === "") {
+    alert("ingrese nombre de usuario");
+  } else {
+    createUserWithEmailAndPassword(
+      auth,
+      signUpEmail,
+      signUpPassword,
+      signUpUserName,
+    )
+      .then((userCredential) => {
+        const user = userCredential.user;
+        alert("usuario creado");
+        console.log(user);
+        return user;
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        return errorCode + errorMessage;
+      });
+  }
 };
 
 export const userLogin = () => {
   const loginEmail = document.getElementById("emailLogin").value;
   const loginPassword = document.getElementById("passLogin").value;
-
-  signInWithEmailAndPassword(auth, loginEmail, loginPassword)
-    .then((userCredential) => {
-      const user = userCredential.user;
-      return user;
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      return errorCode + errorMessage;
-    });
+  if (loginEmail === "" || loginPassword === "") {
+    alert("email o contraseña no ingresados");
+  } else {
+    signInWithEmailAndPassword(auth, loginEmail, loginPassword)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        // const mail = userCredential.user.mail;
+        return user;
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        return errorCode + errorMessage;
+      });
+  }
 };
 
 export const loginWithGoogle = () => {
-  signInWithPopup(auth, provider);
-  getRedirectResult(auth)
+  signInWithPopup(auth, provider)
+    // getRedirectResult(auth)
     .then((result) => {
       // This gives you a Google Access Token. You can use it to access Google APIs.
       const credential = GoogleAuthProvider.credentialFromResult(result);
       const token = credential.accessToken;
       // The signed-in user info.
       const user = result.user;
-      return `${user} + logged in with google + ${token} `;
+      console.log(user.displayName);
+      console.log("usuario creado con google");
+      return `${user} + logged in with google + ${token}`;
     })
     .catch((error) => {
       // Handle Errors here.
@@ -76,14 +115,18 @@ export const loginWithGoogle = () => {
       const errorMessage = error.message;
       // The email of the user's account used.
       const email = error.email;
+      console.log(error);
       // The AuthCredential type that was used.
       const credential = GoogleAuthProvider.credentialFromError(error);
+      console.log("usuario no creado");
       return errorMessage + errorCode + email + credential;
     });
 };
 
 export const postData = async (postTheme, postMessage) => {
   const docRef = await addDoc(collection(db, "publicaciones"), {
+    username: auth.currentUser.displayName,
+    userId: auth.currentUser.uid,
     theme: postTheme,
     message: postMessage,
     datePost: Date(Date.now()),
@@ -93,22 +136,56 @@ export const postData = async (postTheme, postMessage) => {
 };
 
 export const readData = (callback, publicaciones) => {
-  const q = query(collection(db, publicaciones), orderBy('datePost', 'desc'));
+  const q = query(collection(db, publicaciones), orderBy("datePost", "desc"));
   onSnapshot(q, (querySnapshot) => {
     const posts = [];
-    querySnapshot.forEach((doc) => {
-      posts.push(doc.data());
-      // console.log(posts);
+    querySnapshot.forEach((document) => {
+      // console.log(document);
+      const element = {};
+      element.id = document.id;
+      element.data = document.data();
+      posts.push({ element });
+      // console.log(element);
     });
     callback(posts);
-    console.log('theme', 'message', posts.join(', '));
   });
 };
 
-// export const readData = async () => {
-//   const querySnapshot = await getDocs(collection(db, "publicaciones"));
-//   querySnapshot.forEach((doc) => {
-//     // doc.data() is never undefined for query doc snapshots
-//     console.log(doc.id, " => ", doc.data());
-//   });
-// };
+export const logOut = () => {
+  signOut(auth)
+    .then(() => {
+      window.location.hash = "#/landing";
+      console.log(`bai bai bitch`);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
+
+export const observer = () => {
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      window.location.hash = "#/wall";
+      const uid = user.uid;
+      console.log(`bienvenida ${uid}`);
+    } else if (!user) {
+      if (window.location.hash !== "#/register") {
+        logOut();
+      }
+    }
+  });
+};
+
+export const deletePost = async (id) => {
+  await deleteDoc(doc(db, "publicaciones", id));
+  console.log(id);
+};
+
+export const updatePost = async (id, themeUpdate, messageUpdate) => {
+  const uniquePost = doc(db, "publicaciones", id);
+  await updateDoc(uniquePost, {
+    // id: idUpdate,
+    theme: themeUpdate,
+    message: messageUpdate,
+  });
+};
