@@ -1,6 +1,8 @@
 /* eslint-disable no-restricted-globals */
 /* eslint-disable no-alert */
-import { readData, deletePost, updatePost, auth } from "../firebase.js";
+import {
+  readData, deletePost, updatePost, auth,
+} from "../firebase.js";
 
 export const newPost = (posts) => {
   const newPostContainer = document.querySelector("#postSection");
@@ -11,11 +13,7 @@ export const newPost = (posts) => {
             <div class="pic-container">
             <img class="pic-profile" src="resources/images/gamer.png" alt="user" />
             </div>
-            <h3 class="title-profile">${
-              e.element.data.username === null
-                ? "Anonimo"
-                : e.element.data.username
-            }</h3>
+            <h3 class="title-profile">${e.element.data.username === null ? "Anonimo" : e.element.data.username}</h3>
             </div>`;
 
     if (e.element.data.userId === auth.currentUser.uid) {
@@ -59,8 +57,8 @@ export const newPost = (posts) => {
     });
   });
   const editBtn = newPostContainer.querySelectorAll("#editBtn");
-  const postTheme = newPostContainer.querySelector("#postTheme");
-  const postMessage = newPostContainer.querySelector("#postMessage");
+  // const postTheme = newPostContainer.querySelector("#postTheme");
+  // const postMessage = newPostContainer.querySelector("#postMessage");
 
   editBtn.forEach((edit) => {
     edit.addEventListener("click", () => {
