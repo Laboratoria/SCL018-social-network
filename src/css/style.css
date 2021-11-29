@@ -486,7 +486,8 @@ header {
     min-height: 100vh;
   }
 
-  .post-container, .post-container-user {
+  .post-container,
+  .post-container-user {
     grid-column: 2/6;
     grid-row: 2/7;
     height: 30vh;

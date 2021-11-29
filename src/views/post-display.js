@@ -15,7 +15,7 @@ export const newPost = (posts) => {
               e.element.data.username === null
                 ? "Anonimo"
                 : e.element.data.username
-            }</h3>
+            } </h3>
             </div>`;
 
     if (e.element.data.userId === auth.currentUser.uid) {
@@ -59,8 +59,8 @@ export const newPost = (posts) => {
     });
   });
   const editBtn = newPostContainer.querySelectorAll("#editBtn");
-  const postTheme = newPostContainer.querySelector("#postTheme");
-  const postMessage = newPostContainer.querySelector("#postMessage");
+  // const postTheme = newPostContainer.querySelector("#postTheme");
+  // const postMessage = newPostContainer.querySelector("#postMessage");
 
   editBtn.forEach((edit) => {
     edit.addEventListener("click", () => {
