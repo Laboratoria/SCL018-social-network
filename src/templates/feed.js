@@ -18,7 +18,7 @@ export const feedSpace = () => {
      <footer class='footer'>
      "Mewple, todos los derechos reservados ©"
      </footer>
-     </div>
+     </div>  */
       `;
   const callback = (array) => {
     array.forEach((element) => {
@@ -35,6 +35,7 @@ export const feedSpace = () => {
       </article>`;
     });
   };
+
   // aqui se valida que el usuario existe, sino no pasa al print
   observer();
   printPost(callback);
@@ -43,28 +44,20 @@ export const feedSpace = () => {
     signOutUser();
   });
 
-  const dCounters = containerFeedSpace.querySelector('#countLike');
-  // en un array vacio: recorremos los id existentes a un boton me gusta
-  [].forEach.call(dCounters, (dCounter) => {
-    // por cada uno recorrido sumamos uno
-    const likeBtn = dCounter.querySelector('.like');
-    const userLike = dCounter.uid;
-    const dDatabase = firebase.database().ref('Like Number Counter').child(userLike);
-
-    /*  // get firebase data
-    dDatabase.on('value', (cLike) => {
-      const data = cLike.val() || 0;
-      containerFeedSpace.querySelector('span').innerHTML += data;
-    });
- */
-
-    // suma uno más al hacer click
-    likeBtn.addEventListener('click', () => {
-      // aqui escucha si ya existia, entonces borra el like.
-      // en cambio si no existe, lo agrega like++
-      dDatabase.transaction((dCount) => (dCount || 0) + 1);
-      // cuenta el largo total del array (cuenta en cada elemento)
-    });
-  });
+/*   const likeBtn = containerFeedSpace.querySelector('.like');
+  likeBtn.addEventListener('click', (user) => {
+    const userLike = user.uid;
+    const like = [];
+    for (let i = 0; i < like.length; i = +1) {
+      const likeArray = like[i];
+      if (userLike === 0) {
+        return like + 1;
+      }
+      return like - 1;
+    }
+    // AQUI VA UN RETURN, PERO NO SABEMOS A QUE COSA :(
+    // const dDatabase = firebase.database().ref('Like Number Counter').child(userLike);
+    // dDatabase.transaction((dCount) => (dCount || 0) + 1);
+  }); */
   return containerFeedSpace;
 };

@@ -1,3 +1,5 @@
+/* eslint-disable import/no-unresolved */
+
 // Importar funciones necesarias para usar firebase (SDKs)
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.3.0/firebase-app.js';
 import {
@@ -131,17 +133,17 @@ export const observer = () => {
 const db = getFirestore(app);
 
 // agregar datos.
-export const posting = async (gameTitle, description, user) => {
+export const posting = async (gameTitle, description,) => {
   try {
     const docRef = await addDoc(collection(db, 'posts'), {
       boardgame: gameTitle,
       description,
       datepost: Date(Date.now()),
-      megusta: user.uid,
+      likesnum, /* number */
 
     });
     console.log('Document written with ID: ', docRef.id);
-    console.log('megusta');
+    console.log(likesNum);
   } catch (e) {
     console.error('Error adding document: ', e);
   }
