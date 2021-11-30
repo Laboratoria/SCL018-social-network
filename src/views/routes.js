@@ -1,7 +1,9 @@
 import { landingPage } from "./landing.js";
 import { register } from "./register.js";
 import { wall } from "./wall.js";
-//probar sin el # gatito
+
+// probar sin el # gatito
+
 export const routes = (hash) => {
   const menuRegister = document.getElementById("root");
   menuRegister.innerHTML = "";

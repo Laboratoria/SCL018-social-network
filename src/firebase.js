@@ -155,7 +155,7 @@ export const logOut = () => {
   signOut(auth)
     .then(() => {
       window.location.hash = "#/landing";
-      console.log(`bai bai bitch`);
+      console.log(`bai bai`);
     })
     .catch((error) => {
       console.log(error);
