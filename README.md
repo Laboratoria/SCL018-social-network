@@ -78,7 +78,7 @@ Durante el desarrollo del proyecto se realizaron entrevistas personales y en gru
 ![](src/resources/images/wall-mobile.png)
 
 ## 7. Link al sitio 
-
+https://claudgomezg.github.io/SCL018-social-network/src/
 
 # Creado por 💜:
 
