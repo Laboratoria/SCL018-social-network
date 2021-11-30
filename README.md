@@ -63,11 +63,11 @@ Durante el desarrollo del proyecto se realizaron entrevistas personales y en gru
 
 *Landing Desktop*
 
-![](src/resources/images/landing-page-desktop.png)
+![](src/resources/images/landing-page-desktop.PNG)
 
 *Landing Mobile*
 
-![](src/resources/images/landing-page-mobile.png)
+![](src/resources/images/landing-page-mobile.PNG)
 
 *Wall Desktop*
 
@@ -75,7 +75,7 @@ Durante el desarrollo del proyecto se realizaron entrevistas personales y en gru
 
 *Wall Mobile*
 
-![](src/resources/images/wall-mobile.png)
+![](src/resources/images/wall-mobile.PNG)
 
 ## 7. Link al sitio 
 https://claudgomezg.github.io/SCL018-social-network/src/
