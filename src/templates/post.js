@@ -27,6 +27,7 @@ export const newPost = () => {
 
   containerNewPost.querySelector('#logout').addEventListener('click', () => {
     signOutUser();
+    window.location.hash = '#/login';
   });
 
   observer();

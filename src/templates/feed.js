@@ -33,9 +33,25 @@ export const feedSpace = () => {
       </button>
       </div>
       </article>`;
+
+    /*   const likeBtn = postContainer.querySelector('.like');
+      likeBtn.addEventListener('click', (user) => {
+        const userLike = user.uid;
+        const like = [];
+        console.log(user, like);
+        // for (let i = 0; i < like.length; i = +1) {
+        //   const likeArray = like[i];
+        //   if (!userLike) {
+        //     return like + 1;
+        //   }
+        //   return like - 1;
+        // }
+        // AQUI VA UN RETURN, PERO NO SABEMOS A QUE COSA :(
+        // const dDatabase = firebase.database().ref('Like Number Counter').child(userLike);
+        // dDatabase.transaction((dCount) => (dCount || 0) + 1);
+      }); */
     });
   };
-
   // aqui se valida que el usuario existe, sino no pasa al print
   observer();
   printPost(callback);
@@ -44,20 +60,6 @@ export const feedSpace = () => {
     signOutUser();
   });
 
-/*   const likeBtn = containerFeedSpace.querySelector('.like');
-  likeBtn.addEventListener('click', (user) => {
-    const userLike = user.uid;
-    const like = [];
-    for (let i = 0; i < like.length; i = +1) {
-      const likeArray = like[i];
-      if (userLike === 0) {
-        return like + 1;
-      }
-      return like - 1;
-    }
-    // AQUI VA UN RETURN, PERO NO SABEMOS A QUE COSA :(
-    // const dDatabase = firebase.database().ref('Like Number Counter').child(userLike);
-    // dDatabase.transaction((dCount) => (dCount || 0) + 1);
-  }); */
+
   return containerFeedSpace;
 };

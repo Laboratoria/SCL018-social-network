@@ -133,17 +133,16 @@ export const observer = () => {
 const db = getFirestore(app);
 
 // agregar datos.
-export const posting = async (gameTitle, description,) => {
+export const posting = async (gameTitle, description) => {
   try {
     const docRef = await addDoc(collection(db, 'posts'), {
       boardgame: gameTitle,
       description,
       datepost: Date(Date.now()),
-      likesnum, /* number */
+      likesnum: [], /* number */
 
     });
     console.log('Document written with ID: ', docRef.id);
-    console.log(likesNum);
   } catch (e) {
     console.error('Error adding document: ', e);
   }
@@ -157,6 +156,5 @@ export const printPost = (callback) => {
       postedPost.push(doc.data());
     });
     callback(postedPost);
-    console.log(postedPost);
   });
 };
