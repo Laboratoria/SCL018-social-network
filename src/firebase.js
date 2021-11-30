@@ -44,9 +44,9 @@ export const signUp = () => {
   const signUpPassword = document.getElementById("passwordSignUp").value;
   const signUpUserName = document.getElementById("userSignUp").value;
   if (
-    signUpPassword.length < 6 &&
-    signUpEmail === "" &&
-    signUpUserName === ""
+    signUpPassword.length < 6
+    && signUpEmail === ""
+    && signUpUserName === ""
   ) {
     alert("ingrese datos");
   } else if (signUpPassword.length < 6) {
@@ -60,7 +60,7 @@ export const signUp = () => {
       auth,
       signUpEmail,
       signUpPassword,
-      signUpUserName
+      signUpUserName,
     )
       .then((userCredential) => {
         const user = userCredential.user;
