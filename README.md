@@ -505,3 +505,15 @@ Otras:
 * [Mobile First: el enfoque actual del diseño web móvil - 1and1](https://www.1and1.es/digitalguide/paginas-web/diseno-web/mobile-first-la-nueva-tendencia-del-diseno-web/)
 * [Mobile First - desarrolloweb.com](https://desarrolloweb.com/articulos/mobile-first-responsive.html)
 * [Mobile First Is NOT Mobile Only - Nielsen Norman Group](https://www.nngroup.com/articles/mobile-first-not-mobile-only/)
+
+# Red Social CODERS para programadores 
+
+## 1. Resumen del proyecto
+
+CODERS es una Red Social pensada para programadores con cualquier nivel de conocimiento (principiantes - avanzados), en la que puedes realizar publicaciones con el fin de compartir documentación útil sobre temas afines en programación.
+
+## 2. Cómo funciona 
+
+Para ingresar a la aplicación, puedes crear una cuenta nueva o iniciar sesión con tu cuenta de Google.
+Una vez creada tu cuenta, serás redireccionado a la pantalla de inicio de sesión para autenticar tu usuario.
+Cuando ya estés logueado podrás acceder al muro de publicaciones de la red social, donde tendrás acceso a crear tus propios posts.

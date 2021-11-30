@@ -8,18 +8,21 @@ export const createPost = (posts) => {
   const postContent = (postData) => {
     let templatePost = `<div class="container-post" id="${postData.element.id}">
     <div class="header-post-container">
-      <textarea class="header-post" readonly>${postData.element.data.headerPost}</textarea>`;
+    <div class="header-container">
+      <textarea class="header-post" spellcheck="false" readonly>${postData.element.data.headerPost}</textarea>
+      <span class="user-email">${postData.element.data.userEmail}</span>
+      </div>`;
 
     if (postData.element.data.userId === auth.currentUser.uid) {
       templatePost += `
       <div class ="edit-delete-btn">
       <button value=${postData.element.id} class="edit-btn"><img class="edit-icon" src="./images/edit-icon.png"></img></button>
-        <button value=${postData.element.id} class="delete-btn"><img class="delete-icon" src="./images/delete-icon.png"></img></button>
+      <button value=${postData.element.id} class="delete-btn"><img class="delete-icon" src="./images/delete-icon.png"></img></button>
       </div>
       </div>
-      <textarea class="post-content" rows="4" cols="50" readonly>${postData.element.data.content}</textarea>
-      <textarea class="reference-link" readonly>${postData.element.data.referenceLink}</textarea>
-      <div class="like-bar" value=${auth.currentUser.uid}>
+      <textarea class="post-content" rows="4" cols="50" spellcheck="false" readonly>${postData.element.data.content}</textarea>
+      <textarea class="reference-link" spellcheck="false" readonly>${postData.element.data.referenceLink}</textarea>
+      <div class="like-bar">
       <button class="like-btn" value=${postData.element.id}>${postData.element.data.likesCounter} Me gusta</button>
       </div>
       </div>`;
@@ -35,6 +38,7 @@ export const createPost = (posts) => {
     containerPost.innerHTML += templatePost;
   };
   posts.forEach(postContent);
+
   const deleteBtn = containerPost.querySelectorAll('.delete-btn');
   deleteBtn.forEach((btn) => {
     btn.addEventListener('click', () => {
@@ -43,8 +47,8 @@ export const createPost = (posts) => {
       }
     });
   });
-  const editBtn = containerPost.querySelectorAll('.edit-btn');
 
+  const editBtn = containerPost.querySelectorAll('.edit-btn');
   editBtn.forEach((btn) => {
     btn.addEventListener('click', () => {
       const postId = btn.value;
@@ -67,10 +71,10 @@ export const createPost = (posts) => {
     btn.addEventListener('click', () => {
       const postId = btn.value;
       const userId = auth.currentUser.uid;
-      console.log(userId);
       updateLikes(postId, userId);
     });
   });
+  console.log(auth.currentUser);
   return containerPost;
 };
 export const showPost = () => {

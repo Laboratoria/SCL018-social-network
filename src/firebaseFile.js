@@ -42,7 +42,6 @@ const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 const db = getFirestore(app);
 const provider = new GoogleAuthProvider(app);
-// const user = auth.currentUser;
 
 export const signUp = (signUpEmail, signUpPassword) => {
   createUserWithEmailAndPassword(auth, signUpEmail, signUpPassword)
@@ -69,13 +68,12 @@ export const loginWithEmail = (loginEmail, loginPassword) => {
       // Signed in
       window.location.hash = '#/postWall';
       const user = userCredential.user;
-
-      console.log('logged in');
+      console.log(userCredential);
     })
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
-      console.log(errorCode + errorMessage);
+      alert(errorMessage);
     });
 };
 
@@ -84,22 +82,8 @@ export const loginWithGoogle = () => {
     .then((result) => {
       // This gives you a Google Access Token. You can use it to access Google APIs.
       const credential = GoogleAuthProvider.credentialFromResult(result);
-      const token = credential.accessToken;
-
-      // The signed-in user info.
-      const user = result.user;
       window.location.hash = '#/postWall';
-      console.log('logged in with google');
     }).catch((error) => {
-      // Handle Errors here.
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      // The email of the user's account used.
-      const email = error.email;
-      // The AuthCredential type that was used.
-      const credential = GoogleAuthProvider.credentialFromError(error);
-      // ...
-      console.log(errorMessage);
     });
 };
 export const signOutUser = () => {
@@ -109,20 +93,16 @@ export const signOutUser = () => {
       // Sign-out successful.
     }).catch((error) => {
       // An error happened.
-      console.log(error);
     });
 };
 export const authState = () => {
   onAuthStateChanged(auth, (user) => {
     if (user) {
+      // User is signed in
       if (window.location.hash !== '#/timeline') {
-        // User is signed out
         window.location.hash = '#/postWall';
       }
-      // User is signed in, see docs for a list of available properties
-      // https://firebase.google.com/docs/reference/js/firebase.User
       const uid = user.uid;
-      // ...
     } else if (!user) {
       if (window.location.hash !== '#/createUser') {
         // User is signed out
@@ -136,7 +116,7 @@ export const authState = () => {
 
 export const addData = async (title, description, link) => {
   const docRef = await addDoc(collection(db, 'publicaciones'), {
-    username: auth.currentUser.displayName,
+    userEmail: auth.currentUser.email,
     userId: auth.currentUser.uid,
     headerPost: title,
     content: description,
@@ -157,8 +137,8 @@ export const readData = (callback, publicaciones) => {
       element.data = document.data();
       posts.push({ element });
     });
-    console.log(posts);
     callback(posts);
+    console.log(posts);
   });
 };
 export const deleteDocData = async (id) => {
@@ -173,7 +153,6 @@ export const updateData = async (id, titleUpdate, descriptionUpdate, linkUpdate)
     referenceLink: linkUpdate,
   });
 };
-
 export const updateLikes = async (id, userIdentifier) => {
   const postRef = doc(db, 'publicaciones', id);
   const docSnap = await getDoc(postRef);
