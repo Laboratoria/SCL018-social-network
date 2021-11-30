@@ -21,9 +21,9 @@ Por último, podrá desloguearse de la página al pulsar un ícono de salida en 
 
 ## 3. Historias de usuario 
 
-![](src/resources/images/historias-de-usuario-1.png)
+![](src/resources/images/historias-de-usuario-1.PNG)
 
-![](src/resources/images/historias-de-usuario-2.png)
+![](src/resources/images/historias-de-usuario-2.PNG)
 
 ## 4. Prototipos
 ## Prototipos de baja fidelidad
