@@ -57,9 +57,6 @@ export const newPost = (posts) => {
     });
   });
   const editBtn = newPostContainer.querySelectorAll("#editBtn");
-  // const postTheme = newPostContainer.querySelector("#postTheme");
-  // const postMessage = newPostContainer.querySelector("#postMessage");
-
   editBtn.forEach((edit) => {
     edit.addEventListener("click", () => {
       const postId = edit.value;
@@ -68,8 +65,10 @@ export const newPost = (posts) => {
       const currentPostMessage = parentDivPost.querySelector("#postMessage");
       const theme = currentPostTheme.value;
       const message = currentPostMessage.value;
-      currentPostTheme.removeAttribute("readonly");
-      currentPostMessage.removeAttribute("readonly");
+      if (confirm("¿estás segura que quieres editar el post?")) {
+        currentPostTheme.removeAttribute("readonly");
+        currentPostMessage.removeAttribute("readonly");
+      }
       updatePost(postId, theme, message);
     });
   });
