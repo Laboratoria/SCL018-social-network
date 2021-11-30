@@ -5,8 +5,8 @@ export const wall = () => {
   const feedContainer = document.createElement("section");
   feedContainer.className = "wall-container";
   const feedView = `<header class="wall-header">
-      <div class="logo-container">
-        <img class="landing-wall-logo" src="resources/images/logo-GG-white.png" alt="landing-wall-logo" />
+      <div class="logo-container logo-container-mobile">
+        <img class="landing-wall-logo logo-mobile" src="resources/images/logo-GG-white.png" alt="landing-wall-logo" />
         <h3 class="wall-title">Gamer girl</h3>
       </div>
       <div class="user-icon">
@@ -41,12 +41,11 @@ export const wall = () => {
       </div>
     </section>
       <section class="post-container-user" id="postSection">
-        
       </section>
       <footer class="footer-desktop">
         <p>©Copyright  Claudia Gómez - Susan Ortiz - Yésika Rodríguez</p>
       </footer>
-       //</div>
+    </div>
   <footer class="footer-mobile">
     <div class="footer-container">
       <a href="https://store.steampowered.com/login/?redir=%3Fsnr%3D1_60_4__global-header&redir_ssl=1&snr=1_4_4__global-header"

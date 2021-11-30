@@ -7,16 +7,16 @@ export const newPost = (posts) => {
   newPostContainer.innerHTML = "";
   const feedContent = (e) => {
     let feedHtml = `<div class="post-user" id=${e.element.id}>
-            <div class="profile-container">
-            <div class="pic-container">
-            <img class="pic-profile" src="resources/images/gamer.png" alt="user" />
-            </div>
-            <h3 class="title-profile">${
-              e.element.data.username === null
-                ? "Anonimo"
-                : e.element.data.username
-            } </h3>
-            </div>`;
+        <div class="profile-container">
+        <div class="pic-container">
+         <img class="pic-profile" src="resources/images/gamer.png" alt="user" />
+        </div>
+          <h3 class="title-profile">${
+            e.element.data.username === null
+              ? "Anonimo"
+              : e.element.data.username
+          }</h3>
+    </div>`;
 
     if (e.element.data.userId === auth.currentUser.uid) {
       feedHtml += `<div class="textarea-container">
