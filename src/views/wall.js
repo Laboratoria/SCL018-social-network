@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 import { postData, logOut } from "../firebase.js";
 import { displayFeed } from "./post-display.js";
 
@@ -10,7 +11,7 @@ export const wall = () => {
         <h3 class="wall-title">Gamer girl</h3>
       </div>
       <div class="user-icon">
-        <img src="resources/images/Vector-user.svg" alt="user" />
+          <img src="resources/images/Vector-user.svg" alt="user" />
       </div>
       <div class="logout-icon" id= "logoutBtn">
         <img src="resources/images/Vector-logout.svg" alt="logout" />
@@ -68,10 +69,16 @@ export const wall = () => {
   post.addEventListener("click", () => {
     const postTheme = feedContainer.querySelector("#postTheme").value;
     const postMessage = feedContainer.querySelector("#postMessage").value;
-    document.getElementById("postTheme").value = "";
-    document.getElementById("postMessage").value = "";
-    postData(postTheme, postMessage);
-    console.log(postTheme, postMessage);
+    const theme = document.getElementById("postTheme").value;
+    const message = document.getElementById("postMessage").value;
+    if (theme === "") {
+      alert("El tema está vacío, por favor escribe algo.");
+    } else if (message === "") {
+      alert("El mensaje está vacío, por favor escribe algo.");
+    } else {
+      postData(postTheme, postMessage);
+      console.log(postTheme, postMessage);
+    }
   });
 
   const btnLogout = feedContainer.querySelector("#logoutBtn");

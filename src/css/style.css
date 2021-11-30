@@ -326,12 +326,13 @@ header {
 
 .post-container-user {
   overflow-y: scroll;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
   grid-column: 2/6;
   grid-row: 3/7;
   height: 95vh;
   margin-top: 15%;
   border-radius: 5px;
+  border: hotpink;
 }
 
 .post,
