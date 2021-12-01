@@ -9,6 +9,7 @@ export const templateSignUp = () => {
     <main class= "grid-template" >
     <div id="signupemail">
     <input type="email" 
+    name=""
     placeholder="Ingresa tu Correo"
     id="emailUp" />
     <img src="https://img.icons8.com/ios/50/000000/love-letter.png" class="icon"/>

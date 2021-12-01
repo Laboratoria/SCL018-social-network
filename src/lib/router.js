@@ -2,7 +2,7 @@
 import { feedSpace } from '../templates/feed.js';
 import { templateLogin } from '../templates/login.js';
 import { templateSignUp } from '../templates/signup.js';
-import { newPost } from '../templates/post.js';
+import { newPost } from '../templates/newPost.js';
 
 // Efectivamente mostrar los hash
 export const changeRouter = (hash) => {

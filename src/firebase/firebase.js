@@ -45,10 +45,13 @@ const provider = new GoogleAuthProvider();
 export const createUser = (emailSignup, passwordSignup) => {
   createUserWithEmailAndPassword(auth, emailSignup, passwordSignup)
     .then((userCredential) => {
+      window.location.hash = '#/login',
       // Signed in
       const user = userCredential.user;
+      updateProfile(auth.currentUser, {
+        displayName: name,
+      });
       // ...
-      window.location.hash = '#/login';
     })
     .catch((error) => {
       const errorCode = error.code;
@@ -116,15 +119,15 @@ export const signOutUser = () => {
 export const observer = () => {
   onAuthStateChanged(auth, (user) => {
     if (user) {
-    // User is signed in, see docs for a list of available properties
-    // https://firebase.google.com/docs/reference/js/firebase.User
+      // User is signed in, see docs for a list of available properties
+      // https://firebase.google.com/docs/reference/js/firebase.User
       const uid = user.uid;
-    // ...
+      // ...
     } else {
       alert('porfavor registrate');
       window.location.hash = '#/register';
-    // User is signed out
-    // ...
+      // User is signed out
+      // ...
     }
   });
 };
@@ -136,6 +139,7 @@ const db = getFirestore(app);
 export const posting = async (gameTitle, description) => {
   try {
     const docRef = await addDoc(collection(db, 'posts'), {
+      username: auth.currentUser.displayName,
       boardgame: gameTitle,
       description,
       datepost: Date(Date.now()),

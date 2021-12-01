@@ -60,6 +60,5 @@ export const feedSpace = () => {
     signOutUser();
   });
 
-
   return containerFeedSpace;
 };
