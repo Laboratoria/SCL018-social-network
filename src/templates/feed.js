@@ -1,4 +1,5 @@
-import { signOutUser, observer, printPost } from '../firebase/firebase.js';
+import { signOutUser, observer } from '../firebase/firebase.js';
+import { feed } from './post.js';
 
 export const feedSpace = () => {
   const showPost = document.createElement('section');
@@ -18,19 +19,15 @@ export const feedSpace = () => {
      <footer class='footer'>
      "Mewple, todos los derechos reservados ©"
      </footer>
-     </div>  */
+     </div>  
       `;
 
-  // aqui se valida que el usuario existe, sino no pasa al print
   observer();
+  feed();
 
   containerFeedSpace.querySelector('#logout').addEventListener('click', () => {
     signOutUser();
   });
 
   return containerFeedSpace;
-};
-
-export const feed = () => {
-  printPost(feedSpace, 'publicaciones');
 };

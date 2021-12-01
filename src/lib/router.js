@@ -21,7 +21,7 @@ export const changeRouter = (hash) => {
       break;
     case '#/feed':
       containerRoot.appendChild(feedSpace());
-      containerRoot.appendChild(feedPost());
+      // containerRoot.appendChild(feedPost());
       break;
     case '#/newPost':
       containerRoot.appendChild(newPost());
