@@ -116,15 +116,19 @@ export const signOutUser = () => {
 export const observer = () => {
   onAuthStateChanged(auth, (user) => {
     if (user) {
-    // User is signed in, see docs for a list of available properties
-    // https://firebase.google.com/docs/reference/js/firebase.User
+      // User is signed in, see docs for a list of available properties
+      // https://firebase.google.com/docs/reference/js/firebase.User
       const uid = user.uid;
-    // ...
-    } else {
-      alert('porfavor registrate');
-      window.location.hash = '#/register';
-    // User is signed out
-    // ...
+      if (window.location.hash !== '#/newPost') {
+        window.location.hash = '#/feed';
+      }
+      // ...
+    } else if (!user) {
+      if (window.location.hash !== '#/register') {
+        window.location.hash = '#/login';
+      }
+      // User is signed out
+      // ...
     }
   });
 };

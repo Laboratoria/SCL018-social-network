@@ -1,9 +1,9 @@
-import { signOutUser, observer } from '../firebase/firebase.js';
-import { feed } from './post.js';
+import { signOutUser, observer, printPost } from '../firebase/firebase.js';
+import { feedPost } from './post.js';
 
 export const feedSpace = () => {
-  const showPost = document.createElement('section');
-  showPost.id = 'post';
+  // const showPost = document.createElement('section');
+  // showPost.id = 'post';
   const containerFeedSpace = document.createElement('section');
   containerFeedSpace.className = 'feed-container';
   containerFeedSpace.innerHTML = `
@@ -14,6 +14,7 @@ export const feedSpace = () => {
        <a href="#/logout" id="logout">CERRAR SESIÓN</a> <img class='icon' src="./imagenes/perfil.svg" />
     </nav>
      <main class= 'main'>
+     <section id='post'></section>
      <input type = "search" class='search' placeholder="busca la categoria"/>
      </main>
      <footer class='footer'>
@@ -23,7 +24,7 @@ export const feedSpace = () => {
       `;
 
   observer();
-  feed();
+  printPost(feedPost, 'posts');
 
   containerFeedSpace.querySelector('#logout').addEventListener('click', () => {
     signOutUser();

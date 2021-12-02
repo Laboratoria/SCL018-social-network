@@ -1,8 +1,4 @@
-import { observer, printPost } from '../firebase/firebase.js';
-
 export const feedPost = (postedPost) => {
-  // const callback = (array) => {
-  // array.forEach((element) => {
   const postContainer = document.querySelector('#post');
   postContainer.innerHTML = '';
   const templatePosted = (dataPost) => {
@@ -18,14 +14,6 @@ export const feedPost = (postedPost) => {
       </article>`;
 
     postContainer.innerHTML += templatePost;
-    // });
-    // };
-    observer();
-    // dejar root vacio con el innerthtml Y luego concatenar += el nuevo container para el cambio.
   };
   postedPost.forEach(templatePosted);
-};
-
-export const feed = () => {
-  printPost(feedPost, 'posts');
 };
