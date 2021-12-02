@@ -1,4 +1,4 @@
-import { signOutUser, observer, printPost } from '../firebase/firebase.js';
+import { signOutUser, printPost } from '../firebase/firebase.js';
 import { feedPost } from './post.js';
 
 export const feedSpace = () => {
@@ -7,7 +7,7 @@ export const feedSpace = () => {
   const containerFeedSpace = document.createElement('section');
   containerFeedSpace.className = 'feed-container';
   containerFeedSpace.innerHTML = `
-     <div id='feedContainer' class='feedContainer'>
+     <div id='feedContainer' class='feedContainer'
      <nav class='navbar' id='navbar'>
        <a href="#/feed">INICIO</a> <img class='icon' src="https://img.icons8.com/office/50/000000/home--v2.png"/>
        <a href="#/newPost">NUEVA PUBLICACIÓN</a> <img class='icon' src="https://img.icons8.com/office/50/000000/home--v2.png"/>
@@ -23,7 +23,6 @@ export const feedSpace = () => {
      </div>  
       `;
 
-  observer();
   printPost(feedPost, 'posts');
 
   containerFeedSpace.querySelector('#logout').addEventListener('click', () => {
