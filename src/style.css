@@ -443,4 +443,8 @@ input, button {
     .post-button{
         width: 30%;
     }
+}.comment-textarea{
+    height: 100px;
+    width: 200px;
+    background-color: blue;
 }
