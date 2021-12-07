@@ -223,11 +223,12 @@ input, button {
 }
 .reference-link{
     background-color: rgba(41, 43, 54, 0.8);
-    color: white;
+    color: lightskyblue;
     height: auto;
     outline:none;
     padding: 2%;
     resize: none;
+    text-decoration: underline;
     width: 100%;
 }
 .edit-delete-btn{

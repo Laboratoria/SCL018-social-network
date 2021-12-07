@@ -41,4 +41,3 @@ Nos gustaría añadir la opción de publicar comentarios en los post y también 
 ##  Support 🤝
 Bienvenidas sean las contribuciones, sugerencias y comentarios que tengas para este proyecto.
 
-Deja una ⭐️si te gustó 💜
