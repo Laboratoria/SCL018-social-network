@@ -1,5 +1,11 @@
-// Este es el punto de entrada de tu aplicacion
+import { authState } from './firebaseFile.js';
+import { routes } from './lib/index.js';
 
-import { myFunction } from './lib/index.js';
-
-myFunction();
+window.addEventListener('load', () => {
+  authState();
+  routes(window.location.hash);
+});
+window.addEventListener('hashchange', () => {
+  authState();
+  routes(window.location.hash);
+});
